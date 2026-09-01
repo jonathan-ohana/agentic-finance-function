@@ -6,6 +6,20 @@ Built and pressure-tested in a simulated B2B SaaS company environment, working f
 
 ---
 
+## What it produces
+
+The January management pack, built by the agents and verified by an independent checker. Every derived number on this page is a formula referencing the tab that owns it — 455 of them, and no typed ratios.
+
+![Profit and loss by financial statement line, January 2026](docs/pack-pl.png)
+
+The tab that makes it a finance function rather than a report. Ten adjustments posted, six items carried out of the close knowingly — each with an owner, a due date, and what happens if it is not resolved — and three items cleared, recorded so the next reader can see the change.
+
+![What the close found, and what it left open](docs/pack-exceptions.png)
+
+Download the workbooks: [the January pack](outputs/FY2026-01-management-pack.xlsx) (9 tabs) and [the Q1 LBE](outputs/LBE_Q1_2026_M1.xlsx) (3 tabs).
+
+---
+
 ## Why this exists
 
 AI-native finance tools are good at **ledger attribution** — what moved, in which account, in which entity. They cannot tell you **why** in business terms, because the *why* isn't in the ledger. The value of a finance professional is still to see the story through the noise.
@@ -118,14 +132,18 @@ Autonomy is earned **per workflow**, never per agent, on instances reviewed with
 | `runs/` | Run logs, scorecard, ingestion sweeps, the Arcline second instance |
 | `outputs/` | Reporting pack, CEO briefing, forecast model, long-range plan — including the generated workbooks themselves ([management pack](outputs/FY2026-01-management-pack.xlsx), [Q1 LBE](outputs/LBE_Q1_2026_M1.xlsx)) and their independent verifier |
 | `what-broke/` | Plan-hash incident, failure case, friction log |
-| `data/` | Simulated company spec, dataset build notes, planted edge cases |
+| `data/` | Simulated company spec, dataset build notes, planted edge cases, the 25-check tie-out suite ([`validate.py`](data/validate.py)) |
 | `install/` | Runbook, portability, org assessment, model routing |
 
 ---
 
-## What's deliberately not here
+## What's in this repo, and what isn't
 
-Vendor comparisons, market research, and the scaffolding that surrounded this work. This repository is the artifact, not the diary.
+The **engine itself** — the ~30 Python modules that generate the instance, run the close, precompute the variance surface and build the reporting pack — runs on the live instance and is deliberately not published. This repository carries what the engine cannot fake: its outputs ([the January pack](outputs/FY2026-01-management-pack.xlsx), [the Q1 LBE](outputs/LBE_Q1_2026_M1.xlsx)), two of its independent checkers, and every design decision, ruling and failure recorded along the way.
+
+The checkers are here so the scores are inspectable rather than asserted: [`outputs/packverify.py`](outputs/packverify.py) recomputes every figure in the pack from the instance's data and asserts 42 cross-tab checks against the workbook's recalculated values; [`data/validate.py`](data/validate.py) is the 25-check tie-out suite the instance must pass before any agent touches it. Both read the live instance's data files, so they don't run from this repo alone — they are evidence, not a demo.
+
+Also deliberately absent: the sealed answer key (publishing it would spoil future blind runs), vendor comparisons, market research, and the scaffolding that surrounded this work. This repository is the artifact, not the diary.
 
 ---
 

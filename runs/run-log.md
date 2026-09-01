@@ -11,6 +11,91 @@ is how a test stops measuring anything.
 
 ---
 
+## RUN 12 · The write-ups had drifted from the workbooks · 1 Sep
+
+**RAN** No agent. Preparing the public repository: rendered the January pack to screenshots, which
+meant opening the workbook and reading what it computes. Then swept every write-up that quotes those
+workbooks, and re-ran both suites on the delivered instance.
+
+**FOUND** **The documents describing the workbooks had been wrong for four days.** The pack and the
+LBE were rebuilt on 28 Aug with the run 08-09 instrument fixes. Nothing re-read the write-ups against
+them.
+
+The pack write-up — **every figure in both tables except the revenue lines.** Runway is the one that
+would have been quoted out loud: **31.3 months stated against 35.3 actual**, a four-month error in the
+favourable direction. Operating result, adjusted EBITDA, gross margin, closing cash, and the whole Q1
+LBE column set, all stale. Two prose findings were wrong rather than imprecise: DSO (55.1 → 86.7
+stated; **55.9 → 85.6** computed), and interest income.
+
+Then, chasing the interest income line, **two new instrument defects on the plan side:**
+
+❗ **The FY2026 plan for interest income is an arithmetic ramp.** 70,000 in January, stepping exactly
+400 a month to 74,400 in December — on a cash balance that is falling. The plan has interest income
+rising 6% across a year in which the actuals fell 22%. The actuals are fine; they decay with cash, as
+they should.
+
+❗ **The FY2025 plan for three accounts is the FY2025 actual, to the cent.** 9000 interest income,
+9020 FX, 9030 tax — all twelve months each. Those lines cannot show a variance in FY25, by
+construction. Contained, and worth stating precisely because the obvious fear is worse than the fact:
+**of 636 FY25 account-months, exactly 36 have plan equal to actual, and all 36 are those three
+accounts.** Every operating account is genuinely planned.
+
+Both are the same defect run 01 named once already — *a variance against a budget that was not set is
+not a variance.* Fixing the five accounts with no plan line gave them plan lines. It did not give them
+plans.
+
+**VERDICT** **The instrument passes; the documentation layer failed.** 51 of 51 build checks and 42
+of 42 pack checks pass. **INSTRUMENT**, in a location this log has not scored before: **the write-ups.**
+
+This is the fifth instance of the shape every other instrument defect has had — *a number right in one
+place and wrong in another, with nothing putting the two side by side* — and this time the two
+artifacts were **the workbook and the document describing the workbook.**
+
+It is also Run 05's open item, wider than Run 05 scored it. That was filed as *"documents contradict
+the ledger on three January figures"* and read as a defect in the instance's generated documents.
+**The write-ups are documents too, and they drift the moment an artifact is rebuilt and the prose is
+not.**
+
+Two things made it invisible. **The workbooks carry no cached values** — every cell is a formula,
+computed on open, which is the property that makes the pack honest and also means the 28 Aug figures
+existed nowhere on disk. Until someone opened the file, the stale numbers in the write-up were the
+only readable version of those numbers. And **nothing in the apparatus reads prose**: `packverify.py`
+asserts the workbook against the instance CSVs, `validate.py` asserts the instance against itself,
+both were passing the whole time. **The one artifact a human reads first is the one artifact nothing
+verifies.**
+
+Not found by a check. Found by rendering a spreadsheet to a picture.
+
+**FIXED**
+✅ **The pack write-up corrected** — tables left standing as the 26 Aug record, a warning at the head,
+and a correction section carrying both delta tables and the verdict. A build record that silently
+updates itself is not a record. The figures quoted in this repository are read out of the rebuilt
+workbooks, not carried across from the write-up.
+✅ **The run-03 write-up corrected** — the interest income item superseded, the prepaid item marked
+closed. It had been closed for days: `validate.py` carries *"every prepaid release ties to its
+contracted ACV"* and it passes. The doc was the last place still calling it open.
+✅ **Provenance line added** — which artifact, which build, read on what date. A figure with no stated
+provenance cannot be re-verified, only re-typed.
+✅ **The unverifiable figure is gone.** *"January receipts were 1,058,715"* tied to nothing in either
+workbook and was dropped rather than restated. An unverifiable number inside the paragraph arguing for
+verification is the worst place to leave one.
+
+**And one of my own, worth recording because it is the same failure inside the fix.** The first
+correction I wrote said the plan carries *"a flat 70,000 a month."* It does not — it steps 400 a
+month, which is what turned a dull correction into the FY26 finding above. **I corrected a stale
+number with a number I had not opened the file to check.** Caught only because I went to the plan CSV
+before writing this entry. Same lesson as Run 10, one level in: the fix needs the same evidence
+standard as the finding.
+
+**OPEN**
+❗ **Nothing checks a document against the artifact it describes.** Mechanical for tables — extract the
+numbers from the markdown, recompute from the workbook, assert — and probably not worth attempting for
+prose. Which argues for putting quoted figures in tables, so they are checkable by construction.
+❗ **The two new interest income defects are unfixed.** The FY26 ramp and the FY25 backfill.
+⚠️ **This log's own RUN 04 entry says "DSO 55 → 87 days."** The workbook computes 55.9 → 85.6. Left
+uncorrected in place, noted here, on the standing rule.
+❌ Documents still contradict the ledger on three January figures (Run 05).
+
 ## RUN 11 · Day clock, cycle 2 · 1 Sep
 
 **RAN** Advanced the clock to 2026-02-03 (32 GL lines, 7 bank, 9 bills), then a single analyst agent
@@ -186,6 +271,7 @@ analyst said so.*
 **FIXED** ✅ Two checkers that only worked on one dataset. ✅ All nine misses addressed in Runs 08–09.
 ❌ Three figures are stated one way in the ledger and another way in the documents.
 **OPEN** The document-vs-ledger contradiction, and a check that a figure appearing in both must agree.
+*Run 12 found this is wider than scored here: the write-ups drift from the workbooks too.*
 
 ## RUN 04 · Reporting pack and Q1 LBE · 26 Aug · [doc 90](#)
 
@@ -196,6 +282,7 @@ in another, with nothing putting the two side by side.
 **FIXED** ✅ All four. Payroll with no cost center. Two opex cuts disagreeing by 366k while both footed.
 Cash flow reporting revenue *plus* cost. EBITDA adding back credit loss instead of depreciation.
 **OPEN** DSO 55 → 87 days is my collection model, not a finding. Recorded, not fixed.
+*The workbook computes 55.9 → 85.6. Left uncorrected here; see Run 12.*
 
 ## RUN 03 · Variance analysis, 4-way fan-out · 25 Aug · [doc 89](#)
 
@@ -205,6 +292,7 @@ Cash flow reporting revenue *plus* cost. EBITDA adding back credit loss instead 
 **FIXED** ✅ Commission budget, unplanned bonus and PTO, five accounts with no plan line. ✅ Three of the
 four duplicate accruals removed; one kept as a deliberate control test.
 **OPEN** Nothing. Speed: 20 min → 11 min, tokens per agent 205k → 100–128k.
+*Run 12: the five accounts got plan lines, and two of them did not get plans.*
 
 ## RUN 01 · First variance analysis · 24 Aug · [doc 87](#)
 
@@ -220,17 +308,18 @@ four duplicate accruals removed; one kept as a deliberate control test.
 
 | | |
 |---|---|
-| Runs scored | 7 (plus two maintenance runs) |
-| Defects found in my instrument | 27 |
-| Defects fixed | 24 |
-| Defects open | 3 — ledger/document contradiction (Run 05); no precompute for the open period, stale score after regen (both Run 11) |
+| Runs scored | 7 (plus three maintenance runs) |
+| Defects found in my instrument | 30 |
+| Defects fixed | 25 |
+| Defects open | 5 — ledger/document contradiction (Run 05); no precompute for the open period, stale score after regen (both Run 11); FY26 interest income plan ramp, FY25 plan backfilled from actual on three accounts (both Run 12) |
 | Verdicts later overturned | 1 — Run 06, called PLATFORM, was INSTRUMENT |
 | Day clock record | 2 days, 2 planted, 1 clean hit, 1 partial, 0 missed, 0 false positives |
 | Best blind score | **17 of 25 clean**, on a composition neither of us designed |
 | Analysis misses outstanding | 0 — PL-19 closed in Run 09 |
 | Review ledger | 0 open, 3 closed |
+| Suites, last run 1 Sep | 51 of 51 build · 42 of 42 pack |
 
-**Three patterns worth carrying into a conversation.**
+**Four patterns worth carrying into a conversation.**
 
 Twenty instrument defects, and not one was found by an agent being clever. Every one surfaced when two
 artifacts describing the same money were put side by side and required to agree.
@@ -251,3 +340,10 @@ lowest.** Three scheduled runs finished quickly, marked SUCCEEDED, and wrote not
 and worked around it for four days. The evidence that settled it took one tool call — fire the thing by
 hand and read the error. **A silent failure is not evidence of an impossible one.** When a run reports
 success and produces nothing, the next move is to make it talk, not to classify it.
+
+Run 12 adds the fourth, and it is the uncomfortable one. **Every check in this system points at the
+data. None points at the prose.** The workbooks were right the whole time and passed 93 assertions
+between them; the documents describing those workbooks had been wrong for four days, and the only
+reason anyone found out is that a picture of a spreadsheet had to be made for a public page. The
+write-up is what a CEO, a hiring manager, or an investor actually reads. **It is the least verified
+artifact in the system and the most read.**

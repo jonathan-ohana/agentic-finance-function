@@ -2,6 +2,9 @@
 
 **Instance** Arcline AI, Inc. · **Period** 2026-01 closed and signed · **Built** 26 Aug 2026
 **Predecessors** doc 84 (pack doctrine), doc 82 (planning cadence and the LBE layout), doc 89 (run 03)
+**Figures** as computed by the shipped workbooks (rebuilt 28 Aug 2026, after the run 08–09 instrument
+fixes); re-read from them on 1 Sep 2026. The workbooks carry no cached values — every figure is a
+formula, computed on open — so these are what a reader sees, not what was typed here.
 
 Two deliverables, both single workbooks, both verified independently.
 
@@ -22,13 +25,13 @@ classified lines move the forecast; 16 are absorbed by the quarter and move noth
 | Q1 2026, USD | Fcst (plan of record) | Variance | LBE | Var % |
 |---|---:|---:|---:|---:|
 | Revenue | 5,782,547 | (148,126) | 5,634,420 | (2.6%) |
-| Cost of revenue | (1,419,123) | 30,437 | (1,388,687) | 2.1% |
-| **Gross profit** | **4,363,423** | **(117,689)** | **4,245,734** | **(2.7%)** |
-| Gross margin % | 75.5% | | 75.4% | −0.1 pts |
-| Operating expense | (7,419,241) | 956 | (7,418,285) | 0.0% |
-| **Operating result** | **(3,055,818)** | **(116,733)** | **(3,172,551)** | **(3.8%)** |
-| EBITDA | (2,900,028) | (126,951) | (3,026,979) | |
-| **Adjusted EBITDA** | **(2,256,705)** | **(126,951)** | **(2,383,657)** | |
+| Cost of revenue | (1,410,115) | 30,437 | (1,379,678) | 2.2% |
+| **Gross profit** | **4,372,431** | **(117,689)** | **4,254,742** | **(2.7%)** |
+| Gross margin % | 75.6% | | 75.5% | −0.1 pts |
+| Operating expense | (7,388,272) | 956 | (7,387,316) | 0.0% |
+| **Operating result** | **(3,015,840)** | **(116,733)** | **(3,132,574)** | **(3.9%)** |
+| EBITDA | (2,879,640) | (121,851) | (3,001,492) | |
+| **Adjusted EBITDA** | **(2,180,938)** | **(121,851)** | **(2,302,789)** | |
 
 **Sticks (26,522) · materializes (53,486) · total effect on the Q1 operating result (116,733).**
 
@@ -60,11 +63,11 @@ sheet · Cash · SaaS metrics · LBE Q1 M1 · Exceptions.**
 | January 2026 | Actual | Plan | Prior month |
 |---|---:|---:|---:|
 | Revenue | 1,770,353 | 1,844,649 | 1,833,031 |
-| Gross margin | 74.0% | 74.7% | 75.0% |
-| Operating result | (1,116,978) | (1,034,618) | (754,134) |
-| Adjusted EBITDA | (856,764) | (761,918) | (533,826) |
-| Closing cash | 23,354,827 | | 24,599,451 |
-| Runway | 31.3 months | | 60.8 months |
+| Gross margin | 74.2% | 74.8% | 75.1% |
+| Operating result | (1,115,302) | (1,021,332) | (756,585) |
+| Adjusted EBITDA | (855,088) | (748,632) | (536,277) |
+| Closing cash | 23,785,740 | | 24,861,062 |
+| Runway | 35.3 months | | 56.1 months |
 
 Three rules, all enforced by the verifier rather than asserted in a footnote:
 
@@ -126,8 +129,8 @@ provision.
 
 ### What the pack surfaced about the business
 
-**DSO went from 55.1 days to 86.7.** Receivables rose 1,695,027 in a month on revenue of 1,770,353 —
-January receipts were 1,058,715 against a 1.8–1.9M run rate. This is a **generator artifact**, not an
+**DSO went from 55.9 days to 85.6.** Trade receivables rose 1,582,613 in a month on revenue of
+1,770,353, against a 1.8–1.9M billing run rate. This is a **generator artifact**, not an
 Arcline finding: my collection model only sees a partial window in the first month of the year. I am
 recording it rather than fixing it, because rebuilding January would disturb a signed period.
 
@@ -135,8 +138,11 @@ But the mechanism is worth naming. A P&L-only pack would never have raised it. T
 block did, on its first run, and the reason it could is that the ratios are formulas over a
 classified balance sheet rather than figures typed beside one.
 
-**Interest income prints exactly 70,000 in January, in December, and in the plan.** The known plug
-from doc 89 is now on the face of the pack instead of buried in a variance file.
+**Interest income is a plug, and the plug is on the plan side.** The FY26 plan carries 70,000 for
+January and steps 400 a month thereafter — an arithmetic ramp, on a cash balance that is falling.
+The actuals do the opposite and decay with cash: 87,079 in December, 84,181 in January. Putting the
+assumption and the outturn on the same line is what makes a plug visible instead of buried in a
+variance file.
 
 ---
 

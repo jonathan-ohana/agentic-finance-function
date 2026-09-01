@@ -3,6 +3,11 @@
 **Instance** Arcline AI, Inc. · **Period** 2026-01, closed and signed, ten adjustments posted
 **Run** 03 (post-engine, four-way fan-out) · **Predecessor** doc 87 (run 01), doc 88 (v2 fixes)
 
+> ⚠️ **One finding in this document is out of date.** "Interest income prints exactly USD 70,000
+> three months running" was true of the 25 Aug build and is not true of the instance as it now
+> stands. See **§ Correction, 1 Sep 2026** at the foot. Everything else here was re-checked and
+> holds.
+
 ---
 
 ## Why this run exists
@@ -124,8 +129,11 @@ instance, it is a demo.
 
 - **The prepaid release schedule does not tie to contracted ACV.** Eight G&A subscriptions release at
   exactly 59.03% of ACV/12; R&D releases at 120.77% and steps 4.0% in January, which straight-line
-  cannot do.
+  cannot do. *[Closed since — `validate.py` now asserts every prepaid release ties to its contracted
+  ACV, and it passes. See the correction below.]*
 - **Interest income prints exactly USD 70,000 three months running.** It reads as a plug because it is one.
+  *[Superseded — see the correction below. The claim is no longer true of the actuals, and the plug
+  turned out to be somewhere else.]*
 - **`variance_signals` false-positives on contra account 6080** — "expense account in credit" fires on an
   account whose credit balance is correct.
 - **The post-close inbox picks vendors that already have a January bill** — the root of the USD 67,500.
@@ -175,3 +183,61 @@ behind it. A pipeline that is proud of its intermediates ships them; a product h
 
 **Next:** the vendor spend review agent (PL-09 to PL-12) is still unfired, the reporting pack agent is
 still unbuilt, and the sealed month protocol remains unarmed.
+
+---
+
+# Correction, 1 Sep 2026
+
+Raised by the doc-90 correction of the same date, which found the write-ups drifting from the workbooks
+after the 28 Aug rebuild. This document was swept for the same problem. **Its architecture, its cost
+table and its contract failures are unaffected. One open item was wrong and one was already closed.**
+
+## The interest income finding was wrong, and the plug is on the other side
+
+Written here as *"interest income prints exactly USD 70,000 three months running. It reads as a plug
+because it is one."* Read out of the ledger today, account 9000 does nothing of the sort:
+
+| | 2025-10 | 2025-11 | 2025-12 | 2026-01 |
+|---|---:|---:|---:|---:|
+| Actual | 90,315 | 87,046 | 87,079 | 84,181 |
+
+**The actuals decay with the cash balance, which is what interest income is supposed to do.** Whatever
+made three months print identically was fixed somewhere between run 03 and the 28 Aug rebuild, and
+nobody closed the item.
+
+But the item should not simply be struck, because looking for it found the plug in a place nobody had
+looked. **It is on the plan side, and it takes two different forms:**
+
+- **FY2026.** The plan carries 70,000 in January and steps **exactly 400 a month** all year, to 74,400
+  in December. An arithmetic ramp — on a cash balance that is *falling*. The plan says interest income
+  rises 6% over a year in which the actuals fell 22%.
+- **FY2025.** The plan for account 9000 equals the FY25 **actual, to the cent, in all twelve months.**
+  So does 9020 (FX) and 9030 (tax). Those three lines cannot show a variance in FY2025, by construction.
+
+The FY25 finding is contained and worth stating precisely, because the obvious fear is worse than the
+fact: of **636 FY25 account-months, 36 have plan equal to actual to the cent — and all 36 are those
+three below-the-line accounts.** Every operating account is genuinely planned. This is not a plan
+copied from actuals; it is three lines nobody planned, backfilled from what happened.
+
+Both forms are the same defect underneath: *a variance against a budget that was not set is not a
+variance.* Fixing the five accounts with no plan line gave them plan lines. It did not give them plans.
+
+## The prepaid item is closed, and had been for days
+
+Listed above as open: *"the prepaid release schedule does not tie to contracted ACV."* `validate.py`
+now carries the check **"Every prepaid release ties to its contracted ACV"** and it passes, with zero
+releases off contract. Fixed and guarded; the doc was the last place still calling it open.
+
+## Both suites re-run today
+
+**51 of 51** build checks and **42 of 42** pack checks pass against the delivered instance.
+`packverify.py` printed the corrected figures out of its own recomputation — `ADJUSTED EBITDA
+−2,302,789.10`, `approved changes −116,733.39` — a second, independent source agreeing with the values
+the pack write-up now carries.
+
+## What holds
+
+The precompute architecture, the four-way fan-out, the 20 → 11 minute and 205k → 100–128k figures, the
+six-files episode, both contract failures, the USD 67,500 double count, and the two remaining open items
+(`variance_signals` on 6080, the post-close inbox) are all unchanged. The "39 checks, 164 files" line is
+a **dated** count, correct as of 25 Aug; the current figures are 51 checks and 195 files.
