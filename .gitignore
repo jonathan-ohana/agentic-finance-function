@@ -1,0 +1,14 @@
+# Excel and Office lock files
+~$*
+.~lock.*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
