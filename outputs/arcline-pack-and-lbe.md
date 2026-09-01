@@ -91,8 +91,8 @@ side.** That is precisely what a management pack does, and it is the argument fo
 **1. Payroll posted with no cost center — so opex by owner could not be struck at all.**
 
 `payroll_model` aggregated by account and dropped the employee's cost center at the moment of
-posting, even though every employee has one. Account 6000 carried 505,847 of 557,740 with no center;
-6010, 7010 and 8010 had none whatsoever. The budget had owners and the ledger did not.
+posting, even though every employee has one. Account 6000 carried 505,847 of 557,740 with no center;  <!-- docverify: external -->
+6010, 7010 and 8010 had none whatsoever. The budget had owners and the ledger did not.  <!-- docverify: external -->
 
 This is the single most consequential find. Opex by owner is *the* cut a cost center owner is managed
 on, and it was unbuildable from the actuals. Fixed at the source: payroll is now keyed
@@ -103,7 +103,7 @@ bonus accrual. Guarded: *every operating expense line carries a cost center*.
 **2. The two cuts disagreed by hundreds of thousands while both still footed.**
 
 With the ledger fixed, the by-owner and by-FSLI cuts still differed — R&D by +366k, S&M by −219k —
-and both totalled 2,427,160. The cause: I had assigned one FSLI per cost center. But **the account's
+and both totalled 2,427,160. The cause: I had assigned one FSLI per cost center. But **the account's  <!-- docverify: external -->
 own name declares the FSLI** (6010 is "R&D — payroll taxes", 8050 is "G&A — software and tools") and
 a center is free to spend across several — an Executive salary is G&A while the same center's
 engineering spend is R&D. The grain is `(cost center, FSLI)`, not cost center. At that grain the two
@@ -113,7 +113,7 @@ it. *Two cuts that foot and disagree are the failure that reaches a CEO.*
 **3. The cash flow's net result was the SUM of revenue and cost, negated.**
 
 The trial balance carries revenue as a credit, so revenue accounts are negative there. One sign was
-wrong, and December 2025 reported a net result of (4,364,118) against the P&L's (698,057) — out by
+wrong, and December 2025 reported a net result of (4,364,118) against the P&L's (698,057) — out by  <!-- docverify: external -->
 twice revenue, every month of the year, in a file nobody had put next to the P&L.
 
 Rewritten as a **partition** rather than a list: double entry says the cash movement equals minus the
@@ -177,7 +177,7 @@ Carried from doc 89, plus one new:
 - The prepaid release schedule does not tie to contracted ACV.
 - Interest income is a plug.
 - The `variance_signals` "expense account in credit" check false-positives on contra account 6080.
-- The post-close inbox picks vendors that already have a January bill — the USD 67,500 double-count,
+- The post-close inbox picks vendors that already have a January bill — the USD 67,500 double-count,  <!-- docverify: external -->
   which remains recorded in the signed period rather than rebuilt away.
 
 ---

@@ -11,6 +11,65 @@ is how a test stops measuring anything.
 
 ---
 
+## RUN 13 · The check that reads prose, and two plan lines that now follow their own basis · 1 Sep
+
+**RAN** Built `docverify.py`, tested it both ways, and fixed the two interest income defects in the
+generator — verified on a throwaway build outside the instance, so nothing signed was touched.
+
+**FOUND**
+
+**The check works, and the negative test is the part that matters.** `docverify.py` asserts one weak
+rule that is therefore cheap to keep true: *every figure quoted in a write-up must exist somewhere in
+the workbook it describes.* It reads recalculated values, like `packverify.py`, because a checker that
+trusts what is typed in the file it is checking has checked nothing. On the corrected write-up: **54
+figures checked, all present.** Re-introduce the drift this log found yesterday and it fails on exactly
+the three figures that were wrong — the stale operating result and both stale runway numbers. **A check
+that has never been shown to fail is a check nobody has tested.**
+
+Five lines needed exempting, and they were the right five: figures about the generator's own history —
+the payroll with no cost center, the two cuts that footed at 2,427,160, the December cash walk, the
+67,500 double count. None is a claim about the pack. They now say so in the file.
+
+**Interest income, FY2026.** Derived from the balance it is earned on, at the rate the ledger uses,
+imported rather than repeated — a constant with two homes is a constant that will disagree with itself.
+
+| Planned | Jan | Jun | Dec | Jan variance vs actual |
+|---|---:|---:|---:|---:|
+| Was | 70,000 | 72,000 | 74,400 | 14,181 |
+| Now | 83,338 | 71,752 | 61,714 | 843 |
+
+The old line rose 6% across a year in which the balance earning it falls 22%. Its written basis already
+said *"planned average money market balance at the rate in force at lock"* — **the arithmetic simply did
+not follow the sentence in front of it.** The 14,181 favourable variance it produced in January was not
+a finding about Arcline; it was the plug, showing up as news.
+
+**Interest income and the rest of the below-the-line, FY2025.** `build_fy25_plan` gave revenue, cost and
+opex a plan shape and sent everything else through an `else` branch that returned the actual unchanged.
+Those three accounts now carry a plan struck at the lock — FX at nil by construction, the same
+convention the FY26 plan already states. **FY25 account-months where plan equals actual to the cent: 36
+→ 0.**
+
+**VERDICT** PASS — **INSTRUMENT**, both fixed at the source. The throwaway build passes 48 of 48; the
+shipped instance, untouched, still passes 51 of 51.
+
+**FIXED**
+✅ `docverify.py` — in `_generator/` and published in the repository beside the other two checkers.
+✅ `planbuild.py` — interest income derived from the planned treasury balance and the imported rate.
+✅ `plan.py` — the FY25 `else` branch that carried actuals through is gone.
+✅ The write-up marks its five out-of-scope figures rather than the checker guessing at them.
+
+**OPEN**
+❗ **The generator is now ahead of the shipped instance, deliberately, and nothing checks that.** Both
+fixes exist in code and neither exists in the delivered files, because rebuilding regenerates a signed
+period. That was the right call and it creates **the same defect this log has now found five times: two
+artifacts describing the same thing, with nothing putting them side by side.** The instance should carry
+a build stamp — the generator's own hash at build time — so a delivered folder can say which version of
+the code produced it, and a check can say when the answer is "not this one."
+⚠️ **`docverify` maps one write-up.** Twenty-five others quote figures nothing verifies. The number is
+printed on every run, unscored, because a permanently red check is a check nobody reads — and because
+the point is that it should fall.
+❌ Documents still contradict the ledger on three January figures (Run 05).
+
 ## RUN 12 · The write-ups had drifted from the workbooks · 1 Sep
 
 **RAN** No agent. Preparing the public repository: rendered the January pack to screenshots, which
@@ -88,10 +147,12 @@ before writing this entry. Same lesson as Run 10, one level in: the fix needs th
 standard as the finding.
 
 **OPEN**
-❗ **Nothing checks a document against the artifact it describes.** Mechanical for tables — extract the
+❗ **Nothing checks a document against the artifact it describes.** *Built in Run 13 — `docverify.py`.*
+ Mechanical for tables — extract the
 numbers from the markdown, recompute from the workbook, assert — and probably not worth attempting for
 prose. Which argues for putting quoted figures in tables, so they are checkable by construction.
 ❗ **The two new interest income defects are unfixed.** The FY26 ramp and the FY25 backfill.
+*Both fixed in the generator in Run 13; still present in the delivered instance until it is rebuilt.*
 ⚠️ **This log's own RUN 04 entry says "DSO 55 → 87 days."** The workbook computes 55.9 → 85.6. Left
 uncorrected in place, noted here, on the standing rule.
 ❌ Documents still contradict the ledger on three January figures (Run 05).
@@ -308,16 +369,16 @@ four duplicate accruals removed; one kept as a deliberate control test.
 
 | | |
 |---|---|
-| Runs scored | 7 (plus three maintenance runs) |
+| Runs scored | 7 (plus four maintenance runs) |
 | Defects found in my instrument | 30 |
-| Defects fixed | 25 |
-| Defects open | 5 — ledger/document contradiction (Run 05); no precompute for the open period, stale score after regen (both Run 11); FY26 interest income plan ramp, FY25 plan backfilled from actual on three accounts (both Run 12) |
+| Defects fixed | 28 |
+| Defects open | 4 — ledger/document contradiction (Run 05); no precompute for the open period, stale score after regen (both Run 11); generator ahead of the shipped instance with no build stamp (Run 13). The two Run 12 plan defects are fixed in the generator and still present in the delivered files |
 | Verdicts later overturned | 1 — Run 06, called PLATFORM, was INSTRUMENT |
 | Day clock record | 2 days, 2 planted, 1 clean hit, 1 partial, 0 missed, 0 false positives |
 | Best blind score | **17 of 25 clean**, on a composition neither of us designed |
 | Analysis misses outstanding | 0 — PL-19 closed in Run 09 |
 | Review ledger | 0 open, 3 closed |
-| Suites, last run 1 Sep | 51 of 51 build · 42 of 42 pack |
+| Suites, last run 1 Sep | 51 of 51 build · 42 of 42 pack · 1 of 1 doc |
 
 **Four patterns worth carrying into a conversation.**
 
