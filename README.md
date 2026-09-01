@@ -137,6 +137,16 @@ Autonomy is earned **per workflow**, never per agent, on instances reviewed with
 
 ---
 
+## License
+
+Documentation and example outputs: **CC BY 4.0** — use them, adapt them, build on them, including
+commercially; credit the source. Scripts: **MIT**. See [`LICENSE`](LICENSE).
+
+Arcline AI and CourtIQ are synthetic companies. Every figure, customer, vendor and employee here
+is generated.
+
+---
+
 ## What's in this repo, and what isn't
 
 The **engine itself** — the ~30 Python modules that generate the instance, run the close, precompute the variance surface and build the reporting pack — runs on the live instance and is deliberately not published. This repository carries what the engine cannot fake: its outputs ([the January pack](outputs/FY2026-01-management-pack.xlsx), [the Q1 LBE](outputs/LBE_Q1_2026_M1.xlsx)), two of its independent checkers, and every design decision, ruling and failure recorded along the way.
