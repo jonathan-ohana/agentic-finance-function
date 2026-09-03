@@ -8,6 +8,8 @@ The first idea was “agents can run finance workflows.” The work changed that
 
 The result is not a chatbot demo. It is a working operating model with agent charters, a semantic layer, versioned rulings, review contracts, exception ownership, a correction ledger, red-team findings, deployment gates, and decision-ready finance outputs.
 
+The production work throughout — code, workbooks, and documents — was done by AI agents working under my direction and review; that is not a caveat to this project, it is the demonstration.
+
 | Scope | Published result |
 |---|---|
 | Finance operations | Close workflow, adjustments, exception register, reconciliation controls |
