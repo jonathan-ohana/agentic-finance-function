@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "artifacts": [
+    {
+      "path": "outputs/FY2026-01-management-pack.xlsx",
+      "sha256": "db11bccbb7001afa3eec64583cf22ac0dfa65476e31d60f8174eac32a1f7bf67",
+      "type": "xlsx",
+      "sheets": [
+        "P&L by FSLI",
+        "Revenue and ARR",
+        "Gross margin",
+        "Opex by owner",
+        "Balance sheet",
+        "Cash",
+        "SaaS metrics",
+        "LBE Q1 M1",
+        "Exceptions"
+      ],
+      "formula_cells": 455,
+      "full_calculation_on_load": true,
+      "allow_external_links": false,
+      "allow_macros": false
+    },
+    {
+      "path": "outputs/LBE_Q1_2026_M1.xlsx",
+      "sha256": "e5bc1f52a95c92e229fc313521526b935d236ec7d67729857a32502e1ce0d6e2",
+      "type": "xlsx",
+      "sheets": [
+        "LBE_Q1_2026_M1",
+        "Basis",
+        "By month"
+      ],
+      "formula_cells": 275,
+      "full_calculation_on_load": true,
+      "allow_external_links": false,
+      "allow_macros": false
+    },
+    {
+      "path": "docs/pack-pl.png",
+      "sha256": "fb0e57255dcea9ea5d68ac6e13f888c94eb6403ae839c65674ed966b757c2216",
+      "type": "file"
+    },
+    {
+      "path": "docs/pack-exceptions.png",
+      "sha256": "cf418d994edae4086d08c3e9e75aca9931241c1342d215048043350555b62ea1",
+      "type": "file"
+    }
+  ]
+}
