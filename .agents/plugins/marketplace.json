@@ -1,0 +1,20 @@
+{
+  "name": "agentic-finance",
+  "interface": {
+    "displayName": "Agentic Finance"
+  },
+  "plugins": [
+    {
+      "name": "agentic-finance-function",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agentic-finance-function"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

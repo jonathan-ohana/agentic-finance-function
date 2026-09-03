@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "agentic-finance-function",
+  "displayName": "Agentic Finance Function",
+  "version": "0.1.0",
+  "description": "Review finance work with explicit evidence, controls, exceptions, and human approval boundaries.",
+  "author": {
+    "name": "Jonathan Ohana"
+  }
+}
