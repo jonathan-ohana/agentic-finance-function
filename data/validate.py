@@ -409,6 +409,13 @@ chk("Every precomputed input is named in the analyst runbook",
     else f"NO INPUTS FOUND in {work} - check not exercised, so it fails")
 
 n_files = sum(len(fs) for _, _, fs in os.walk(OUT))
+# The code beside the data must be the code that produced it - or the difference must be
+# named. A mismatch is not automatically wrong: the generator may have moved on deliberately
+# while a signed period is left standing. What is not acceptable is that it happens silently.
+import buildstamp as _bs
+_state, _detail = _bs.compare(OUT)
+chk("The instance names the generator that built it", _state == "match", f"{_state}: {_detail}")
+
 chk("Folder has substance", n_files > 60, f"{n_files} files")
 
 for line in PASS + FAIL:

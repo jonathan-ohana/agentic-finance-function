@@ -133,7 +133,31 @@ def check_markdown_links() -> tuple[list[str], list[str]]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="emit machine-readable output")
+    parser.add_argument(
+        "--update",
+        action="store_true",
+        help=(
+            "refresh artifact-manifest.json from the files on disk (checksums, sheets, "
+            "formula counts). Run this after deliberately replacing an artifact, then "
+            "commit the manifest with it - the point is that an artifact cannot change "
+            "without the change being visible in the diff."
+        ),
+    )
     args = parser.parse_args()
+
+    if args.update:
+        manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        for artifact in manifest["artifacts"]:
+            path = ROOT / artifact["path"]
+            artifact["sha256"] = sha256(path)
+            if artifact["type"] == "xlsx":
+                observed = inspect_workbook(path)
+                artifact["sheets"] = observed["sheets"]
+                artifact["formula_cells"] = observed["formula_cells"]
+                artifact["full_calculation_on_load"] = observed["full_calculation_on_load"]
+        MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+        print(f"manifest refreshed for {len(manifest['artifacts'])} artifacts")
+        return 0
 
     try:
         manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
