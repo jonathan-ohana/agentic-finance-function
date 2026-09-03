@@ -1,162 +1,130 @@
 # An agentic finance function, built and run end to end
 
-A working prototype of a finance function — bookkeeping, month-end close, variance analysis, management reporting, reforecast — run by AI agents under a governance layer that makes every number traceable and every judgment call recorded.
+A working prototype of bookkeeping, month-end close, variance analysis, management reporting, and reforecast run by AI agents under a governance layer. Built as if it had to survive a skeptical founder, a CFO review, and a handoff to another operator.
 
-Built and pressure-tested in a simulated B2B SaaS company environment, working from standard system exports rather than custom integrations.
+The prototype was built and pressure-tested on a simulated B2B SaaS company using standard system exports rather than custom integrations.
 
----
+> **The thesis:** the durable product is not another agent that can calculate. It is the judgment layer that prevents a finance function from silently changing definitions, inventing causes, or repeating corrected mistakes.
 
-## What it produces
+## The 30-second proof
 
-The January management pack, built by the agents and verified by an independent checker. Every derived number on this page is a formula referencing the tab that owns it — 455 of them, and no typed ratios.
+| What shipped | What makes it credible |
+|---|---|
+| End-to-end close, variance, reporting, and reforecast workflows | Every material output is tied to definitions, evidence, checks, and human approval |
+| A nine-tab management pack with 455 formula cells | Derived values reference the tab that owns them rather than being retyped |
+| A Q1 LBE with 275 formula cells | Assumptions and basis are separated from the monthly output |
+| A correction that changed later agent behavior | The subsequent blind run cites the original review-ledger item and avoids the same error |
+| A second synthetic-company test and a retained failure log | Portability and happy-path assumptions were tested rather than asserted |
+| A deployment and commercialization path | The pilot has explicit entry criteria, pass gates, stop conditions, and production metrics |
+
+## Start here
+
+| If you are a… | Start with | The question it answers |
+|---|---|---|
+| Founder | [The product case](CASE-STUDY.md#for-a-founder-the-product-judgment) | Is there a sharp wedge, a defensible insight, and a credible next experiment? |
+| CFO | [The control case](CASE-STUDY.md#for-a-cfo-the-control-judgment) and [executive brief](EXECUTIVE-BRIEF.md) | Would I trust a pilot, and what must be true before I do? |
+| Recruiter or hiring manager | [The ownership case](CASE-STUDY.md#for-a-recruiter-the-ownership-signal) | What did the builder actually own across finance, product, systems, and execution? |
+| Finance operator | [Management reporting pack](outputs/management-reporting-pack.md) | The output, exceptions, caveats, and decisions required |
+| Controller or auditor | [Definitions](semantic-layer/definitions-instance.md), [rulings](semantic-layer/rulings/), and [red team](red-team/) | Traceability, refusal rules, known failures, and remediation |
+| Product or engineering lead | [Architecture](architecture/blueprint.md), [live-instance spec](install/live-instance-spec.md), and [wiring](playbooks/wiring.md) | Where are the system boundary, tool surface, and deployment seams? |
+
+## The output
+
+The January management pack has nine tabs and 455 formula cells. Derived values reference the tab that owns them rather than being retyped into the presentation layer.
 
 ![Profit and loss by financial statement line, January 2026](docs/pack-pl.png)
 
-The tab that makes it a finance function rather than a report. Ten adjustments posted, six items carried out of the close knowingly — each with an owner, a due date, and what happens if it is not resolved — and three items cleared, recorded so the next reader can see the change.
+The exceptions tab is what turns a report into an operating process: ten adjustments posted, six items knowingly carried with an owner and due date, and three cleared items retained in the record.
 
-![What the close found, and what it left open](docs/pack-exceptions.png)
+![Close exceptions, ownership, and resolution state](docs/pack-exceptions.png)
 
-Download the workbooks: [the January pack](outputs/FY2026-01-management-pack.xlsx) (9 tabs) and [the Q1 LBE](outputs/LBE_Q1_2026_M1.xlsx) (3 tabs).
+Download the [January management pack](outputs/FY2026-01-management-pack.xlsx) and [Q1 latest best estimate](outputs/LBE_Q1_2026_M1.xlsx).
 
----
+## Four claims, four exhibits
 
-## Why this exists
+| Claim | Evidence | Read time |
+|---|---|---:|
+| Agents ran the close, variance analysis, reporting, and reforecast end to end | [Management reporting pack](outputs/management-reporting-pack.md) and [run log](runs/run-log.md) | 3 min |
+| Every number is governed by a versioned definition, including contested items | [Definitions](semantic-layer/definitions-instance.md) and [rulings](semantic-layer/rulings/) | 3 min |
+| Commentary has an explicit contract and accepted exemplars | [Commentary contract](contracts/commentary-contract.md) | 2 min |
+| Human corrections persist into later behavior | [Loop verification](correction-loop/loop-verification.md) | 3 min |
 
-AI-native finance tools are good at **ledger attribution** — what moved, in which account, in which entity. They cannot tell you **why** in business terms, because the *why* isn't in the ledger. The value of a finance professional is still to see the story through the noise.
+### The most important exhibit
 
-So the interesting question was never *"can agents do the close?"* It was:
+A human corrected an agent that had reported derived contract-expiry dates as observed facts. The correction became a versioned rule. In a later blind run, two independent agents applied the rule, cited the original review-ledger item, avoided all four false escalations, and still raised a genuine contradiction.
 
-> **What layer captures a finance professional's judgment and compounds it, so the function gets smarter every month instead of re-deciding the same things?**
+That is a demonstrated mechanism, not yet a demonstrated production track record. The distinction is intentional.
 
-This repository is that layer, with the agents underneath it.
+## How the control system works
 
----
-
-## Honest limits, stated first
-
-- One simulated company (a second instance, Arcline, was built to test portability — see `runs/arcline/`).
-- One operator. Self-graded.
-- No real company's books have been through this.
-- The learning mechanism is **demonstrated** — one human correction became a versioned rule, and a later agent run cited that correction by ledger ID as the reason it behaved differently. That is a **demonstrated mechanism, not a demonstrated track record.** The distinction matters and is kept throughout.
-- The calibration (thresholds, voice, account-specific rules) is company-specific by design and does **not** transfer. The machinery does.
-
----
-
-## What it proves — four claims, four exhibits
-
-| Claim | Open this | Time |
-|---|---|---|
-| Agents ran the close, variance analysis and reporting end to end | [`outputs/management-reporting-pack.md`](outputs/management-reporting-pack.md) + [`runs/run-log.md`](runs/run-log.md) | 3 min |
-| Every number traces to a versioned definition, with human rulings on contested items | [`semantic-layer/definitions-instance.md`](semantic-layer/definitions-instance.md) + [`semantic-layer/rulings/`](semantic-layer/rulings/) | 3 min |
-| Commentary is trained on exemplars, under a contract it must satisfy | [`contracts/commentary-contract.md`](contracts/commentary-contract.md) — the gold exemplar pairs | 2 min |
-| **Corrections persist: each close is smarter than the last** | [`correction-loop/loop-verification.md`](correction-loop/loop-verification.md) | 3 min |
-
-### The one exhibit that matters most
-
-From `correction-loop/loop-verification.md` — a human corrected an agent; the correction became a versioned rule; a later run of that agent applied the rule, **cited the correction by ledger ID as its reason**, and did not repeat the error — while still escalating a real problem it would have been easier to stay quiet about:
-
-> *"Escalating this as a contradiction would repeat review ledger RL-0024, where four contracts were wrongly flagged on computed expiry dates."*
-
-Four contracts that failed under charter v1.0 were re-extracted blind under v1.1 by two independent agents, with a control and a genuine contradiction included as checks. All four read the header correctly. Zero false escalations. The real contradiction was still raised.
-
-That is the loop closing, observed rather than asserted.
-
----
-
-## The ten-minute path
-
-1. **[`outputs/management-reporting-pack.md`](outputs/management-reporting-pack.md)** — read the cover. Every caveat you see was raised by an agent and survived to the board-facing surface without being softened. One chart carries, on its face, *"the remaining −$101,030 carries NO attributed driver."* A conventional deck shows the chart and lets the reader assume.
-2. **[`correction-loop/loop-verification.md`](correction-loop/loop-verification.md)** — the correction loop, verified.
-3. **[`what-broke/`](what-broke/)** — three failures, unedited. See below.
-4. **[`semantic-layer/rulings/`](semantic-layer/rulings/)** — pick any ruling. Note who decided, when, why, and what the system refused to compute until they did.
-5. **[`red-team/`](red-team/)** — the brief, the auditor's findings, and [`audit-response.md`](red-team/audit-response.md): nine of its recommendations implemented and verified.
-
----
-
-## What broke — the part worth reading
-
-**The agent silently improved the plan.** During a variance run, the Analyst re-derived two plan lines on a methodologically *better* basis than the one on file — and thereby corrupted the variance, flipping a sign. Nobody asked it to. The improvement was correct; the behavior was wrong. Plan values are inputs an agent reads, never recomputes. Caught by human review; now caught by a hash check that blocks the pack from rendering. → [`what-broke/plan-hash-incident.md`](what-broke/plan-hash-incident.md)
-
-**Judgment collapsed into template-filling.** Given three permitted ways to end a variance comment, the agent chose the computable one every time — "reforecast candidate" stamped on 10 of 17 comments by single-month extrapolation, owner questions extinct (0 of 17). Contract compliance achieved; judgment lost. Fix: the ending is determined by the playbook, not chosen by the agent. → [`contracts/commentary-contract.md`](contracts/commentary-contract.md), amendment v2.1
-
-**A derived value reported as an observed one.** Four contract expiry dates were computed, then reported as if read from the document, then escalated as contradictions against documents that didn't contradict themselves. Not an arithmetic error — a **provenance** error. Charter amended to require `basis: read` with a quote, or `basis: derived` with the derivation. → [`correction-loop/first-review-session.md`](correction-loop/first-review-session.md)
-
-Also included unedited: **[`what-broke/friction-log.md`](what-broke/friction-log.md)** — everything that was slower, dumber or more brittle than it should have been.
-
----
-
-## Knowing when to stop
-
-Refinement on the simulated company was deliberately **frozen**, and the reasoning is itself part of the artifact:
-
-> The machinery — contract, selection rules, engine checks, exemplar memory, read-back, correction routing — is **package**: done, portable, proof banked. The calibration — voice, thresholds, accepted exemplars — is **example**: company-specific by nature and non-transferable. Further polish trains the agent for a company that doesn't exist, while real-company calibration is cheap in situ by design.
-
-Every company-specific parameter in the playbooks and charters is tagged `REPLACE-ON-INSTALL`. See [`install/`](install/).
-
----
-
-## Architecture
-
-```
-┌──────────────────────────────────────────────────────┐
-│  JUDGMENT LAYER  (this repo)                          │
-│  semantic layer + rulings · playbooks + exemplars     │
-│  output contracts · correction ledger · red team      │
-├──────────────────────────────────────────────────────┤
-│  AGENTS                                               │
-│  Bookkeeper · Analyst · Reporter · Forecaster ·       │
-│  Controller · Evidence · Chief of Staff               │
-├──────────────────────────────────────────────────────┤
-│  SOURCE SYSTEMS  (exports only — no integrations)     │
-│  GL · billing · CRM · payroll · bank                  │
-└──────────────────────────────────────────────────────┘
+```text
+SOURCE EXPORTS
+GL · billing · CRM · payroll · bank · contracts
+                         │
+                         ▼
+DATA + JUDGMENT LAYER
+preflight · definitions · rulings · evidence · playbooks
+                         │
+                         ▼
+AGENT WORKFLOWS
+Bookkeeper · Analyst · Reporter · Forecaster · Controller
+                         │
+                         ▼
+CONTROLLED OUTPUT
+checks · exceptions · approvals · review ledger · correction loop
 ```
 
-The ledger is a buy. The judgment layer is made of decisions no vendor can ship, and it is the only layer here meant to outlive the tools underneath it.
+Autonomy is earned per workflow, never granted to an agent as a whole. Promotion requires reviewed clean runs. A known failure mode or material correction triggers demotion. See the [agent playbook](playbooks/agent-playbook.md).
 
-Autonomy is earned **per workflow**, never per agent, on instances reviewed with no material correction — with a documented demotion trigger and a named known failure mode for each. See [`playbooks/agent-playbook.md`](playbooks/agent-playbook.md).
+## Honest limits
 
----
+- One simulated company; a second synthetic instance, Arcline, tests portability.
+- One operator and self-grading.
+- No real company’s books have run through the system.
+- The correction mechanism is demonstrated once, not proven over a long operating history.
+- Company-specific calibration—thresholds, voice, mappings, and accepted exemplars—does not transfer. The machinery does.
+- The engine’s roughly 30 Python modules are not published, so this is an inspectable artifact, not a runnable product demo.
 
-## How it's organized
+These are the next proof obligations, not footnotes. The [executive brief](EXECUTIVE-BRIEF.md) converts them into a gated real-company pilot.
 
-| Folder | What's in it |
+## What broke
+
+The failures are retained because each one changed the control design:
+
+- **The agent improved the plan and corrupted the variance.** A methodologically better re-derivation flipped a sign. Plan values are now treated as inputs and protected by a hash gate. [Read the incident](what-broke/plan-hash-incident.md).
+- **A compliant template erased judgment.** Ten of seventeen comments defaulted to “reforecast candidate,” while owner questions disappeared. Selection now comes from a playbook rather than agent preference. [Read the contract](contracts/commentary-contract.md).
+- **A derived value was presented as observed.** Four computed expiries became false contradictions. Provenance now requires `basis: read` with a quote or `basis: derived` with the derivation. [Read the review](correction-loop/first-review-session.md).
+- **A write-up drifted from its workbook.** Two numerical claims became stale after a rebuild, including a favorable runway error. A separate prose checker now validates narrative claims against the artifact. [Read RUN 12](runs/run-log.md#run-12--the-write-ups-had-drifted-from-the-workbooks--1-sep).
+
+The full, unedited record is in [`what-broke/`](what-broke/) and the [red-team audit](red-team/).
+
+## Install philosophy
+
+The first deployment is read-only and sits on the existing finance stack. Agents produce the work from the first close; the human approves the output before it counts. Definitions are signed before production output, exceptions remain visible, and lower-touch review is earned from evidence.
+
+The [install runbook](install/runbook.md) covers the 90-day sequence. The [organization assessment](install/org-assessment.md) separates mapping, export, system, and process gaps. The [portability report](install/portability.md) documents how a weak name-based check was replaced by an execution test—and the defects that test found.
+
+## Repository map
+
+| Folder | Contents |
 |---|---|
-| `architecture/` | The org blueprint, source-vs-output design, how work is sliced |
-| `semantic-layer/` | Definitions (template + instance), rulings, glossary |
-| `contracts/` | Output contract, commentary contract with gold exemplar pairs |
-| `playbooks/` | Variance playbooks, agent promotion ladder, wiring |
-| `agents/` | One charter per agent |
-| `correction-loop/` | The two loops, review sessions, loop verification, iteration log |
-| `red-team/` | The audit brief, the auditor's findings, and what was changed in response |
-| `runs/` | Run logs, scorecard, ingestion sweeps, the Arcline second instance |
-| `outputs/` | Reporting pack, CEO briefing, forecast model, long-range plan — including the generated workbooks themselves ([management pack](outputs/FY2026-01-management-pack.xlsx), [Q1 LBE](outputs/LBE_Q1_2026_M1.xlsx)) and their independent verifier |
-| `what-broke/` | Plan-hash incident, failure case, friction log |
-| `data/` | Simulated company spec, dataset build notes, planted edge cases, the 25-check tie-out suite ([`validate.py`](data/validate.py)) |
-| `install/` | Runbook, portability, org assessment, model routing |
-
----
+| `architecture/` | System boundary, source/output design, workflow slicing, SaaS layer |
+| `semantic-layer/` | Definitions, glossary, and human rulings |
+| `contracts/` | Output and commentary acceptance criteria |
+| `playbooks/` | Variance logic, agent promotion ladder, and wiring |
+| `agents/` | Role charters and operating instructions |
+| `correction-loop/` | Review ledger, two feedback loops, and verified learning behavior |
+| `red-team/` | Audit brief, findings, and implementation response |
+| `runs/` | Run logs, scorecards, ingestion sweeps, and the Arcline instance |
+| `outputs/` | Packs, forecasts, long-range plan, workbooks, and independent checkers |
+| `what-broke/` | Incidents, failure cases, and the unedited friction log |
+| `data/` | Simulated-company design, methodology, edge cases, and tie-out checker |
+| `install/` | Runbook, portability evidence, assessment, and model-routing policy |
 
 ## License
 
-Documentation and example outputs: **CC BY 4.0** — use them, adapt them, build on them, including
-commercially; credit the source. Scripts: **MIT**. See [`LICENSE`](LICENSE).
+Documentation and example outputs are licensed under CC BY 4.0. Scripts are licensed under MIT. See [`LICENSE`](LICENSE).
 
-Arcline AI and CourtIQ are synthetic companies. Every figure, customer, vendor and employee here
-is generated.
+Arcline AI and CourtIQ are synthetic. Every figure, customer, vendor, and employee is generated.
 
----
-
-## What's in this repo, and what isn't
-
-The **engine itself** — the ~30 Python modules that generate the instance, run the close, precompute the variance surface and build the reporting pack — runs on the live instance and is deliberately not published. This repository carries what the engine cannot fake: its outputs ([the January pack](outputs/FY2026-01-management-pack.xlsx), [the Q1 LBE](outputs/LBE_Q1_2026_M1.xlsx)), two of its independent checkers, and every design decision, ruling and failure recorded along the way.
-
-The checkers are here so the scores are inspectable rather than asserted: [`outputs/packverify.py`](outputs/packverify.py) recomputes every figure in the pack from the instance's data and asserts 42 cross-tab checks against the workbook's recalculated values; [`data/validate.py`](data/validate.py) is the 51-check tie-out suite the instance must pass before any agent touches it; [`outputs/docverify.py`](outputs/docverify.py) asserts that every figure quoted in a write-up still exists in the workbook that write-up describes. All three read the live instance's data files, so they don't run from this repo alone — they are evidence, not a demo.
-
-The third one exists because of a defect in this repository. The pack was rebuilt; the write-up describing it was not; and for four days [`outputs/arcline-pack-and-lbe.md`](outputs/arcline-pack-and-lbe.md) quoted figures the workbook no longer computed — including a runway four months out, in the favourable direction. Both other checkers passed throughout, because **neither of them reads prose.** The write-up is the artifact a reader reaches first and it was the only one nothing verified. That story is in [`runs/run-log.md`](runs/run-log.md) under RUN 12.
-
-Also deliberately absent: the sealed answer key (publishing it would spoil future blind runs), vendor comparisons, market research, and the scaffolding that surrounded this work. This repository is the artifact, not the diary.
-
----
-
-*Built by Jonathan Ohana, 2026. Questions welcome — the fastest way to find the holes in this is to ask.*
+Built by Jonathan Ohana, 2026. The fastest way to improve this is to challenge a claim and follow its evidence.
