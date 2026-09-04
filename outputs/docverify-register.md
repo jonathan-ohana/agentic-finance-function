@@ -25,7 +25,7 @@ Every write-up in this repository that quotes figures, and what kind of claim it
 | correction-loop/observability.md | record | 8 | KPI snapshot at publication |
 | correction-loop/reviewer-edits.md | record | 8 | review record |
 | correction-loop/self-improvement-loop.md | record | 2 | loop design record |
-| data/calculation-methodology.md | illustrative | 12 | generator spec; design parameters |
+| data/calculation-methodology.md | illustrative | 14 | generator spec; design parameters |
 | data/dataset-build-notes.md | illustrative | 15 | generator spec; design parameters |
 | data/edge-cases/churn-plant.md | illustrative | 32 | planted-defect spec; the figures are the plant |
 | data/simulated-company-spec.md | illustrative | 9 | generator spec; design parameters |
@@ -56,7 +56,7 @@ Every write-up in this repository that quotes figures, and what kind of claim it
 | semantic-layer/glossary.md | illustrative | 2 | glossary; worked examples |
 | semantic-layer/rulings/plan-ruling-r2.md | illustrative | 8 | ruling; the figures are the ruling |
 | what-broke/failure-case.md | record | 25 | kept failure |
-| what-broke/friction-log.md | record | 119 | kept failures |
+| what-broke/friction-log.md | record | 122 | kept failures |
 | what-broke/plan-hash-incident.md | record | 5 | kept failure |
 
 ## Side by side
@@ -65,15 +65,17 @@ Named metrics quoted with more than one value across write-ups. Reported, not sc
 
 **ARR, 2026-07**
 
-- 4,608,471.0 — what-broke/friction-log.md:823
-- 4,673,195.0 — data/calculation-methodology.md:119
+- 4,608,471.0 — what-broke/friction-log.md:834
 - 4,743,222.0 — architecture/saas-layer.md:45
+- 4,743,222.0 — data/calculation-methodology.md:158
+- 4,743,222.0 — what-broke/friction-log.md:515
+- 4,743,222.0 — what-broke/friction-log.md:840
 
 **ARR, unstated**
 
 - 4,743,222.0 — data/edge-cases/churn-plant.md:31
 - 4,743,222.0 — red-team/audit-brief.md:76
-- 5,171,781.0 — data/calculation-methodology.md:129
+- 5,171,781.0 — data/calculation-methodology.md:131
 
 **DSO (days), unstated**
 
@@ -99,8 +101,8 @@ Named metrics quoted with more than one value across write-ups. Reported, not sc
 - 67.8 — runs/arcline/01-test-instance.md:101
 - 68.0 — data/dataset-build-notes.md:39
 - 68.0 — data/simulated-company-spec.md:52
-- 69.1 — what-broke/friction-log.md:978
-- 69.1 — what-broke/friction-log.md:986
+- 69.1 — what-broke/friction-log.md:995
+- 69.1 — what-broke/friction-log.md:1003
 - 69.5 — data/edge-cases/churn-plant.md:33
 - 69.5 — red-team/audit-brief.md:73
 - 74.2 — outputs/arcline-pack-and-lbe.md:70
