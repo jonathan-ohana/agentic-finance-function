@@ -114,9 +114,11 @@ The closing cash figure is simply the balance of GL account 1010. Days sales out
 
 ## ARR — the four definitions
 
-This is where the demo lives, so each one is spelled out precisely.
+This is where the demo lives, so each one is spelled out precisely. **These are the Day 2
+candidates, written before the semantic layer existed.** All four have since been ruled on and
+none of them survives exactly as written here — see *Where the semantic layer landed* below.
 
-**1. Committed recurring ARR — $4,673,195 at Jul-26**
+**1. Committed recurring — $4,673,195 at Jul-26, on the price billing charges**
 
 ```
 (courts in force × €89 × 12)
@@ -139,6 +141,32 @@ Adds trailing twelve-month tournament revenue. Tournaments are one-off by nature
 The same EUR base held at the opening rate of 1.052 rather than the current 1.118. Strips out the ~6% currency drift and shows what the business did on its own.
 
 The spread from lowest to highest is **$935,500** — about 20% of the company. All four are defensible. Only one belongs in a board pack, and deciding which is exactly the semantic layer's job.
+
+### Where the semantic layer landed
+
+Day 5 ruled on all four, and every one of them moved: two in their basis, one in its name, one in
+its justification. The candidates stay on the page rather than being edited away, because what a
+definition was before it was ruled is the evidence that ruling it changed something.
+
+| Day 2 candidate | Ruled outcome |
+|---|---|
+| 1. Committed recurring, above | **MET-009**, standing as ruled — but on `contracted_price_eur` per SL-09, not the `actual_price_eur` the build above uses. |
+| 2. Plus usage run-rate | **MET-010@2.0**: the usage component is the trailing three-month average of 4030 annualised, not the current month × 12 (SL-08). SL-29 then splits 4030 itself, because the account carries metered overage and minimum true-ups together. |
+| 3. The sales view | **MET-011**, stripped of the name: *Total annualised revenue (commercial)*, permitted in sales material with components shown, prohibited in the board pack and any diligence artefact (SL-08). |
+| 4. Constant currency | **MET-012**, ruled on the *plan rate* — the rate the board plan was struck at — rather than the opening rate (SL-10). For FY26 the two are the same 1.052, so the figure does not move; what moved is that the rate is now fixed for the plan year instead of re-picked per report. |
+
+**On the ruled basis, MET-009 committed recurring ARR is $4,743,222 at 31 July** — the figure the
+SaaS layer computes and the ARR waterfall closes to. The build above is the same book priced at
+what billing actually charges. The gap between the two is **leakage** under SL-09: 2,703 players
+contracted at €12.99 and billed €9.99 on a grandfathered price that expired on 1 March. It is
+disclosed on its own line and never absorbed into the metric, because defining it away is what
+makes a billing defect invisible.
+
+That gap is defect 22. `arr_schedule.csv` — the Analyst's ARR source and the board number — had
+been computing MET-009 on the billed price the whole time. SL-09 has been effective since 2025-02
+and ratifies existing practice, so **nothing restated this number**: the ruling was written and
+never propagated to the thing it rules, which is the failure the semantic layer exists to prevent
+and the one nobody checks for.
 
 ---
 

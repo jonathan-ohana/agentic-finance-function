@@ -507,6 +507,17 @@ It survived because nobody could open it. That is the entire argument for making
 
 **And the disclosure SL-09 requires is on the sheet.** 2,703 players are contracted at €12.99 and billed €9.99 — a grandfathered price that expired on 1 March and a billing system nobody updated. €8,109 a month, about $109,510 a year, sits inside the ARR above and is not being collected. It stays in the metric, because the definition uses contracted price, and it is disclosed every month until the drift is zero. Defining it away would make the billing defect invisible, which is the whole argument for the basis.
 
+> **Superseded 18 Aug by defect 22 — and not by a restatement.** The paragraph above says the
+> €8,109 a month sits *inside* the figure, because the definition uses contracted price. The
+> definition does; `arr_schedule.csv` did not — it computed MET-009 on `actual_price_eur`, so the
+> leakage was missing from the number rather than disclosed inside it, and the figure above is
+> the billed-price book.
+> Rebuilt on the ruled basis, MET-009 committed recurring ARR is $4,743,222 at 31 July.
+> SL-09 has been effective since 2025-02 and ratifies existing practice, so nothing here was
+> restated: a ruling was written and never propagated to the schedule it rules. Both figures stay
+> on this page — what the card showed, and what it should have shown — because the distance
+> between them is the finding.
+
 ---
 
 ## FL-75 — the sheet said something the card could not
@@ -821,6 +832,12 @@ The player section is now a three-cohort build: current price 9,481 accounts at 
 It changes what the model can see. **56 contracts carrying 371 courts reach renewal between August and December — 23% of the installed base up for decision inside five months.** A flat monthly percentage is structurally incapable of showing that. The rate itself, 4.4%, is 3 losses against 68 observed renewal decisions, which is thin and is labelled thin.
 
 **And a key metrics block**, because a revenue model without one is a schedule. Recurring revenue in the month, ARR on the MET-009 basis with the exclusions named, month-on-month growth, net new subscribers, logo churn monthly and annualised — compounded, not multiplied by twelve — blended ARPU, clubs, courts billed, and revenue per court. The July ARR computes to USD 4,608,471.36, which is MET-009 to the cent: **the model and the metric registry agree without either being told to.**
+
+> **Also superseded 18 Aug by defect 22.** The revenue model and `arr_schedule.csv` agreed to the
+> cent because both read `actual_price_eur`, which SL-09 does not rule. Two instruments agreeing
+> on the same wrong basis is not corroboration, and *the model and the metric registry agree
+> without either being told to* is the sharpest example on this page of stopping at plausible.
+> On the basis SL-09 rules, MET-009 committed recurring ARR is $4,743,222 at 31 July.
 
 ### What the four had in common
 
