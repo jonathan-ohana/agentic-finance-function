@@ -2,9 +2,10 @@
 
 **Instance** Arcline AI, Inc. · **Period** 2026-01 closed and signed · **Built** 26 Aug 2026
 **Predecessors** doc 84 (pack doctrine), doc 82 (planning cadence and the LBE layout), doc 89 (run 03)
-**Figures** as computed by the shipped workbooks (rebuilt 28 Aug 2026, after the run 08–09 instrument
-fixes); re-read from them on 1 Sep 2026. The workbooks carry no cached values — every figure is a
-formula, computed on open — so these are what a reader sees, not what was typed here.
+**Figures** as computed by the shipped workbooks (rebuilt 3 Sep 2026 with the corrected plan —
+RUN 14 in the [run log](../runs/run-log.md)); re-read from them at that rebuild. The workbooks carry
+no cached values — every figure is a formula, computed on open — so these are what a reader sees,
+not what was typed here.
 
 Two deliverables, both single workbooks, both verified independently.
 
@@ -49,9 +50,12 @@ margin and every point move. The verifier opens the workbook *without* cached va
 finding sits on an account and vendor that span several centers, its effect is split on the
 proportions the January ledger itself shows for that pair. Nothing is spread on a rule of thumb.
 
-**Absorbed lines are listed, not deleted.** Sixteen lines carry a January variance and move the
+**Absorbed lines are listed, not deleted.** Sixteen lines were classified absorbed and move the
 forecast by nothing. They sit in their own block on the page, each naming what absorbs it. A line
-that vanishes because it nets is indistinguishable from a line nobody looked at.
+that vanishes because it nets is indistinguishable from a line nobody looked at. Eight of the
+sixteen — the software renewal lines — now show a variance of exactly zero: the data fixes of run 08
+removed the variances the analyst originally classified. They stay listed at zero, because the
+classification is the analyst's record and the zero is the ledger's.
 
 ---
 
@@ -138,11 +142,15 @@ But the mechanism is worth naming. A P&L-only pack would never have raised it. T
 block did, on its first run, and the reason it could is that the ratios are formulas over a
 classified balance sheet rather than figures typed beside one.
 
-**Interest income is a plug, and the plug is on the plan side.** The FY26 plan carries 70,000 for
-January and steps 400 a month thereafter — an arithmetic ramp, on a cash balance that is falling.
-The actuals do the opposite and decay with cash: 87,079 in December, 84,181 in January. Putting the
-assumption and the outturn on the same line is what makes a plug visible instead of buried in a
-variance file.
+**Interest income was a plug, and the plug was on the plan side — fixed at the source in the 3 Sep
+rebuild.** The FY26 plan used to carry 70,000 for January, stepping exactly 400 a month all year: an
+arithmetic ramp, on a cash balance that is falling.  <!-- docverify: external -->
+It is now derived the way the ledger derives the actual — a rate on the balance the plan itself
+projects — printing 83,338 for January and declining every month thereafter, against an actual of
+84,181.
+The January variance on this line fell from 14,181, which was the plug showing up as news, to 843, which is a variance.  <!-- docverify: external -->
+Putting the assumption and the outturn on the same line is what made the plug visible instead of
+buried in a variance file; deriving the assumption is what retired it.
 
 ---
 

@@ -11,6 +11,62 @@ is how a test stops measuring anything.
 
 ---
 
+## RUN 14 · The rebuild — end to end, on a machine it was never built on · 3 Sep
+
+**RAN** The first full rebuild of the delivered instance ever attempted outside the build container:
+the RUN 13 generator fixes, rebuilt data, re-derived pack and LBE, swap, full re-verification. The
+portability claim, finally tested by doing rather than by argument.
+
+**FOUND**
+
+❗ **The rebuild would have destroyed every agent deliverable and printed `done`.** The overlay —
+the mechanism that lays agent work back over a rebuilt tree — reads from a folder that exists on the
+original build machine and nowhere else. When that folder is missing it returns an empty list and
+says nothing, and it runs AFTER the delete, so its own guard can never fire in time. The pack, the
+LBE, the variance analysis and the February day files would all have gone. An interlock now runs
+BEFORE anything is deleted; tested on a decoy instance, it refused and named the files it was
+protecting. Fourth appearance of the silent-empty-result failure; first one caught before it cost
+anything.
+
+✅ **The signed period was never at stake — proven, not assumed.** Old instance against new build,
+file by file: every actuals file is byte-identical. The GL, the trial balance, every subledger, the
+signed close — untouched by construction, because the RUN 13 fixes live entirely on the plan side.
+Ten files move, all plan or plan-derived.
+
+❗ **The shipped LBE's absorbed listing was stale, and nothing could have said so.** Faithfulness was
+proven by rebuilding against the OLD instance first: every figure matched to the cent except
+thirteen cells in the absorbed block — where the LIVE artifact was wrong, not the rebuild. Eight
+software-renewal lines listed variances that no longer exist in the ledger (zeroed by run 08's data
+fixes) and two amounts were frozen from 25 Aug data, off by up to 16,200. `packverify` passed 42/42
+throughout, because no check reads the absorbed listing. The same side-by-side lesson, in the one
+block of the artifact built to prove lines don't vanish.
+
+**VERDICT** PASS — and the honest scope of it: three container paths had to become overridable and
+one interlock had to exist before `emit → buildpack → emit` ran anywhere but its birthplace. Doc
+75's portability claim survives, at the price every portability claim pays on first contact.
+
+**FIXED**
+✅ The interlock in `emit.py`, before the delete, with an explicit override for a folder that holds
+nothing worth keeping.
+✅ `arcline-analysis/` now lives permanently beside the instance: everything the generator does not
+own — day-clock files, monitor state, the workbooks — so a rebuild can never eat agent work again.
+✅ The instance swapped and green end to end: **52 of 52 including the build stamp's first MATCH**,
+42 of 42 on the pack, backup zip retained beside the folder.
+✅ Interest income planned as a derived figure in the delivered files: 83,338 for January, declining
+with the balance; the line's January variance fell from 14,181 — the plug reporting itself as news —
+to 843. FY25 plan-equals-actual account-months: 36 → 0.
+✅ The absorbed block re-derived from the current ledger; the write-up says why eight lines now read
+zero.
+✅ `expected-checks.json`: the known-open stamp failure is closed, by the artifact that closes it.
+✅ This repository refreshed: workbooks, screenshots, manifest (`--update`'s first real use — two
+checksums changed, both formula counts unchanged), and the interest income prose.
+
+**OPEN**
+⚠️ **The variance workbook's Commentary is the 25 Aug agent record over 28 Aug data.** Pre-existing,
+now named. Re-deriving commentary needs an agent run, not a script — the M2 LBE back-test is its
+natural home.
+❌ Documents still contradict the ledger on three January figures (Run 05).
+
 ## RUN 13 · The check that reads prose, and two plan lines that now follow their own basis · 1 Sep
 
 **RAN** Built `docverify.py`, tested it both ways, and fixed the two interest income defects in the
@@ -59,7 +115,8 @@ shipped instance, untouched, still passes 51 of 51.
 ✅ The write-up marks its five out-of-scope figures rather than the checker guessing at them.
 
 **OPEN**
-❗ **The generator is now ahead of the shipped instance, deliberately, and nothing checks that.** Both
+❗ **The generator is now ahead of the shipped instance, deliberately, and nothing checks that.**
+*Closed in Run 14 — the rebuild; the stamp check now passes with a MATCH.* Both
 fixes exist in code and neither exists in the delivered files, because rebuilding regenerates a signed
 period. That was the right call and it creates **the same defect this log has now found five times: two
 artifacts describing the same thing, with nothing putting them side by side.** The instance should carry
@@ -369,16 +426,16 @@ four duplicate accruals removed; one kept as a deliberate control test.
 
 | | |
 |---|---|
-| Runs scored | 7 (plus four maintenance runs) |
-| Defects found in my instrument | 30 |
-| Defects fixed | 28 |
-| Defects open | 4 — ledger/document contradiction (Run 05); no precompute for the open period, stale score after regen (both Run 11); generator ahead of the shipped instance with no build stamp (Run 13). The two Run 12 plan defects are fixed in the generator and still present in the delivered files |
+| Runs scored | 7 (plus five maintenance runs) |
+| Defects found in my instrument | 32 |
+| Defects fixed | 30 |
+| Defects open | 4 — ledger/document contradiction (Run 05); no precompute for the open period, stale score after regen (both Run 11); the variance workbook's agent commentary predates the run-08 data fixes (Run 14) |
 | Verdicts later overturned | 1 — Run 06, called PLATFORM, was INSTRUMENT |
 | Day clock record | 2 days, 2 planted, 1 clean hit, 1 partial, 0 missed, 0 false positives |
 | Best blind score | **17 of 25 clean**, on a composition neither of us designed |
 | Analysis misses outstanding | 0 — PL-19 closed in Run 09 |
 | Review ledger | 0 open, 3 closed |
-| Suites, last run 1 Sep | 51 of 51 build · 42 of 42 pack · 1 of 1 doc |
+| Suites, last run 3 Sep | 52 of 52 build (stamp green) · 42 of 42 pack · 1 of 1 doc |
 
 **Four patterns worth carrying into a conversation.**
 
