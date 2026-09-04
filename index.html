@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An agentic finance function — Jonathan Ohana</title>
+<meta name="description" content="A finance function run by AI agents under a governance layer that makes every number traceable and every judgment recorded. Built and pressure-tested end to end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#edf1ec;
+    --paper:#fafbfa;
+    --ink:#1a2420;
+    --ink-soft:#4a5a52;
+    --rule:#c3d0c6;
+    --rule-strong:#9aab9f;
+    --human:#a93226;
+    --agent:#35618e;
+    --serif:"IBM Plex Serif",Georgia,serif;
+    --sans:"IBM Plex Sans",system-ui,sans-serif;
+    --rail:7.5rem;
+    --measure:34rem;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:var(--serif);font-size:1.0625rem;line-height:1.62;
+    font-variant-numeric:tabular-nums;
+  }
+  a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+  a:hover{border-bottom-color:var(--ink)}
+  a:focus-visible{outline:2px solid var(--agent);outline-offset:3px}
+
+  .folio{max-width:60rem;margin:0 auto;padding:0 1.5rem}
+
+  /* ledger rows: narrow reference rail + content */
+  .row{display:grid;grid-template-columns:var(--rail) 1fr;gap:0 2.5rem;
+       border-top:1px solid var(--rule);padding:2.75rem 0}
+  .row:first-of-type{border-top:none}
+  .ref{font-family:var(--sans);font-size:.75rem;line-height:1.5;color:var(--ink-soft);
+       padding-top:.42rem;letter-spacing:.01em}
+  .ref b{display:block;font-weight:600;color:var(--ink)}
+  .body{max-width:var(--measure)}
+  .body>*:first-child{margin-top:0}
+  .body>*:last-child{margin-bottom:0}
+
+  h1{font-size:clamp(2rem,5.2vw,3.15rem);line-height:1.08;font-weight:600;
+     letter-spacing:-.022em;margin:0 0 1.1rem;max-width:15ch}
+  h2{font-size:1.4rem;font-weight:600;letter-spacing:-.01em;margin:0 0 1rem}
+  h3{font-family:var(--sans);font-size:.95rem;font-weight:600;margin:0 0 .3rem}
+  p{margin:0 0 1.05rem}
+  .lede{font-size:1.2rem;line-height:1.55}
+  .quiet{color:var(--ink-soft)}
+
+  /* ---- hero: the correction, shown as three ledger states ---- */
+  .entry{background:var(--paper);border:1px solid var(--rule-strong);margin:2rem 0 0}
+  .state{padding:1.15rem 1.35rem;border-top:1px solid var(--rule)}
+  .state:first-child{border-top:none}
+  .state-label{font-family:var(--sans);font-size:.7rem;font-weight:600;
+    letter-spacing:.06em;text-transform:lowercase;margin-bottom:.42rem;display:flex;
+    align-items:baseline;gap:.6rem}
+  .state-label span{font-weight:400;letter-spacing:0;color:var(--ink-soft);font-size:.75rem}
+  .agent .state-label{color:var(--agent)}
+  .human .state-label{color:var(--human)}
+  .agent{border-left:3px solid var(--agent)}
+  .human{border-left:3px solid var(--human);background:#fdf7f6}
+  .state p{font-size:.97rem;margin:0}
+  .state p+p{margin-top:.6rem}
+  .cite{color:var(--human);font-style:italic}
+  .rl{font-family:var(--sans);font-weight:600;font-size:.85em;letter-spacing:.01em}
+
+  .key{display:flex;gap:1.5rem;flex-wrap:wrap;font-family:var(--sans);font-size:.78rem;
+       color:var(--ink-soft);margin-top:.9rem}
+  .key i{font-style:normal;display:inline-block;width:.62rem;height:.62rem;
+         margin-right:.42rem;vertical-align:baseline}
+  .key .a i{background:var(--agent)} .key .h i{background:var(--human)}
+
+  /* ---- claims: ruled list, not cards ---- */
+  .claims{margin:0;padding:0;list-style:none;border-bottom:1px solid var(--rule)}
+  .claims li{border-top:1px solid var(--rule);padding:.95rem 0;display:grid;
+             grid-template-columns:1fr auto;gap:.4rem 1.5rem;align-items:baseline}
+  .claims li:first-child{border-top:1px solid var(--rule-strong)}
+  .claims .what{font-size:1rem}
+  .claims .go{font-family:var(--sans);font-size:.8rem;white-space:nowrap}
+
+  /* ---- failures ---- */
+  .broke{margin:0;padding:0;list-style:none}
+  .broke li{padding:1.1rem 0;border-top:1px solid var(--rule)}
+  .broke li:first-child{border-top:none;padding-top:0}
+  .broke p{font-size:.97rem;margin:.15rem 0 0;color:var(--ink-soft)}
+
+  /* ---- stack ---- */
+  .stack{border:1px solid var(--rule-strong);background:var(--paper);margin:.4rem 0 1.1rem}
+  .layer{padding:.9rem 1.15rem;border-top:1px solid var(--rule)}
+  .layer:first-child{border-top:none}
+  .layer.mine{background:#f2f6f8;border-left:3px solid var(--agent)}
+  .layer h3{margin-bottom:.15rem}
+  .layer p{font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);margin:0}
+
+  .limits{margin:0;padding-left:1.1rem}
+  .limits li{margin-bottom:.5rem}
+
+  footer{border-top:1px solid var(--rule-strong);margin-top:1rem}
+  .foot{display:grid;grid-template-columns:var(--rail) 1fr;gap:0 2.5rem;padding:2rem 0 3.5rem}
+  .foot p{font-size:.95rem;margin:0 0 .5rem;max-width:var(--measure)}
+
+  @media (max-width:44rem){
+    .row,.foot{grid-template-columns:1fr;gap:0;padding:2.1rem 0}
+    .ref{padding-top:0;margin-bottom:.9rem}
+    .ref b{display:inline;margin-right:.5rem}
+    .claims li{grid-template-columns:1fr}
+    .claims .go{white-space:normal}
+  }
+
+  /* one deliberate reveal: the three states arrive in order */
+  @media (prefers-reduced-motion:no-preference){
+    .state{animation:settle .5s ease-out both}
+    .state:nth-child(1){animation-delay:.15s}
+    .state:nth-child(2){animation-delay:.75s}
+    .state:nth-child(3){animation-delay:1.35s}
+    @keyframes settle{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<main class="folio">
+
+  <article class="row">
+    <div class="ref"><b>Folio 1</b>2026<br>J. Ohana</div>
+    <div class="body">
+      <h1>An agentic finance function, run end to end</h1>
+      <p class="lede">Bookkeeping, month-end close, variance analysis, board reporting and reforecast — operated by AI agents under a governance layer that keeps every number traceable and every judgment on record.</p>
+      <p class="quiet">Built and pressure-tested in a simulated B2B SaaS environment, working from standard system exports rather than custom integrations.</p>
+
+      <div class="entry">
+        <div class="state agent">
+          <div class="state-label">agent, first run <span>charter v1.0</span></div>
+          <p>Four contract expiry dates were computed, then reported as though read from the document, then escalated as contradictions — against documents that did not contradict themselves. Not an arithmetic error. A provenance error.</p>
+        </div>
+        <div class="state human">
+          <div class="state-label">human ruling <span class="rl">RL-0024</span></div>
+          <p>Every extracted value carries its basis. <em>Read</em> requires a quote. <em>Derived</em> requires the derivation. A computed value may never be reported as an observed one.</p>
+        </div>
+        <div class="state agent">
+          <div class="state-label">agent, later run <span>charter v1.1</span></div>
+          <p>Same four contracts, re-extracted blind by two independent agents, with a control and a genuine contradiction included as checks. All four read correctly. Zero false escalations. The real contradiction was still raised — and the agent gave its reason:</p>
+          <p class="cite">“Escalating this as a contradiction would repeat review ledger RL-0024, where four contracts were wrongly flagged on computed expiry dates.”</p>
+        </div>
+      </div>
+      <div class="key">
+        <span class="a"><i></i>agent output</span>
+        <span class="h"><i></i>human judgment</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="ref"><b>Why</b>the question</div>
+    <div class="body">
+      <h2>Attribution is solved. Causality isn’t.</h2>
+      <p>AI-native finance tools tell you <em>what moved</em> — which account, which entity, which entries. They cannot tell you <em>why</em> in business terms, because the why isn’t in the ledger. Seeing the story through the noise is still the finance professional’s job.</p>
+      <p>So the question was never whether agents can close the books. It was: <strong>what layer captures a finance professional’s judgment and compounds it, so the function gets smarter each month instead of re-deciding the same things?</strong></p>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="ref"><b>Evidence</b>four claims</div>
+    <div class="body">
+      <h2>Each claim has one exhibit</h2>
+      <ul class="claims">
+        <li>
+          <span class="what">Agents ran the close, variance analysis and reporting end to end</span>
+          <span class="go"><a href="https://github.com/jonathan-ohana/agentic-finance-function/blob/main/outputs/management-reporting-pack.md">the pack</a> · <a href="https://github.com/jonathan-ohana/agentic-finance-function/blob/main/runs/run-log.md">run log</a></span>
+        </li>
+        <li>
+          <span class="what">Every number traces to a versioned definition, with human rulings on contested items</span>
+          <span class="go"><a href="https://github.com/jonathan-ohana/agentic-finance-function/blob/main/semantic-layer/definitions-instance.md">definitions</a> · <a href="https://github.com/jonathan-ohana/agentic-finance-function/tree/main/semantic-layer/rulings">rulings</a></span>
+        </li>
+        <li>
+          <span class="what">Commentary is trained on exemplars, under a contract it must satisfy</span>
+          <span class="go"><a href="https://github.com/jonathan-ohana/agentic-finance-function/blob/main/contracts/commentary-contract.md">the contract</a></span>
+        </li>
+        <li>
+          <span class="what">Corrections persist — each close is smarter than the last</span>
+          <span class="go"><a href="https://github.com/jonathan-ohana/agentic-finance-function/blob/main/correction-loop/loop-verification.md">loop verification</a></span>
+        </li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="ref"><b>Failures</b>three, unedited</div>
+    <div class="body">
+      <h2>What broke</h2>
+      <ul class="broke">
+        <li>
+          <h3>The agent silently improved the plan</h3>
+          <p>Mid-run, the Analyst re-derived two plan lines on a better basis than the one on file — and flipped the sign on a variance. The improvement was correct; the behaviour was wrong. Plan values are read, never recomputed. Now blocked by a hash check that stops the pack rendering. <a href="https://github.com/jonathan-ohana/agentic-finance-function/blob/main/what-broke/plan-hash-incident.md">Read the incident</a></p>
+        </li>
+        <li>
+          <h3>Judgment collapsed into template-filling</h3>
+          <p>Given three permitted ways to end a variance comment, the agent picked the computable one every time — “reforecast candidate” stamped on 10 of 17 comments, owner questions extinct. Contract satisfied, judgment lost. The ending is now set by the playbook, not chosen by the agent.</p>
+        </li>
+        <li>
+          <h3>A derived value reported as an observed one</h3>
+          <p>The provenance error above, which became <span class="rl">RL-0024</span>. <a href="https://github.com/jonathan-ohana/agentic-finance-function/blob/main/correction-loop/first-review-session.md">The review session</a></p>
+        </li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="ref"><b>Shape</b>three layers</div>
+    <div class="body">
+      <h2>Buy the ledger. Build the judgment.</h2>
+      <div class="stack">
+        <div class="layer mine">
+          <h3>Judgment layer</h3>
+          <p>Semantic layer and rulings · playbooks and exemplars · output contracts · correction ledger · adversarial review</p>
+        </div>
+        <div class="layer">
+          <h3>Agents</h3>
+          <p>Bookkeeper · Analyst · Reporter · Forecaster · Controller · Evidence · Chief of Staff</p>
+        </div>
+        <div class="layer">
+          <h3>Source systems</h3>
+          <p>GL · billing · CRM · payroll · bank — exports only, no custom integrations</p>
+        </div>
+      </div>
+      <p class="quiet">The judgment layer is made of decisions no vendor can ship, and it is the only layer here meant to outlive the tools underneath it. Autonomy is earned per workflow, never per agent, with a documented demotion trigger for each.</p>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="ref"><b>Limits</b>stated plainly</div>
+    <div class="body">
+      <h2>What this is not</h2>
+      <ul class="limits">
+        <li>One simulated company. A second instance was built to test portability, and nothing more.</li>
+        <li>One operator. Self-graded.</li>
+        <li>No real company’s books have been through this.</li>
+        <li>The learning loop is a <strong>demonstrated mechanism, not a track record</strong>. One correction, one rule, one later run that cited it. That distinction is kept throughout.</li>
+        <li>Calibration — thresholds, voice, account-specific rules — is company-specific and does not transfer. The machinery does.</li>
+      </ul>
+    </div>
+  </article>
+
+</main>
+
+<footer class="folio">
+  <div class="foot">
+    <div class="ref"><b>Contact</b>San Francisco</div>
+    <div class="body">
+      <p>Jonathan Ohana — fifteen years in FP&amp;A and strategic finance across the US, Israel and Europe. Looking for the operating seat: first senior finance hire at an early-stage B2B SaaS company.</p>
+      <p><a href="https://github.com/jonathan-ohana/agentic-finance-function">Full repository</a> · <a href="https://www.linkedin.com/in/jon-ohana/">LinkedIn</a></p>
+      <p class="quiet" style="font-size:.85rem">The fastest way to find the holes in this is to ask.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
