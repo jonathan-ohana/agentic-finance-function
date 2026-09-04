@@ -37,6 +37,7 @@ Every write-up in this repository that quotes figures, and what kind of claim it
 | outputs/lrp/planning-cadence-lbe.md | unverifiable | 3 | REFUSED - describes the cadence around workbooks not published here |
 | outputs/management-reporting-pack.md | record | 67 | 25 Aug build record; superseded by the shipped 9-tab pack |
 | outputs/pack-rebuilt.md | record | 30 | 18 Aug rebuild record |
+| outputs/pipeline-tier3.md | record | 7 | 4 Sep run record; artifacts live in the private instance |
 | playbooks/variance-playbooks.md | (noted) | 1 | below threshold; unclassified |
 | playbooks/wiring.md | illustrative | 1 | playbook; worked examples |
 | red-team/audit-brief.md | record | 15 | audit record |
