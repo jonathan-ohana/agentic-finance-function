@@ -14,7 +14,10 @@ What it emits, into 06-forecast/FY2026/:
   pipeline_vs_plan_<p>.csv    the quarter's open months against the plan's new-business
                               assumption, and the proposed LBE materializes row -
                               emitted with ratified=N, because a forecast term enters
-                              the LBE through the Analyst's ratification or not at all
+                              the LBE through the Analyst's ratification or not at all.
+                              Both are withheld at a quarter-end snapshot, where no open
+                              months remain: the comparison is refused by name in the
+                              notes rather than emitted empty.
   pipeline_notes_<p>.md       bands, findings, refusals, and the proposed rulings
 
 The three bands, and what each may claim:
@@ -157,8 +160,11 @@ def build(folder):
     # ---- the quarter against the plan
     # ARR grain: what the plan assumes closes in the open months vs what the pipeline holds.
     # Revenue grain: only a February close touches Q1 revenue (one month, March, at ACV/12).
+    # At a quarter-end snapshot no open months remain, and the comparison is refused by
+    # name rather than emitted empty: neither file is written and the notes say why.
     vs_plan_rows, lbe_feed = [], None
-    for band in ("commit_usd", "weighted_usd", "best_case_usd"):
+    vs_plan_refused = not Q_OPEN
+    for band in () if vs_plan_refused else ("commit_usd", "weighted_usd", "best_case_usd"):
         arr_open = sum(by_month[m][band] for m in Q_OPEN if m in by_month)
         plan_arr = PLAN_NET_NEW_ARR_MONTHLY * len(Q_OPEN)
         gap = arr_open - plan_arr
@@ -184,6 +190,11 @@ def build(folder):
                 "ratified": "N",
             }
 
+    if vs_plan_refused:
+        checks.append(("quarter-end snapshot: vs-plan and LBE feed refused, not emitted",
+                       not vs_plan_rows and lbe_feed is None,
+                       f"no open months remain in {PERIOD}'s quarter"))
+
     # ---- write everything
     out = P("06-forecast", "FY2026")
     def dump(name, rows, fieldnames):
@@ -199,8 +210,9 @@ def build(folder):
                    "revenue_starts": add_month(m)}
                   for m, b in sorted(by_month.items())]
     dump(f"pipeline_by_month_{PERIOD}.csv", month_rows, list(month_rows[0].keys()))
-    dump(f"pipeline_vs_plan_{PERIOD}.csv", vs_plan_rows, list(vs_plan_rows[0].keys()))
-    dump(f"pipeline_lbe_feed_{PERIOD}.csv", [lbe_feed], list(lbe_feed.keys()))
+    if not vs_plan_refused:
+        dump(f"pipeline_vs_plan_{PERIOD}.csv", vs_plan_rows, list(vs_plan_rows[0].keys()))
+        dump(f"pipeline_lbe_feed_{PERIOD}.csv", [lbe_feed], list(lbe_feed.keys()))
 
     with open(os.path.join(out, f"pipeline_notes_{PERIOD}.md"), "w", encoding="utf-8") as f:
         f.write(f"# Pipeline surface - {PERIOD} snapshot\n\n")
@@ -221,6 +233,11 @@ def build(folder):
             f.write("## Refused rows\n\n")
             for oid, why in refused:
                 f.write(f"- {oid}: {why}\n")
+        if vs_plan_refused:
+            f.write("\n## Vs-plan and LBE feed\n\nREFUSED - vs-plan and LBE feed refused: no "
+                    "open months remain in the quarter at this snapshot; the quarter's "
+                    "new-business question is answered by actuals, and the forecast question "
+                    "belongs to the next quarter's snapshot.\n")
         f.write("\n## Back-test\n\nREFUSED - scoring the weighted band requires a later "
                 "snapshot and a closed-won register; this instance holds one snapshot and no "
                 "closed-deal history. The refusal retires when a second monthly snapshot exists.\n")
@@ -231,7 +248,9 @@ def build(folder):
     for name, ok, detail in checks:
         print(("PASS  " if ok else "FAIL  ") + name + ("  " + detail if detail else ""))
     print(f"\n{len(surface)} deals on the surface, {len(refused)} refused, "
-          f"{len(findings)} findings, LBE feed at ratified=N")
+          f"{len(findings)} findings, "
+          + ("vs-plan and LBE feed REFUSED - no open months remain in the quarter"
+             if vs_plan_refused else "LBE feed at ratified=N"))
     return all(ok for _, ok, _ in checks)
 
 if __name__ == "__main__":
