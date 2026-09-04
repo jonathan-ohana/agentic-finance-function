@@ -15,7 +15,7 @@ Every write-up in this repository that quotes figures, and what kind of claim it
 | agents/evidence.md | illustrative | 3 | charter; worked examples |
 | agents/forecaster.md | illustrative | 32 | charter; worked examples |
 | agents/operator-instructions.md | illustrative | 2 | operating doc; worked examples |
-| architecture/saas-layer.md | illustrative | 16 | architecture; worked examples |
+| architecture/saas-layer.md | illustrative | 18 | architecture; worked examples |
 | architecture/slicing.md | illustrative | 11 | architecture; worked examples |
 | architecture/source-vs-output.md | illustrative | 5 | architecture; worked examples |
 | contracts/commentary-contract.md | illustrative | 11 | contract; worked examples |

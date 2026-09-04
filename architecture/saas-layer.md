@@ -58,6 +58,17 @@ Four of these are now KPIs with quarterly goals on the KPI tab.
 | Unattributed | 0.01 |
 | **Closing** | **4,743,222** |
 
+> **Flagged 4 Sep 2026, unresolvable as printed.** The components above foot to
+> 4,743,073 against a printed closing of 4,743,222 — 149 out, where rounding
+> explains ~2 — while the Unattributed line claims 0.01. If the model tied
+> internally, one of these five integers was transcribed stale into this page.
+> The workbook behind them was never published and its build no longer exists,
+> so which one cannot now be determined. The bridge method survives — rebuilt on
+> the Day-2 dataset it ties to the cent — but this table's figures should be
+> read as record, not as a tie that can be shown. Kept rather than repaired:
+> repairing a number nothing can verify is how a plausible figure replaces an
+> honest one.
+
 **Net new ARR is negative — $45,241 in July and $14,800 in June.** The book is shrinking in constant currency. The P&L cannot say that; revenue was roughly flat across the same two months. That is the single most useful sentence the new tab produces, and it now leads slide 1 of the board deck.
 
 ---
