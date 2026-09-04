@@ -1,7 +1,7 @@
 # Semantic Layer — CourtIQ instance
 
 **Instance of** `package/semantic_layer.md` v1.0 · **Owner** Head of Finance · **Ruled** 2026-08-18 · **Effective** period 2026-08 unless stated
-**Status** 20 ruled, 3 unresolved · every ruling below cites its forcing evidence
+**Status** 21 ruled, 3 unresolved · every ruling below cites its forcing evidence
 
 This file resolves the fourteen questions raised by the contract sweep of all 239 club contracts (`ingestion_escalations.csv`), the close-coverage audit (doc 28, `close_checklist.json`), and the eight metrics flagged `UNRESOLVED — Day 5` in `metric_registry.csv`. Agents read this file; no agent writes it (template Rule 6).
 
@@ -163,6 +163,8 @@ Zero is banned as an encoding of absence. A true zero minimum, should one ever b
 **What it costs.** ARR exceeds the cash run-rate by current drift. Disclosed monthly beside MET-009 until drift is zero.
 
 **Revisit when.** Drift is fixed and stays at zero for two quarters — the disclosure can then retire; the definition does not change.
+
+**Governs:** `arr_schedule.csv`; the revenue model's key-metrics block; MET-009/MET-024 lineage.
 
 ### SL-10 · Constant currency *(resolves MET-012)*
 
@@ -510,6 +512,25 @@ The ledger currently books the fee as a monthly bulk accrual, `Dr COGS — payme
 
 **Revisit when.** Account 4032 is built, at which point this entry is superseded by SL-11 in force and the split moves to the chart of accounts.
 
+### SL-31 · Ruling propagation *(resolves defect 22)*
+
+**Kind** POL · **Status** RULED · **v1.0** · effective 2026-09 (prospective)
+
+**The case.** SL-09 ruled the price basis for recurring metrics — contracted price — effective 2025-02, ratifying existing practice. `arr_schedule.csv`, the Analyst's ARR source and the board number, computed MET-009 on `actual_price_eur` the entire time. Nothing restated the figure; a ruling was written and never propagated to the artifact it rules. The failure compounded: the revenue model read the same unruled column and agreed with the schedule to the cent, and the agreement was recorded as corroboration (*"the model and the metric registry agree without either being told to"*, FL-89). Two instruments reading the same wrong basis is one error counted twice. Found 2026-09-04 by the docverify register's side-by-side section, which is the only instrument that put the figures next to each other.
+
+**The answers.** Trust each builder to know the rulings (what happened — the ruling existed and every builder missed it); re-derive everything on every ruling (safe and unaffordable); or make propagation a tracked obligation of the ruling itself.
+
+**The ruling.**
+- **Every entry names what it governs.** Each `DEF` carries a `governs:` line listing the artifacts and columns computed under it. An entry that governs nothing named is a wish with a version number.
+- **Writing or revising an entry opens one propagation item per governed artifact.** An item closes only when the artifact demonstrably computes on the ruled basis, or records a named refusal. While items are open the entry's status reads `RULED — NOT PROPAGATED`, and any figure produced under it carries that tag. A ruling is not in force because it is written; it is in force when the things it governs obey it.
+- **Agreement between instruments is corroboration only when their bases are independent.** Two artifacts that read the same input column agreeing is one computation printed twice, and may not be cited as verification of either.
+
+**Why.** The registry's authority rests on the claim that a cited figure was computed under the cited entry. Defect 22 shows the claim can be false for eighteen months without any check failing, because every existing checker verifies artifacts against artifacts or artifacts against themselves — none verifies an artifact against the ruling it cites. Propagation-as-obligation closes that gap at the moment it opens: when the ruling is written.
+
+**What it costs.** Writing a ruling is no longer free — each one now carries a governs list and a propagation register, and a ruling the owner cannot afford to propagate will sit visibly at `NOT PROPAGATED` instead of passing as done. That visibility is the point.
+
+**Revisit when.** Basis attestation is automated in the checkers (each computing artifact asserts the input column it read, checkers fail on mismatch with the `governs:` line) and runs two consecutive closes with zero mismatches — the manual register can then retire into the checker. The rule does not change.
+
 
 ### SL-24 · The retention family *(rules MET-027 to MET-032)*
 
@@ -562,6 +583,7 @@ Building them surfaced the real question, which is not *what is NRR* but *what c
 
 | Date | Entry | Change | Comparability |
 |---|---|---|---|
+| 2026-09-04 | SL-31 | Ruling propagation: every entry names what it governs; writing a ruling opens propagation items; RULED — NOT PROPAGATED until closed; same-basis agreement is not corroboration | Prospective. |
 | 2026-08-22 | SL-30 | Internal-use software capitalised under ASC 350-40 / IAS 38; amortisation ruled into cost of revenue; useful life set per project | **Restates.** Every prior period moves: FY26 cost of revenue up USD 148k, gross margin 69.1% to 66.2%, R&D down by the capitalised labour, and net book value appears on the balance sheet. |
 | 2026-08-21 | SL-29 | An account carrying two economics is split on entry-level evidence at the point of use, pending the schema change | **Restates.** Usage economics move in every prior period: FY26 metered overage USD 327k, not USD 383k; true-ups shown separately at USD 55k. |
 | 2026-08-18 | SL-24 | The retention family ruled; MET-027 to MET-032 added, three of six NOT COMPUTABLE by ruling rather than by omission | Prospective. |
