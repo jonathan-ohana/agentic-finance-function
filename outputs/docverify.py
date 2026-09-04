@@ -96,6 +96,7 @@ RECORD = {
     "what-broke/friction-log.md":            "kept failures",
     "what-broke/plan-hash-incident.md":      "kept failure",
     "outputs/pipeline-tier3.md":             "4 Sep run record; artifacts live in the private instance",
+    "outputs/workbook-refresh.md":           "4 Sep run record; model and versions live in the private instance",
 }
 
 ILLUSTRATIVE = {
