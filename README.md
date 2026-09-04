@@ -4,6 +4,8 @@ A working prototype of bookkeeping, month-end close, variance analysis, manageme
 
 The prototype was built and pressure-tested on a simulated B2B SaaS company using standard system exports rather than custom integrations.
 
+**[Read the short version →](https://jonathan-ohana.github.io/agentic-finance-function/)** — one page: the correction that changed a later agent's behavior, the three failures that shaped the design, and what this is not. Everything below is the evidence behind it.
+
 > **The thesis:** the durable product is not another agent that can calculate. It is the judgment layer that prevents a finance function from silently changing definitions, inventing causes, or repeating corrected mistakes.
 
 AI-native finance tools are good at ledger attribution — what moved, in which account, in which entity. They cannot tell you **why** in business terms, because the *why* isn't in the ledger. The value of a finance professional is still to see the story through the noise; this system is built to preserve that, not replace it.
@@ -104,7 +106,7 @@ The full, unedited record is in [`what-broke/`](what-broke/) and the [red-team a
 
 The claim is never that the numbers are right; it is that programs which did not build them say so.
 
-1. [`verify_repository.py`](verify_repository.py) runs automatically on every change to this repository (GitHub Actions) and checks what is published here: checksums, workbook structure — 455 and 275 formula cells, no macros, no external links — and every internal link.
+1. [`verify_repository.py`](verify_repository.py) runs automatically on every change to this repository (GitHub Actions) and checks what is published here: checksums, workbook structure — 455 and 275 formula cells, no macros, no external links — every internal Markdown link, and every repository link on the [landing page](https://jonathan-ohana.github.io/agentic-finance-function/), which no other check can see.
 2. [`data/validate.py`](data/validate.py) is the tie-out suite the synthetic instance must pass before any agent touches it — 52 checks, including that the instance can name the generator build that produced it.
 3. [`outputs/packverify.py`](outputs/packverify.py) recomputes every figure in the pack from the instance's data and asserts 42 cross-tab checks against the workbook's **recalculated** values, never its formulas.
 4. [`outputs/docverify.py`](outputs/docverify.py) asserts that every figure a write-up quotes still exists in the workbook it describes — built after this repository's own drift incident (RUN 12), because the first three layers all passed while the prose was wrong.

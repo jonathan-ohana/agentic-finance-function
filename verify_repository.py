@@ -111,6 +111,34 @@ def check_artifacts(manifest: dict[str, object]) -> tuple[list[str], list[str]]:
 
 LINK_PATTERN = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 
+# The landing page links into this repository by absolute URL, so the Markdown link check
+# above cannot see it: a file it points at can be renamed or deleted and nothing complains.
+# It is the most-read surface here and, until this check existed, the least verified one.
+REPO_URL = "https://github.com/jonathan-ohana/agentic-finance-function"
+HREF_PATTERN = re.compile(r'href="([^"]+)"')
+
+
+def check_html_links() -> tuple[list[str], list[str]]:
+    """Every in-repository link on an HTML page must point at a file that exists."""
+    failed: list[str] = []
+    pages = sorted(ROOT.glob("*.html"))
+    checked = 0
+
+    for page in pages:
+        for href in HREF_PATTERN.findall(page.read_text(encoding="utf-8")):
+            if not href.startswith(REPO_URL):
+                continue
+            tail = href[len(REPO_URL):]
+            relative = re.sub(r"^/(blob|tree)/[^/]+/", "", tail).lstrip("/")
+            if not relative:              # the repository root itself
+                continue
+            checked += 1
+            if not (ROOT / unquote(relative.split("#", 1)[0])).exists():
+                failed.append(f"broken repository link in {page.name}: {relative}")
+
+    passed = [f"{len(pages)} HTML page(s): {checked} repository links resolve"] if not failed else []
+    return passed, failed
+
 
 def check_markdown_links() -> tuple[list[str], list[str]]:
     failed: list[str] = []
@@ -166,9 +194,10 @@ def main() -> int:
         return 1
 
     passed, failed = check_artifacts(manifest)
-    link_passed, link_failed = check_markdown_links()
-    passed.extend(link_passed)
-    failed.extend(link_failed)
+    for checker in (check_markdown_links, check_html_links):
+        link_passed, link_failed = checker()
+        passed.extend(link_passed)
+        failed.extend(link_failed)
 
     result = {"ok": not failed, "passed": passed, "failed": failed}
     if args.json:
