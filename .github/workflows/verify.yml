@@ -18,3 +18,23 @@ jobs:
           python-version: "3.12"
       - name: Verify checksums, workbook structure, and links
         run: python verify_repository.py
+
+  docverify:
+    # Does the prose still agree with the artifacts? Recalculates the workbooks with a real
+    # spreadsheet engine, so this job pays for LibreOffice; a checker that trusts cached
+    # values has checked nothing.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install a spreadsheet engine and openpyxl
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends libreoffice-calc
+          pip install openpyxl
+      - name: Verify every write-up against the artifacts it describes
+        run: python outputs/docverify.py .
+      - name: The register must be the one this tree was committed with
+        run: git diff --exit-code outputs/docverify-register.md
