@@ -30,7 +30,7 @@ AI-native finance tools are good at ledger attribution — what moved, in which 
 | Recruiter or hiring manager | [The ownership case](CASE-STUDY.md#for-a-recruiter-the-ownership-signal) | What did the builder actually own across finance, product, systems, and execution? |
 | Finance operator | [Management reporting pack](outputs/management-reporting-pack.md) | The output, exceptions, caveats, and decisions required |
 | Controller or auditor | [Definitions](semantic-layer/definitions-instance.md), [rulings](semantic-layer/rulings/), and [red team](red-team/) | Traceability, refusal rules, known failures, and remediation |
-| Product or engineering lead | [Architecture](architecture/blueprint.md), [live-instance spec](install/live-instance-spec.md), and [wiring](playbooks/wiring.md) | Where are the system boundary, tool surface, and deployment seams? |
+| Product or engineering lead | [Architecture](architecture/blueprint.md), [workflow lifecycle](architecture/lifecycle.md), [live-instance spec](install/live-instance-spec.md), and [wiring](playbooks/wiring.md) | Where are the system boundary, tool surface, and deployment seams? |
 
 ## The output
 
@@ -123,7 +123,7 @@ The [install runbook](install/runbook.md) covers the 90-day sequence. The [organ
 
 | Folder | Contents |
 |---|---|
-| `architecture/` | System boundary, source/output design, workflow slicing, SaaS layer |
+| `architecture/` | System boundary, source/output design, workflow slicing, workflow lifecycle, SaaS layer |
 | `semantic-layer/` | Definitions, glossary, and human rulings |
 | `contracts/` | Output and commentary acceptance criteria |
 | `playbooks/` | Variance logic, agent promotion ladder, and wiring |

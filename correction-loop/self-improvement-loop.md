@@ -137,3 +137,7 @@ That rule is what lets you tell a board "the definition of ARR changed this quar
 **Day 9.** The governance demo gets much stronger. Instead of "here is one caught error," it becomes: *here is the agent's scorecard, here is the error it missed, here is the demotion it triggered, here is the semantic-layer version that came out of it, and here is the check that now prevents it.* A closed loop, shown end to end.
 
 **Day 10.** The case study line: *"the system is designed to get more autonomous only by earning it, and to lose autonomy automatically when it doesn't."*
+
+---
+
+The ledger has a second role, written up after this repository was published: as well as teaching a workflow, it says when a workflow has stopped needing to learn. Consecutive runs producing no new rulings are the empirical signal that the workflow is ready to be compiled into deterministic code, with the model kept only at the judgment nodes. See [the workflow lifecycle](../architecture/lifecycle.md).
