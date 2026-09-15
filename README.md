@@ -31,6 +31,7 @@ AI-native finance tools are good at ledger attribution — what moved, in which 
 | Finance operator | [Management reporting pack](outputs/management-reporting-pack.md) | The output, exceptions, caveats, and decisions required |
 | Controller or auditor | [Definitions](semantic-layer/definitions-instance.md), [rulings](semantic-layer/rulings/), and [red team](red-team/) | Traceability, refusal rules, known failures, and remediation |
 | Product or engineering lead | [Architecture](architecture/blueprint.md), [workflow lifecycle](architecture/lifecycle.md), [system map](architecture/system-map.md), [live-instance spec](install/live-instance-spec.md), and [wiring](playbooks/wiring.md) | Where are the system boundary, tool surface, and deployment seams? |
+| Anyone weighing the “company brain” framing | [The company brain, and where the librarian went](architecture/company-brain.md) | How does the brain vocabulary map onto this repository, and why is there no librarian agent? |
 
 ## The output
 
