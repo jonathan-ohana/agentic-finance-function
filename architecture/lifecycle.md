@@ -44,7 +44,8 @@ correction loop hold it while the rulings accumulate. This is the phase this rep
 **It is compiled when the corrections converge.** When several consecutive runs produce no new
 rulings, the workflow has stopped discovering and has revealed its own stable structure. That is
 the point to write it down as code: a deterministic pipeline for the mechanics, with the model
-retained only at the nodes where judgment is required.
+retained only at the nodes where judgment is required. [The system map](system-map.md)
+documents what the compiled state looks like in practice.
 
 | Phase | What it is | What holds it | Exit condition |
 |---|---|---|---|

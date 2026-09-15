@@ -127,6 +127,7 @@ UNVERIFIABLE = {
     "outputs/forecast-model.md":             "the forecast workbook is not published in this repository",
     "outputs/lrp/long-range-plan.md":        "the LRP workbook is not published in this repository",
     "outputs/lrp/planning-cadence-lbe.md":   "describes the cadence around workbooks not published here",
+    "architecture/system-map.md":            "the installable package it maps - engines, rulebook and packs - is not published in this repository",
 }
 
 # A new, unclassified doc quoting at least this many figures fails the build. Below the

@@ -18,6 +18,7 @@ Every write-up in this repository that quotes figures, and what kind of claim it
 | architecture/saas-layer.md | illustrative | 18 | architecture; worked examples |
 | architecture/slicing.md | illustrative | 11 | architecture; worked examples |
 | architecture/source-vs-output.md | illustrative | 5 | architecture; worked examples |
+| architecture/system-map.md | unverifiable | 3 | REFUSED - the installable package it maps - engines, rulebook and packs - is not published in this repository |
 | contracts/commentary-contract.md | illustrative | 11 | contract; worked examples |
 | correction-loop/first-review-session.md | record | 5 | review record |
 | correction-loop/iteration-log.md | (noted) | 3 | below threshold; unclassified |
