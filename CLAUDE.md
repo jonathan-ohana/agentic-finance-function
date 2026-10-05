@@ -144,9 +144,8 @@ A dated run report that quotes figures from a workbook that ships here is still 
   proposes it in a PR, per §1. *Enforced by* [`package/canonicity.py`](package/canonicity.py)
   in CI ([`behaviors.yml`](.github/workflows/behaviors.yml)): supersession symmetric in both
   directions, no stale references, no duplicate document numbers, and the regenerated
-  `outputs/canon-register.md` diffed against the committed one. Unclassified docs are
-  tolerated for now via `--allow-unclassified`; that flag comes off in its own change, when
-  the owner declares classification complete.
+  `outputs/canon-register.md` diffed against the committed one. Classification is
+  complete; an unclassified document fails.
 - **Behavior specs stay out of anything an agent reads.** The specs in `package/behaviors/`
   grade agents after the run and are never shown to them — the charter/rubric separation. No
   agent-facing file, this one included, may carry a spec's ID or its condition or expectation

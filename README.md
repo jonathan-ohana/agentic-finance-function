@@ -119,7 +119,7 @@ Layers 2–4 read the live instance's data, so they don't run from this reposito
 
 Beyond the four layers, two gates run in CI on every change. They check the write-ups and the agents rather than the figures:
 
-- [`package/canonicity.py`](package/canonicity.py) asserts which write-up is the current word on its subject, per [CANON.md](CANON.md): every named successor exists and is canonical, supersession is declared in both directions, no current document points at a superseded one by accident, and no document number is used twice. It runs with `--allow-unclassified` while the owner classifies the tree; the flag comes off when classification is complete.
+- [`package/canonicity.py`](package/canonicity.py) asserts which write-up is the current word on its subject, per [CANON.md](CANON.md): every named successor exists and is canonical, supersession is declared in both directions, no current document points at a superseded one by accident, and no document number is used twice. Classification is complete; an unclassified document fails.
 - [`package/judge.py`](package/judge.py) grades agent trajectories against the behavior specs in [`package/behaviors/`](package/behaviors/README.md), which no agent ever reads. CI plants known failures in fixture runs and requires the judge to find exactly those — a missed one means the judge is broken, an extra one means the judge or the specs changed.
 
 ## Install philosophy
