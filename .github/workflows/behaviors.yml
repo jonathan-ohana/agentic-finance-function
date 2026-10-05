@@ -77,11 +77,10 @@ jobs:
         run: python tests/fixtures/recorder-mixed-return/replay.py
 
   canonicity:
-    # Which write-up is the current word on its subject. Runs with --allow-unclassified while
-    # the owner classifies the tree: unclassified documents are reported, not failed, but
-    # dangling successors, asymmetric relations, superseded records, cycles, stale references
-    # and duplicate numbers gate from now on. The flag comes off in its own change, when the
-    # owner says classification is complete.
+    # Which write-up is the current word on its subject. Classification is complete (the owner
+    # ratified a canon status for every write-up), so --allow-unclassified is off: an
+    # unclassified document now fails, alongside dangling successors, asymmetric relations,
+    # superseded records, cycles, stale references and duplicate numbers.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -89,7 +88,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Every relation between documents holds
-        run: python package/canonicity.py --allow-unclassified --export
+        run: python package/canonicity.py --export
       - name: The register must be the one this tree was committed with
         run: git diff --exit-code outputs/canon-register.md
       - name: The judge must know every superseded document
