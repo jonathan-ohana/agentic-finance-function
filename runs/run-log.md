@@ -492,8 +492,8 @@ four duplicate accruals removed; one kept as a deliberate control test.
 
 **Four patterns worth carrying into a conversation.**
 
-Twenty instrument defects, and not one was found by an agent being clever. Every one surfaced when two
-artifacts describing the same money were put side by side and required to agree.
+Thirty instrument defects by RUN 12, and not one was found by an agent being clever. Every one
+surfaced when two artifacts describing the same money were put side by side and required to agree.
 
 The fix that moved the score from 11 to 17 was not a better model or a better prompt. It was **six
 deterministic joins between the paperwork and the ledger**. Precompute defines the search space; widen
