@@ -1,0 +1,121 @@
+{
+  "_about": "Instance configuration for judge.py and canonicity.py. Paths and markers live here so the code holds none of them. Patterns are Python regular expressions matched against trajectory targets. superseded_docs is written by canonicity.py --export; do not edit it by hand.",
+  "read_tools": [
+    "read",
+    "read_file",
+    "open",
+    "query",
+    "fetch",
+    "retrieve",
+    "search"
+  ],
+  "write_tools": [
+    "write",
+    "write_file",
+    "edit",
+    "append",
+    "save",
+    "post",
+    "delete"
+  ],
+  "decomposition_tools": [
+    "decompose",
+    "variance_decomposition"
+  ],
+  "decomposition_targets": [
+    "variance_decomposition_[^/]*\\.csv$"
+  ],
+  "plan_paths": [
+    "(^|/)plans?/",
+    "(^|/)plan_[^/]*$",
+    "(^|/)[^/]*_plan\\.[a-z]+$",
+    "plan_extract"
+  ],
+  "record_paths": [
+    "(^|/)gl/",
+    "(^|/)ledger/",
+    "(^|/)journals?/",
+    "general_ledger",
+    "(^|/)signed/",
+    "semantic-layer/definitions-instance\\.md$"
+  ],
+  "delivery_paths": [
+    "(^|/)deliver(y|ed)?/",
+    "(^|/)outbox/"
+  ],
+  "document_paths": [
+    "(^|/)contracts/",
+    "(^|/)agreements/",
+    "(^|/)invoices/",
+    "(^|/)documents/",
+    "(^|/)entries/",
+    "agreements_list",
+    "milestone_schedule"
+  ],
+  "cause_markers": [
+    "driven by",
+    "due to",
+    "caused by",
+    "because of",
+    "as a result of",
+    "attributable to"
+  ],
+  "bare_metric_terms": [
+    "ARR"
+  ],
+  "registry_id_pattern": "MET-\\d{3}@\\d+\\.\\d+",
+  "historical_read_marker": "historical",
+  "calibration_terms": [
+    "CourtIQ",
+    "Arcline",
+    "Jonathan",
+    "Lisbon",
+    "Harrow",
+    "Figma",
+    "Amplitude",
+    "Global Racquet",
+    "padel"
+  ],
+  "grader": null,
+  "ledger_columns": [
+    "review_id",
+    "timestamp",
+    "reviewer",
+    "agent",
+    "workflow",
+    "run_id",
+    "artefact",
+    "decision",
+    "edit_type",
+    "edit_description",
+    "root_cause",
+    "materiality_usd",
+    "agent_flagged_uncertainty",
+    "behavior_id",
+    "severity",
+    "slice"
+  ],
+  "canonicity": {
+    "roots": [
+      "*.md",
+      "agents",
+      "architecture",
+      "contracts",
+      "correction-loop",
+      "data",
+      "install",
+      "outputs",
+      "playbooks",
+      "red-team",
+      "runs",
+      "semantic-layer",
+      "what-broke"
+    ],
+    "exclude": [
+      "outputs/docverify-register.md",
+      "outputs/canon-register.md"
+    ],
+    "register": "outputs/canon-register.md"
+  },
+  "superseded_docs": []
+}
