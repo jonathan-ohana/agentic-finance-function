@@ -1,5 +1,7 @@
 # 74 — The live instance: a Co-pilot you can ask anything
 
+<!-- canon: canonical -->
+
 *Written 23 Aug 2026. Builds the infrastructure doc 71 (free-form Co-pilot)
 specified and doc 21 (the Co-pilot charter) governs. Companion to doc 70
 (routing), doc 72 (re-tiering) and doc 73 (routing review). The sealed-month

@@ -1,5 +1,7 @@
 # 79 — Playbook 78 v0.2, wired into the engine
 
+<!-- canon: canonical -->
+
 *Written 24 Aug 2026 against `tools/drivers.py`. One row per red-line correction: what it changed, and whether a machine now enforces it or a person does. A playbook nobody can point at in running code is a document; this is the map that stops it becoming one.*
 
 ## The rule this map exists to enforce

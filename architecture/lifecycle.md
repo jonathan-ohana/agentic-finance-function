@@ -1,5 +1,7 @@
 # The workflow lifecycle: explore, operate, compile
 
+<!-- canon: canonical -->
+
 *Written 9 Sep 2026, after this repository was published. It is doctrine informed by field
 research — operating the system described here, and conversations with practitioners running
 finance work at volumes I have not run. The lifecycle below has not been run end to end. What

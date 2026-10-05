@@ -1,5 +1,7 @@
 # 06 — Model tiering and budget policy
 
+<!-- canon: canonical -->
+
 **Status:** operating rule for all work in this project, from Phase 2 onward.
 **Revised 23 Aug 2026** on the Opus 5 re-tiering — see doc 72. The principle
 below is unchanged; only the names and the arithmetic moved, which is the

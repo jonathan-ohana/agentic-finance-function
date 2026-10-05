@@ -1,5 +1,7 @@
 # 69 — The output contract: what a finance function is supposed to produce
 
+<!-- canon: canonical -->
+
 *Built 21 Aug 2026. `package/output_contract.json`, `package/output_map.py`, `package/WHAT-IT-PRODUCES.md`.*
 
 ---

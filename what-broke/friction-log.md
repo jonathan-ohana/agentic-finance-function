@@ -1,5 +1,7 @@
 # 60 — Friction log: user trial, live
 
+<!-- canon: record -->
+
 *Trial 2 onward. Jonathan in the finance-hire seat; observations recorded as they happen, in his words where possible. Protocol: doc 56, **as amended below on 20 Aug**.*
 
 **Severity key** — **P0** blocks a user entirely · **P1** costs real time or credibility · **P2** cosmetic or a nice-to-have.

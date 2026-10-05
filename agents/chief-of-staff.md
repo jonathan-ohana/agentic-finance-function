@@ -1,5 +1,7 @@
 # 28 — Accounting coverage, the close checklist, and the CFO Chief of Staff
 
+<!-- canon: record -->
+
 **Date** 18 August 2026 · **Sprint day** 4 (extended) · **Status** built and run
 
 Two questions were asked. The first was an audit: does this workforce actually do the accounting a Series A head of finance does? The second was a design request: an agent that holds the CFO accountable to the finance calendar.

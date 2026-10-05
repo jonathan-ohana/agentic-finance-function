@@ -1,5 +1,7 @@
 # 34 — The two loops, and the audit that withdrew itself
 
+<!-- canon: record -->
+
 **Date** 18 August 2026 · **Sprint** unplanned, ahead of Day 9 · **Status** built and run
 
 The prompt was a Blomfield slide: *"AI is not something you bolt onto the side of a company. The company itself has to be built with self-improving AI Loops from the ground up."* The question was whether this workforce is built that way.

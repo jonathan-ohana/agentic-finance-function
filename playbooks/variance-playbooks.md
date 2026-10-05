@@ -1,5 +1,7 @@
 # 78 — Variance analysis playbook library (v0.2 — red-lined)
 
+<!-- canon: canonical -->
+
 *v0.1 drafted 20 Aug 2026 (Fable). v0.2 incorporates Jonathan's red-line of 20 Aug — eleven corrections, logged at the foot of this doc. Sections 3, 4, 5, 9, 10 and the shared method received no red-line: treated as accepted, revisit after the first live month. READY FOR WIRING into the Analyst charter.*
 
 ## Shared method (applies to every account)

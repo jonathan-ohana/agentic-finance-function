@@ -1,5 +1,7 @@
 # 89 — Arcline run 03: the speed architecture, and what it found
 
+<!-- canon: record -->
+
 **Instance** Arcline AI, Inc. · **Period** 2026-01, closed and signed, ten adjustments posted
 **Run** 03 (post-engine, four-way fan-out) · **Predecessor** doc 87 (run 01), doc 88 (v2 fixes)
 

@@ -6,11 +6,11 @@ Which write-up is the current word on its subject, and which are history. The do
 
 | Status | Documents |
 |---|---:|
-| canonical | 0 |
+| canonical | 41 |
 | superseded | 0 |
-| record | 1 |
-| external | 0 |
-| unclassified | 81 |
+| record | 40 |
+| external | 1 |
+| unclassified | 0 |
 
 Unclassified documents are reported, not failed (--allow-unclassified).
 
@@ -22,85 +22,85 @@ None.
 
 | Document | Status | Number | Supersedes | Superseded by |
 |---|---|---|---|---|
-| CANON.md | unclassified |  |  |  |
-| CASE-STUDY.md | unclassified |  |  |  |
-| CLAUDE.md | unclassified |  |  |  |
-| EXECUTIVE-BRIEF.md | unclassified |  |  |  |
-| README.md | unclassified |  |  |  |
-| agents/analyst-runbook.md | unclassified |  |  |  |
-| agents/analyst.md | unclassified | 33 |  |  |
-| agents/bookkeeper.md | unclassified | 32 |  |  |
-| agents/chief-of-staff.md | unclassified | 28 |  |  |
-| agents/controller.md | unclassified | 53 |  |  |
-| agents/copilot-charter.md | unclassified | 21 |  |  |
-| agents/copilot-freeform-addendum.md | unclassified | 71 |  |  |
-| agents/evidence.md | unclassified | 24 |  |  |
-| agents/forecaster.md | unclassified | 46 |  |  |
-| agents/operator-instructions.md | unclassified |  |  |  |
-| agents/reporter.md | unclassified | 18 |  |  |
-| architecture/blueprint.md | unclassified |  |  |  |
-| architecture/company-brain.md | unclassified |  |  |  |
-| architecture/lifecycle.md | unclassified |  |  |  |
-| architecture/saas-layer.md | unclassified | 44 |  |  |
-| architecture/slicing.md | unclassified | 76 |  |  |
-| architecture/source-vs-output.md | unclassified | 15 |  |  |
-| architecture/system-map.md | unclassified |  |  |  |
-| contracts/commentary-contract.md | unclassified | 81 |  |  |
-| contracts/output-contract.md | unclassified | 69 |  |  |
-| correction-loop/first-review-session.md | unclassified | 38 |  |  |
-| correction-loop/iteration-log.md | unclassified | 201 |  |  |
-| correction-loop/judge-layer-and-canonicity.md | unclassified |  |  |  |
-| correction-loop/loop-verification.md | unclassified | 39 |  |  |
-| correction-loop/observability.md | unclassified | 37 |  |  |
-| correction-loop/reviewer-edits.md | unclassified | 45 |  |  |
-| correction-loop/self-improvement-loop.md | unclassified | 19 |  |  |
-| correction-loop/the-two-loops.md | unclassified | 34 |  |  |
-| data/calculation-methodology.md | unclassified |  |  |  |
-| data/dataset-build-notes.md | unclassified | 13 |  |  |
-| data/edge-cases/churn-plant.md | unclassified | 51 |  |  |
-| data/edge-cases/design.md | unclassified | 12 |  |  |
-| data/simulated-company-spec.md | unclassified | 10 |  |  |
-| install/live-instance-spec.md | unclassified | 74 |  |  |
-| install/model-routing/doctrine.md | unclassified | 70 |  |  |
-| install/model-routing/review-cadence.md | unclassified | 73 |  |  |
-| install/model-routing/tiering-and-budget.md | unclassified | 06 |  |  |
-| install/org-assessment.md | unclassified | 23 |  |  |
-| install/portability.md | unclassified | 75 |  |  |
-| install/runbook.md | unclassified | 85 |  |  |
-| outputs/arcline-pack-and-lbe.md | unclassified | 90 |  |  |
-| outputs/entry-triage-and-reforecast.md | unclassified | 77 |  |  |
-| outputs/forecast-model.md | unclassified | 47 |  |  |
-| outputs/lrp/doctrine.md | unclassified | 83 |  |  |
-| outputs/lrp/long-range-plan.md | unclassified | 203 |  |  |
-| outputs/lrp/planning-cadence-lbe.md | unclassified | 82 |  |  |
-| outputs/management-reporting-pack.md | unclassified | 202 |  |  |
-| outputs/pack-rebuilt.md | unclassified | 43 |  |  |
-| outputs/pipeline-tier3.md | unclassified |  |  |  |
-| outputs/sealed-ceo-briefing.md | unclassified | 57 |  |  |
-| outputs/workbook-refresh.md | unclassified |  |  |  |
-| playbooks/agent-playbook.md | unclassified | 67 |  |  |
-| playbooks/variance-playbooks.md | unclassified | 78 |  |  |
-| playbooks/wiring.md | unclassified | 79 |  |  |
-| red-team/audit-brief.md | unclassified |  |  |  |
-| red-team/audit-findings.md | unclassified | 49 |  |  |
-| red-team/audit-response.md | unclassified | 50 |  |  |
-| runs/arcline/01-test-instance.md | unclassified | 86 |  |  |
-| runs/arcline/02-run-01.md | unclassified | 87 |  |  |
-| runs/arcline/03-instrument-fixes.md | unclassified | 88 |  |  |
-| runs/arcline/04-run-03-findings.md | unclassified | 89 |  |  |
+| CANON.md | canonical |  |  |  |
+| CASE-STUDY.md | canonical |  |  |  |
+| CLAUDE.md | canonical |  |  |  |
+| EXECUTIVE-BRIEF.md | canonical |  |  |  |
+| README.md | canonical |  |  |  |
+| agents/analyst-runbook.md | canonical |  |  |  |
+| agents/analyst.md | record | 33 |  |  |
+| agents/bookkeeper.md | record | 32 |  |  |
+| agents/chief-of-staff.md | record | 28 |  |  |
+| agents/controller.md | record | 53 |  |  |
+| agents/copilot-charter.md | canonical | 21 |  |  |
+| agents/copilot-freeform-addendum.md | canonical | 71 |  |  |
+| agents/evidence.md | canonical | 24 |  |  |
+| agents/forecaster.md | record | 46 |  |  |
+| agents/operator-instructions.md | canonical |  |  |  |
+| agents/reporter.md | canonical | 18 |  |  |
+| architecture/blueprint.md | canonical |  |  |  |
+| architecture/company-brain.md | canonical |  |  |  |
+| architecture/lifecycle.md | canonical |  |  |  |
+| architecture/saas-layer.md | record | 44 |  |  |
+| architecture/slicing.md | canonical | 76 |  |  |
+| architecture/source-vs-output.md | canonical | 15 |  |  |
+| architecture/system-map.md | external |  |  |  |
+| contracts/commentary-contract.md | canonical | 81 |  |  |
+| contracts/output-contract.md | canonical | 69 |  |  |
+| correction-loop/first-review-session.md | record | 38 |  |  |
+| correction-loop/iteration-log.md | record | 201 |  |  |
+| correction-loop/judge-layer-and-canonicity.md | record |  |  |  |
+| correction-loop/loop-verification.md | record | 39 |  |  |
+| correction-loop/observability.md | record | 37 |  |  |
+| correction-loop/reviewer-edits.md | record | 45 |  |  |
+| correction-loop/self-improvement-loop.md | canonical | 19 |  |  |
+| correction-loop/the-two-loops.md | record | 34 |  |  |
+| data/calculation-methodology.md | canonical |  |  |  |
+| data/dataset-build-notes.md | record | 13 |  |  |
+| data/edge-cases/churn-plant.md | record | 51 |  |  |
+| data/edge-cases/design.md | canonical | 12 |  |  |
+| data/simulated-company-spec.md | canonical | 10 |  |  |
+| install/live-instance-spec.md | canonical | 74 |  |  |
+| install/model-routing/doctrine.md | canonical | 70 |  |  |
+| install/model-routing/review-cadence.md | canonical | 73 |  |  |
+| install/model-routing/tiering-and-budget.md | canonical | 06 |  |  |
+| install/org-assessment.md | canonical | 23 |  |  |
+| install/portability.md | canonical | 75 |  |  |
+| install/runbook.md | canonical | 85 |  |  |
+| outputs/arcline-pack-and-lbe.md | canonical | 90 |  |  |
+| outputs/entry-triage-and-reforecast.md | canonical | 77 |  |  |
+| outputs/forecast-model.md | record | 47 |  |  |
+| outputs/lrp/doctrine.md | canonical | 83 |  |  |
+| outputs/lrp/long-range-plan.md | canonical | 203 |  |  |
+| outputs/lrp/planning-cadence-lbe.md | canonical | 82 |  |  |
+| outputs/management-reporting-pack.md | record | 202 |  |  |
+| outputs/pack-rebuilt.md | record | 43 |  |  |
+| outputs/pipeline-tier3.md | record |  |  |  |
+| outputs/sealed-ceo-briefing.md | record | 57 |  |  |
+| outputs/workbook-refresh.md | record |  |  |  |
+| playbooks/agent-playbook.md | canonical | 67 |  |  |
+| playbooks/variance-playbooks.md | canonical | 78 |  |  |
+| playbooks/wiring.md | canonical | 79 |  |  |
+| red-team/audit-brief.md | record |  |  |  |
+| red-team/audit-findings.md | record | 49 |  |  |
+| red-team/audit-response.md | record | 50 |  |  |
+| runs/arcline/01-test-instance.md | record | 86 |  |  |
+| runs/arcline/02-run-01.md | record | 87 |  |  |
+| runs/arcline/03-instrument-fixes.md | record | 88 |  |  |
+| runs/arcline/04-run-03-findings.md | record | 89 |  |  |
 | runs/arcline/05-loop-status.md | record | 204 |  |  |
-| runs/first-agent-run.md | unclassified | 25 |  |  |
-| runs/full-sweep-findings.md | unclassified | 27 |  |  |
-| runs/ingestion-at-volume.md | unclassified | 26 |  |  |
-| runs/run-log.md | unclassified | 95 |  |  |
-| runs/scorecard.md | unclassified |  |  |  |
-| runs/sealed-run-01.md | unclassified | 94 |  |  |
-| runs/trigger-table.md | unclassified | 93 |  |  |
-| semantic-layer/definitions-instance.md | unclassified |  |  |  |
-| semantic-layer/definitions-template.md | unclassified |  |  |  |
-| semantic-layer/glossary.md | unclassified | 35 |  |  |
-| semantic-layer/rulings/agentic-scope-ruling.md | unclassified | 84 |  |  |
-| semantic-layer/rulings/plan-ruling-r2.md | unclassified | 200 |  |  |
-| what-broke/failure-case.md | unclassified | 54 |  |  |
-| what-broke/friction-log.md | unclassified | 60 |  |  |
-| what-broke/plan-hash-incident.md | unclassified |  |  |  |
+| runs/first-agent-run.md | record | 25 |  |  |
+| runs/full-sweep-findings.md | record | 27 |  |  |
+| runs/ingestion-at-volume.md | record | 26 |  |  |
+| runs/run-log.md | record | 95 |  |  |
+| runs/scorecard.md | record |  |  |  |
+| runs/sealed-run-01.md | record | 94 |  |  |
+| runs/trigger-table.md | canonical | 93 |  |  |
+| semantic-layer/definitions-instance.md | canonical |  |  |  |
+| semantic-layer/definitions-template.md | canonical |  |  |  |
+| semantic-layer/glossary.md | record | 35 |  |  |
+| semantic-layer/rulings/agentic-scope-ruling.md | canonical | 84 |  |  |
+| semantic-layer/rulings/plan-ruling-r2.md | record | 200 |  |  |
+| what-broke/failure-case.md | record | 54 |  |  |
+| what-broke/friction-log.md | record | 60 |  |  |
+| what-broke/plan-hash-incident.md | record |  |  |  |

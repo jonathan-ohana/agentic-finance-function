@@ -1,5 +1,7 @@
 # 33 — The Analyst, the variance engine, and the plan that was not a plan
 
+<!-- canon: record -->
+
 **Date** 18 August 2026, morning · **Sprint** plan-day 7 (first half), on calendar day 2 · **Status** built and run twice
 
 Second agent of the spine. Same architecture as the Bookkeeper: `package/variance.py` computes, `package/charters/analyst.md` attributes.

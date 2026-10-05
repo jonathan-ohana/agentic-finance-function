@@ -1,5 +1,7 @@
 # The plan-hash incident
 
+<!-- canon: record -->
+
 *The most instructive failure in this build: an agent made a methodologically **correct** improvement that **corrupted** the output. Extracted from `contracts/commentary-contract.md` (amendment v2.1) and preserved here because it is the clearest example of why agentic finance needs governance rather than better prompting.*
 
 ## What happened, in one paragraph

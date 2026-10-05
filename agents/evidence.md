@@ -1,5 +1,7 @@
 # 24 — The Evidence agent: for every number, where is the paper?
 
+<!-- canon: canonical -->
+
 *18 Aug 2026. The ninth agent, and the one that answers the question a finance person actually asks forty times a month.*
 
 ---

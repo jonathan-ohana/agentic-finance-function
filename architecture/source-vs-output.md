@@ -1,5 +1,7 @@
 # 15 — Source Data vs. Agent Output: the architectural line
 
+<!-- canon: canonical -->
+
 *Decided Mon 17 Aug 2026, mid-build, after a course correction. This is the rule that governs everything from Day 3 onward.*
 
 ---

@@ -1,5 +1,7 @@
 # 70 — Model routing doctrine: the right model per request
 
+<!-- canon: canonical -->
+
 *Ruled 20 Aug 2026 (Fable). Extends doc 06 (builder-side tiering) to the product itself. Companion to docs 19 (self-improvement loop) and 68 (MVP spec).*
 *Table re-tiered 23 Aug 2026 on the Opus 5 release — see doc 72. Structure unchanged; only the assignments moved.*
 *The table now lives as a versioned file, `package/routing_table.json`, reviewed monthly under doc 73. The markdown below is the reading copy; the file is the one the tools read.*

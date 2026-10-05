@@ -1,5 +1,7 @@
 # The pipeline surface — tier 3, first implementation
 
+<!-- canon: record -->
+
 *Built 4 Sep 2026 on the Arcline instance. `_generator/pipeline.py`; outputs in
 `06-forecast/FY2026/`. The artifacts are not published in this repository; this is
 the record of the run.*

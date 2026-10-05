@@ -1,5 +1,7 @@
 # 49 — Fable audit: the July 2026 reporting and forecasting pack
 
+<!-- canon: record -->
+
 **Fable session output, 19 Aug 2026**, against `mgmt_reporting_pack_2026-07.xlsx` (20 tabs, 6,020 formulas) and the brief in doc 48. **Seat taken: incoming Head of Finance, nine days from the board.**
 
 ---

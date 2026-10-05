@@ -1,5 +1,7 @@
 # 95 — Run log
 
+<!-- canon: record -->
+
 *Every run, one block, newest first. Five fields, always the same, so it can be skimmed.*
 
 **RAN** what executed · **FOUND** the score · **VERDICT** pass / partial / fail, and whose fault

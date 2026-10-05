@@ -1,5 +1,7 @@
 # 27 — The full sweep: 239 contracts, 19 payroll invoices
 
+<!-- canon: record -->
+
 *18 Aug 2026. Closing the coverage loose end from Day 4. Twelve agents across nine batches, working independently from the same charter.*
 
 ---

@@ -1,5 +1,7 @@
 # 12 — Edge-Case Design (Fable #1 deliverable)
 
+<!-- canon: canonical -->
+
 *Supersedes the twelve-candidate list in doc 10. Day 1 of the Aug 17–28 sprint. Final: ten designed cases + ambient conditions + two generator-level traps.*
 
 ## The ten cases, each testing a distinct failure mode

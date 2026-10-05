@@ -1,5 +1,7 @@
 # 21 — The Co-pilot: a read-only query layer over the finance function
 
+<!-- canon: canonical -->
+
 *Written 18 Aug 2026. Adds a seventh agent to the blueprint in doc 03 — the first one that answers questions rather than producing artefacts. Input to Fable #3 (charters) and a candidate build for Day 8.*
 
 ---

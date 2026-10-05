@@ -67,57 +67,57 @@ Named metrics quoted with more than one value across write-ups. Reported, not sc
 
 **ARR, 2026-07**
 
-- 4,608,471.0 — what-broke/friction-log.md:834
-- 4,743,222.0 — architecture/saas-layer.md:45
-- 4,743,222.0 — data/calculation-methodology.md:158
-- 4,743,222.0 — what-broke/friction-log.md:515
-- 4,743,222.0 — what-broke/friction-log.md:840
+- 4,608,471.0 — what-broke/friction-log.md:836
+- 4,743,222.0 — architecture/saas-layer.md:47
+- 4,743,222.0 — data/calculation-methodology.md:160
+- 4,743,222.0 — what-broke/friction-log.md:517
+- 4,743,222.0 — what-broke/friction-log.md:842
 
 **ARR, unstated**
 
-- 4,743,222.0 — data/edge-cases/churn-plant.md:31
-- 4,743,222.0 — red-team/audit-brief.md:76
-- 5,171,781.0 — data/calculation-methodology.md:131
+- 4,743,222.0 — data/edge-cases/churn-plant.md:33
+- 4,743,222.0 — red-team/audit-brief.md:78
+- 5,171,781.0 — data/calculation-methodology.md:133
 
 **DSO (days), unstated**
 
-- 11.0 — outputs/management-reporting-pack.md:224
-- 15.5 — outputs/management-reporting-pack.md:166
-- 18.5 — outputs/management-reporting-pack.md:167
-- 55.0 — runs/run-log.md:265
-- 55.0 — runs/run-log.md:454
-- 55.1 — runs/run-log.md:195
-- 55.9 — outputs/arcline-pack-and-lbe.md:136
-- 90.0 — runs/sealed-run-01.md:125
+- 11.0 — outputs/management-reporting-pack.md:226
+- 15.5 — outputs/management-reporting-pack.md:168
+- 18.5 — outputs/management-reporting-pack.md:169
+- 55.0 — runs/run-log.md:267
+- 55.0 — runs/run-log.md:456
+- 55.1 — runs/run-log.md:197
+- 55.9 — outputs/arcline-pack-and-lbe.md:138
+- 90.0 — runs/sealed-run-01.md:127
 
 **gross margin (%), FY2025**
 
-- 71.1 — runs/arcline/03-instrument-fixes.md:140
-- 72.3 — runs/arcline/01-test-instance.md:35
+- 71.1 — runs/arcline/03-instrument-fixes.md:142
+- 72.3 — runs/arcline/01-test-instance.md:37
 
 **gross margin (%), unstated**
 
-- 52.9 — outputs/lrp/long-range-plan.md:170
-- 64.2 — outputs/lrp/planning-cadence-lbe.md:127
-- 67.7 — runs/arcline/03-instrument-fixes.md:130
-- 67.8 — runs/arcline/01-test-instance.md:101
-- 68.0 — data/dataset-build-notes.md:39
-- 68.0 — data/simulated-company-spec.md:52
-- 69.1 — what-broke/friction-log.md:995
-- 69.1 — what-broke/friction-log.md:1003
-- 69.5 — data/edge-cases/churn-plant.md:33
-- 69.5 — red-team/audit-brief.md:73
-- 74.2 — outputs/arcline-pack-and-lbe.md:70
-- 75.6 — outputs/arcline-pack-and-lbe.md:31
+- 52.9 — outputs/lrp/long-range-plan.md:172
+- 64.2 — outputs/lrp/planning-cadence-lbe.md:129
+- 67.7 — runs/arcline/03-instrument-fixes.md:132
+- 67.8 — runs/arcline/01-test-instance.md:103
+- 68.0 — data/dataset-build-notes.md:41
+- 68.0 — data/simulated-company-spec.md:54
+- 69.1 — what-broke/friction-log.md:997
+- 69.1 — what-broke/friction-log.md:1005
+- 69.5 — data/edge-cases/churn-plant.md:35
+- 69.5 — red-team/audit-brief.md:75
+- 74.2 — outputs/arcline-pack-and-lbe.md:72
+- 75.6 — outputs/arcline-pack-and-lbe.md:33
 
 **runway (months), unstated**
 
-- 1.6 — outputs/management-reporting-pack.md:189
-- 15.0 — data/dataset-build-notes.md:42
-- 16.1 — red-team/audit-brief.md:75
-- 17.4 — runs/scorecard.md:153
-- 19.0 — data/calculation-methodology.md:111
-- 19.0 — data/dataset-build-notes.md:59
-- 19.0 — data/dataset-build-notes.md:65
-- 35.3 — outputs/arcline-pack-and-lbe.md:74
+- 1.6 — outputs/management-reporting-pack.md:191
+- 15.0 — data/dataset-build-notes.md:44
+- 16.1 — red-team/audit-brief.md:77
+- 17.4 — runs/scorecard.md:155
+- 19.0 — data/calculation-methodology.md:113
+- 19.0 — data/dataset-build-notes.md:61
+- 19.0 — data/dataset-build-notes.md:67
+- 35.3 — outputs/arcline-pack-and-lbe.md:76
 

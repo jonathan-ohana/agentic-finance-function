@@ -1,5 +1,7 @@
 # 18 — The Reporter: charter, standard board deck, and CEO briefing
 
+<!-- canon: canonical -->
+
 *Written 17 Aug 2026. Closes a gap in doc 03, where the Reporter's deliverable was named ("board pack") but never specified. Input to Fable session #3 on Day 6, and the build target for Day 8.*
 
 ---

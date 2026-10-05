@@ -1,5 +1,7 @@
 # 54 — The deliberate failure case: the one I did not have to plant
 
+<!-- canon: record -->
+
 **Date** 20 August 2026 · **Plan-day** 9 · **Status** built, fired, closed
 
 ---

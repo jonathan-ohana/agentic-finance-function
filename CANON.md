@@ -1,5 +1,7 @@
 # Canon
 
+<!-- canon: canonical -->
+
 Which write-up is the current word on its subject, which ones are history, and why this
 repository is classified in place rather than rewritten.
 

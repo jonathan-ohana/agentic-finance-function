@@ -1,5 +1,7 @@
 # The system map: the compiled state, end to end
 
+<!-- canon: external -->
+
 *Written 15 Sep 2026. Beyond the evidence base published here, a second build exists: an
 installable, company-neutral package developed against a simulated company's messy exports. It
 reached the state [the workflow lifecycle](lifecycle.md) calls Compile. This page is its anatomy,

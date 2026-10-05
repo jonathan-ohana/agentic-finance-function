@@ -1,5 +1,7 @@
 # 84 — "True agentic": scorecard, trigger table, deployment ladder
 
+<!-- canon: canonical -->
+
 *Ruled 23 Aug 2026 from the "not true agentic if built in Cowork" critique. Definition used (industry-standard, per vendor guidance): agent = trigger + tools + instructions + output, multi-step without per-step human initiation. Human checkpoints are governance, NOT absence of agency — propose-and-approve is the market default; never concede that point.*
 
 ## Scorecard

@@ -1,5 +1,7 @@
 # 81 — Variance commentary contract v2 + gold exemplar pairs
 
+<!-- canon: canonical -->
+
 *Ruled 21 Aug 2026 from Jonathan's line-by-line review of variance_FY26_9.xlsx ("Variance by account", cols Q/R). Five repeated corrections → one contract. Wire into the Analyst charter; add the sum-check to the engine. Companion to docs 78 (playbooks) and 19 (correction routing).*
 
 ## The contract (max three sentences per account comment, in order)

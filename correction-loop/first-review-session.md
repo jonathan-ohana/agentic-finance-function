@@ -1,5 +1,7 @@
 # 38 — The first human review session
 
+<!-- canon: record -->
+
 **Date** 18 August 2026 · **Reviewer** Jonathan · **Status** complete, 6 decisions recorded
 
 The first time a human judged anything this workforce produced. Before it, every trust metric in the system read *not computable* and no agent could move.

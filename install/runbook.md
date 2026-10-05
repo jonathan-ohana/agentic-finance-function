@@ -1,5 +1,7 @@
 # 85 — The install runbook: implementing the workflow at a new company
 
+<!-- canon: canonical -->
+
 *Ruled 23 Aug 2026. The first-finance-hire deployment plan, ~90 days. Sources: docs 22 (package), 65 (onboarding), 81 (day-one protocol), 82/83 (planning ladder), 84 (triggers). PACKAGE artifact.*
 
 ## Phase 0 — before day one (negotiated at the offer, maximum leverage)

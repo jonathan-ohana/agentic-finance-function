@@ -1,5 +1,7 @@
 # 44 — The SaaS layer: what a reporting pack can measure, and what it must refuse
 
+<!-- canon: record -->
+
 **Date** 18 August 2026 · **Status** built and verified · **Prompted by** a correction from Jonathan, with a reference model attached
 
 > *"The reporting is missing SaaS specific concepts... I don't see anywhere any ARR, Net retention, churn, CAC, LTV mentions"*

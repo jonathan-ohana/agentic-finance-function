@@ -1,5 +1,7 @@
 # The Semantic Layer — template and method
 
+<!-- canon: canonical -->
+
 **Version** 1.0 · **Artefact class** governed, human-owned, read-only to agents · **Instance required** one per company, before any agent output leaves draft
 
 ---
