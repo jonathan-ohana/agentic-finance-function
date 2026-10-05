@@ -1,5 +1,7 @@
 # 50 — Acting on the Fable audit: the front page, re-sequenced
 
+<!-- canon: record -->
+
 **Date** 19 August 2026 · **Status** implemented and verified · **Source** doc 49
 
 Fable's diagnosis was **sequence-within-the-page**, not volume — and it disproved the volume hypothesis with the attention budget rather than asserting it. Every tab had a legitimate home. The Exec Summary did not.

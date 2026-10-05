@@ -1,5 +1,7 @@
 # 47 — The forecast model: from five projections to one model with a toggle
 
+<!-- canon: record -->
+
 **Date** 19 August 2026 · **Status** merged and verified · **Prompted by** a marked-up pack from Jonathan
 
 > *"Here's the reporting package with the forecasting elements updated. Please capture all updates."*

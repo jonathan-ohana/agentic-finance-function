@@ -1,5 +1,7 @@
 # 43 — The pack rebuilt: seven objections, six corrections and one question
 
+<!-- canon: record -->
+
 **Date** 18 August 2026 · **Status** rebuilt and verified · **Prompted by** a seven-point critique from Jonathan
 
 > *"The excel is not investment banking pedigree. Not sleek enough. Looks unfinished."*

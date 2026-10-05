@@ -1,5 +1,7 @@
 # Analyst runbook
 
+<!-- canon: canonical -->
+
 **Version 2** · Every precomputed input, and the question it exists to answer.
 
 This file is the authority on what to read. If a file is in your inputs and is not listed

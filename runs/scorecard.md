@@ -1,5 +1,7 @@
 # Sprint Scorecard — Aug 17–28, 2026
 
+<!-- canon: record -->
+
 *Updated Thu 20 Aug, **working day 3**. Plan-day 9's build half closed — the deliberate failure case fired. Then **the user trial stopped the product dead (doc 58) — and the six defects it found were closed and re-trialled the same day (doc 59). Unzip to verdict: 112 seconds to a crash, now 23 seconds to an answer, with zero builder-knowledge leaks.** Remaining: the recording, the case study, the interview narrative.*
 
 *Prior note: Plan-days 1–7a complete plus the improvement loop, built out of sequence because it was a thesis-level hole. Two spine agents have run on a real closed month; the loop is now instrumented and the Drift Auditor has withdrawn its own first audit.*

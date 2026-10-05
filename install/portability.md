@@ -1,5 +1,7 @@
 # 75 — Portability: the check that was checking the wrong layer
 
+<!-- canon: canonical -->
+
 *Written 23 Aug 2026, overnight. Executes the ruling filed in doc 74 §9.
 Companion to doc 28 (the close-coverage audit) and doc 39 (loop verification).
 Supersedes the grep.*

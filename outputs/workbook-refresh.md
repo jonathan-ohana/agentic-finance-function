@@ -1,5 +1,7 @@
 # Build once, refresh forever — the workbook-refresh pair
 
+<!-- canon: record -->
+
 *Built 4 Sep 2026 on the Arcline instance. `modelbuild.py` ran once;
 `workbook_refresh.py` is the only program that has touched the model since. The
 model, its versions and its log live in the private instance; this is the record

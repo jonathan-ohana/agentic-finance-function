@@ -1,5 +1,7 @@
 # 94 — The first sealed run
 
+<!-- canon: record -->
+
 *28 Aug 2026. The instrument fired blind for the first time. Doc 74 §7's protocol, finally executed.*
 
 **Result: 11 of 25 clean, 2 more found but misquantified through no fault of the analysis, 2 partial,

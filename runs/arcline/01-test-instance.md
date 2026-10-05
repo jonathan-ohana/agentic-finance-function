@@ -1,5 +1,7 @@
 # 86 — Arcline AI: the second instance
 
+<!-- canon: record -->
+
 *Built 25 Aug 2026. A complete synthetic finance function for a US B2B AI SaaS company, built as a
 second test instance for the agentic close-and-analyse workflow. Delivered to
 `C:\Users\jonat\Downloads\Arcline-Finance`. The generator travels with it in `_generator/`.*

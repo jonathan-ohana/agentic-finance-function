@@ -1,5 +1,7 @@
 # Semantic Layer — CourtIQ instance
 
+<!-- canon: canonical -->
+
 **Instance of** `package/semantic_layer.md` v1.0 · **Owner** Head of Finance · **Ruled** 2026-08-18 · **Effective** period 2026-08 unless stated
 **Status** 21 ruled, 3 unresolved · every ruling below cites its forcing evidence
 

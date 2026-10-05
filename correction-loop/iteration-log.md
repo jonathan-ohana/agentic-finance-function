@@ -1,5 +1,7 @@
 # 201 — Iteration log: v11, the first run under contract v2.1
 
+<!-- canon: record -->
+
 *Renumbered from 83 on 5 Oct 2026; previously titled "83 — Iteration log: v11, the first run under contract v2.1".*
 
 *24 Aug 2026. One row for the review ledger, plus the new failure class — because there is always one, and it is always narrower than the last.*

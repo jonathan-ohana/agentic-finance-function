@@ -1,5 +1,7 @@
 # 25 — The first agent run
 
+<!-- canon: record -->
+
 *18 Aug 2026. The Ingestion charter, written portable and executed against real documents. The point of this run was not extraction — it was to find out whether the Claude-native charter approach committed to in doc 22 actually works before six more agents are built on top of it.*
 
 ---

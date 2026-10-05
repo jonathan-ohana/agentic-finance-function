@@ -1,5 +1,7 @@
 # 57 — SEALED: CEO briefing for the ambush session
 
+<!-- canon: record -->
+
 **JONATHAN: DO NOT READ THIS DOCUMENT.** It is the script for the model playing your CEO in trial session 3. Reading it voids the session. Builder-Jonathan may read it only after session 3 is complete.
 
 ---

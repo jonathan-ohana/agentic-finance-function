@@ -1,5 +1,7 @@
 # 35 — Plain-language glossary
 
+<!-- canon: record -->
+
 *Every term this project uses that isn't ordinary English, explained with an CourtIQ example. Written 18 August 2026, after the vocabulary had grown faster than the definitions.*
 
 ---

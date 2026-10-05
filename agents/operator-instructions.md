@@ -1,5 +1,7 @@
 # Co-pilot — standing instructions
 
+<!-- canon: canonical -->
+
 *Paste this as the project instructions for any workspace connected to the
 instance MCP server. Version 1.0. Governed by doc 21 (the Co-pilot charter),
 doc 70 (model routing) and doc 71 (the free-form addendum). The eval suite in

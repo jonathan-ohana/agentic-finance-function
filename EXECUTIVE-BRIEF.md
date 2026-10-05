@@ -1,5 +1,7 @@
 # Executive brief: from finance automation to a governed finance function
 
+<!-- canon: canonical -->
+
 ## The decision
 
 Run a 30-day, read-only pilot on one completed month-end close if the company has reliable exports, a named finance owner, and leadership willing to rule on metric definitions.

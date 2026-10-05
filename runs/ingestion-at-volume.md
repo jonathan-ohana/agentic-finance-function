@@ -1,5 +1,7 @@
 # 26 — Ingestion at volume: 48 contracts, four independent agents
 
+<!-- canon: record -->
+
 *18 Aug 2026. The batch test that Day 4 needed. Four agents, twelve contracts each, working independently from the same charter with no coordination. The result validates the charter approach and condemns the generator.*
 
 ---

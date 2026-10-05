@@ -1,5 +1,7 @@
 # The company brain, and where the librarian went
 
+<!-- canon: canonical -->
+
 *Written 15 Sep 2026, after the "company brain" framing entered circulation: the idea that
 every company should maintain a governed memory layer — a library of what it knows, a
 librarian that assembles the right context per task, skill files as employees, evals as

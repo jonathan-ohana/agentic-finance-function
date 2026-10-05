@@ -1,5 +1,7 @@
 # 67 — Five finance agents, and how each one will be confidently wrong
 
+<!-- canon: canonical -->
+
 *A FinanceOS playbook.*
 
 *A starter playbook, in the format the market has settled on — trigger, tools, instruction logic, output — with the three things that format leaves out: what it takes for the agent to earn more autonomy, what takes it away, and the specific way it will be wrong while sounding certain.*

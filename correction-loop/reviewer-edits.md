@@ -1,5 +1,7 @@
 # 45 — The reviewer's edits, captured into the engine
 
+<!-- canon: record -->
+
 **Date** 18 August 2026 · **Status** merged and verified · **Prompted by** a marked-up pack from Jonathan
 
 > *"Here's the last version of the mgt reporting pack that I tweaked. Please capture all updates"*

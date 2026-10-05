@@ -1,5 +1,7 @@
 # 37 — Finance observability: the six KPIs, and the pricing change that took 350 days
 
+<!-- canon: record -->
+
 **Date** 18 August 2026 · **Status** built and run · **Source** doc 34, the Finance Systems Engineer analysis
 
 Two things to build came out of the FSE reading: **adopt the metric list as the demo's headline KPIs**, including one that wasn't planned, and **adopt the vocabulary** — "finance observability" is the drift auditor and the tie-out suite under the market's own name.

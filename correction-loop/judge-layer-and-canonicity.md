@@ -1,5 +1,7 @@
 # The judge layer and the canon register
 
+<!-- canon: record -->
+
 **Date** 5 October 2026 · **Status** built and run against a fixture; not yet run against a live trajectory · **Prompted by** two problems in the correction loop
 
 Two problems, one build.

@@ -1,5 +1,7 @@
 # CourtIQ — How Every Metric Is Calculated
 
+<!-- canon: canonical -->
+
 *Companion to the Day 2 dataset. This is the calculation methodology behind every number in the review pack. It is also the raw material for the semantic layer on Day 5 — most of what follows is a definition that will need a formal ruling.*
 
 ---

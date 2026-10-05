@@ -1,5 +1,7 @@
 # 3. The Agentic-Native Finance Organization — Blueprint
 
+<!-- canon: canonical -->
+
 *Target: Seed–Series A B2B SaaS, finance function designed agent-first from day zero. Last updated August 17, 2026.*
 
 ## Design principle

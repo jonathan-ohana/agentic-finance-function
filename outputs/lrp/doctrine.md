@@ -1,5 +1,7 @@
 # 83 — The 5-year LRP: doctrine and build brief
 
+<!-- canon: canonical -->
+
 *Ruled 22 Aug 2026 (Fable, granularity corrected by Jonathan). Top rung of the benchmark ladder (doc 82): LRP (annual vintage) → budget → quarterly locks → LBE. The Y1 envelope anchors the bottom-up annual plan.*
 
 ## Granularity (Jonathan's ruling — uniform, declared on the face)

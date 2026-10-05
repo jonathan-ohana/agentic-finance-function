@@ -1,5 +1,7 @@
 # Case study: designing an AI-native finance function
 
+<!-- canon: canonical -->
+
 ## The one-minute version
 
 I built and operated a governed finance-function prototype across bookkeeping, close, FP&A, management reporting, and reforecasting.

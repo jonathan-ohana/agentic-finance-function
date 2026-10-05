@@ -1,5 +1,7 @@
 # 10 — CourtIQ: Company Design Spec
 
+<!-- canon: canonical -->
+
 *Day 1 deliverable of the Aug 17–28 sprint. This is the specification the Day 2–3 data generators read from. Every number here is a **target** for the generator, not a fact — Day 2 reconciles them to the penny. Last updated Mon 8/17, 2026.*
 
 > **Edge cases: see `12-edge-case-design.md`.** The twelve-candidate list originally in this doc was cut to ten and reworked in Fable session #1. Doc 12 is authoritative for what gets planted; the summary below is retained only for context.

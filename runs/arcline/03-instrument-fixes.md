@@ -1,5 +1,7 @@
 # 88 — Arcline v2: repairing the instrument
 
+<!-- canon: record -->
+
 *25 Aug 2026. Executes the worklist filed in doc 87. The answer key is now **computed from the
 finished dataset**, four plant defects are fixed, two generator artefacts the agents surfaced are
 closed, and the tie-out suite has grown from 25 checks to 29. All green.*

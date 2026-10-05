@@ -1,5 +1,7 @@
 # 71 — Co-pilot addendum: free-form as the primary interface
 
+<!-- canon: canonical -->
+
 *Ruled 20 Aug 2026 (Fable). Amends doc 21 — Jonathan's decision: the final version takes free-form questions. The doc-21 contract stands unchanged; free-form input is safe precisely because the OUTPUT is bounded (retrieve / re-aggregate / explain / compare; refusal converts to a governance event). Five additional requirements:*
 
 1. **Vocabulary in the semantic layer.** Registry entries carry alias lists so free-form phrasing resolves to registered metrics and declared dimensions. Ambiguity gets clarify-never-guess ("By 'market' — country, or revenue segment?"): the conversational form of refuse-don't-plug.

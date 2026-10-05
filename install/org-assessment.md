@@ -1,5 +1,7 @@
 # 23 — The Installer, the messy-export test, and the Finance Organization Assessment
 
+<!-- canon: canonical -->
+
 *18 Aug 2026. Day 4 of the sprint, first day of the package build. Two agents, one of which did not exist in the blueprint.*
 
 ---

@@ -1,5 +1,7 @@
 # 39 — The loop verified
 
+<!-- canon: record -->
+
 **Date** 18 August 2026 · **Status** complete
 
 The improvement loop has been instrumented since this morning: sixteen corrections, each routed to one destination, each closed against a resolvable artefact. **None had ever been shown to change an outcome.** A loop that records corrections and a loop that prevents recurrences look identical on a dashboard.

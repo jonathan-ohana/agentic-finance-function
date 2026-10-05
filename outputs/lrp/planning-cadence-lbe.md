@@ -1,5 +1,7 @@
 # 82 — Planning cadence: budget, LBE, and the lock
 
+<!-- canon: canonical -->
+
 *Ruled 22 Aug 2026 from Jonathan's description of his operating cadence. Wires into the semantic layer (benchmark governance), the Forecaster and Analyst charters, and the plan-hash engine check. Resolves edge case #10 ("which plan") and completes the plan-integrity incident's fix.*
 
 ## The cadence

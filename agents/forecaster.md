@@ -1,5 +1,7 @@
 # 46 — The Forecaster: the difference between a forecast and an extrapolation
 
+<!-- canon: record -->
+
 **Date** 18 August 2026 · **Status** built, run and verified · **Closes plan-day 7**
 
 The last half-shipped row on the scorecard, and the one every other artefact had been pointing at. The pack's cover said *"NONE — last refresh April 2026, four cycles ago."* The Exec Summary's third decision was *"commission a forecast."* Runway was captioned *"not a forecast — none exists."* Slide 7 of the board deck read NOT PRODUCED.

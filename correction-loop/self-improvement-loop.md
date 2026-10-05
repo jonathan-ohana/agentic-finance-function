@@ -1,5 +1,7 @@
 # 19 — The self-improvement loop
 
+<!-- canon: canonical -->
+
 *Written 17 Aug 2026. Closes the largest unspecified part of the governance model: how a workflow earns autonomy, and how the system gets better instead of merely staying automated. Input to Fable #3 (Day 6, charters) and the build target for the Day 9 governance demo.*
 
 ---

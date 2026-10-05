@@ -1,5 +1,7 @@
 # 73 — The routing review: a standing cadence, not an event
 
+<!-- canon: canonical -->
+
 *Ruled 23 Aug 2026. Makes doc 72 repeatable. Amends doc 70 (routing doctrine)
 with a review cadence and a table that is a file rather than a paragraph.
 Companion to doc 19 (self-improvement loop) and doc 06 (builder budget).*

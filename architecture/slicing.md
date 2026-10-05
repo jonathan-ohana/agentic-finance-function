@@ -1,5 +1,7 @@
 # 76 — Slicing: why "by segment" is a ruling, not a group-by
 
+<!-- canon: canonical -->
+
 *Written 23 Aug 2026, overnight. Builds stage 1 of the modify-navigate-slice
 surface. Companion to doc 74 (the live instance) and doc 75 (portability),
 which made this possible by turning a fact hidden in file names into a column.*

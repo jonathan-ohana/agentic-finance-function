@@ -1,5 +1,7 @@
 # An agentic finance function, built and run end to end
 
+<!-- canon: canonical -->
+
 A working prototype of bookkeeping, month-end close, variance analysis, management reporting, and reforecast run by AI agents under a governance layer. Built as if it had to survive a skeptical founder, a CFO review, and a handoff to another operator.
 
 The prototype was built and pressure-tested on a simulated B2B SaaS company using standard system exports rather than custom integrations.

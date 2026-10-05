@@ -1,5 +1,7 @@
 # Fable brief — audit the reporting and forecasting package
 
+<!-- canon: record -->
+
 **Attach:** `mgmt_reporting_pack_2026-07.xlsx` · **Optional:** docs 44 (SaaS layer) and 47 (forecast model), only if Fable asks for the rulings behind a refusal.
 
 ---

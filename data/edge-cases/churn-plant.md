@@ -1,5 +1,7 @@
 # 51 — The club churn plant: an objection I had never tested
 
+<!-- canon: record -->
+
 **Date** 19 August 2026 · **Status** planted, regenerated, verified · **Source** Fable audit doc 49 §6
 
 Fable's only dataset recommendation: plant two or three club churn events. I had refused the same class of change twice — for defect 23 — on the grounds that regenerating would invalidate the loop evidence, which is the portfolio.

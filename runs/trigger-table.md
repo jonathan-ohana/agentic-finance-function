@@ -1,5 +1,7 @@
 # 93 — The trigger table
 
+<!-- canon: canonical -->
+
 *Written 26 Aug 2026, armed 28 Aug 2026. Doc 84 build order item 1, and doc 91's carried-forward
 warning: the walkthrough asserts this artifact exists, so it had to stop being an assertion. Source is
 doc 82 (cadence), doc 67 (agents, autonomy, demotion), doc 84 (the ruling).*

@@ -1,5 +1,7 @@
 # 200 — Plan ruling r2, ready to enter · and why an agent did not enter it
 
+<!-- canon: record -->
+
 *Renumbered from 82 on 5 Oct 2026; previously titled "82 — Plan ruling r2, ready to enter · and why an agent did not enter it".*
 
 *Drafted 24 Aug 2026 by the build agent at Jonathan's instruction. **Not yet in force.** The semantic layer says, in its own header: "Agents read this file; no agent writes it (template Rule 6)." This ruling is drafted here for a 30-second paste, not written into SL directly — in the same session that builds a control against an agent silently changing plan methodology, quietly writing to the governance file would be the identical failure wearing better manners.*

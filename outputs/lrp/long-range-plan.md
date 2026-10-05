@@ -1,5 +1,7 @@
 # 203 — The long range plan, FY26 to FY30
 
+<!-- canon: canonical -->
+
 *Renumbered from 85 on 5 Oct 2026; previously titled "85 — The long range plan, FY26 to FY30".*
 
 *Rev 3, 25 Aug 2026. `tools/build_lrp.py`, `tools/lrp_core.py`, verified by `tools/verify_lrp.py`. **Nine tabs, 36 levers, 33 per-function cost drivers, 6 named software projects, two cases, 1,430 formulas.** Recalc 0 errors, 44 of 44 checks.*

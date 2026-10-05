@@ -1,5 +1,7 @@
 # 32 — The Bookkeeper, the close engine, and what the first close found
 
+<!-- canon: record -->
+
 **Date** 17 August 2026, evening · **Sprint** plan-day 6, on calendar day 1 · **Status** built and run
 
 The red team's ordering objection was that every agent built so far watches, audits or schedules a finance function whose spine has never executed. This is the first piece of the spine.

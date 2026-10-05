@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+<!-- canon: canonical -->
+
 House rules for this repository. Read this before touching prose, figures, or the
 verifiers. It is deliberately short: everything here is enforced somewhere, and the
 enforcement is named next to the rule.

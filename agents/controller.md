@@ -1,5 +1,7 @@
 # 53 — The Controller: the cash agent, and the four defects it found on the way in
 
+<!-- canon: record -->
+
 **Date** 19 August 2026 · **Plan-day** 8 · **Status** shipped and verified
 
 ---
