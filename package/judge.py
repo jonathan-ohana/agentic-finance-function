@@ -263,6 +263,13 @@ def _all(run_map):
     return list(run_map["slices"])
 
 
+def _caveat(blind):
+    """A FALSE on reads or order that a shell step could have caused says so in its reason."""
+    where = ", ".join(f"{a} step {n}" for a, n in blind[:6]) + (" ..." if len(blind) > 6 else "")
+    return (f" [CAVEAT: {len(blind)} earlier shell step(s) whose reads are not observed ({where});"
+            " this FALSE may be the recorder's limitation, not the agent's]")
+
+
 def decomposition_precedes_commentary(run_map, agents, cfg):
     outs = [(a, o) for a, o in _steps(run_map, agents, "outputs") if o["subject"]]
     if not outs:
@@ -282,7 +289,9 @@ def decomposition_precedes_commentary(run_map, agents, cfg):
         ok = any(n < o["step"] and subj in (o["subject"], "*")
                  for anc in trajectory.lineage(run_map, a) for n, subj in decomp[anc])
         if not ok:
-            misses.append((a, f"{a} step {o['step']}: commentary on '{o['subject']}' with no prior decomposition"))
+            blind = trajectory.unobserved_before(run_map, a, o["step"])
+            misses.append((a, f"{a} step {o['step']}: commentary on '{o['subject']}' with no prior decomposition"
+                           + (_caveat(blind) if blind else "")))
     if misses:
         return Result("FALSE", "; ".join(m for _, m in misses), sorted({a for a, _ in misses}))
     return Result("TRUE", f"{len(seen)} subject(s) commented, each after its decomposition")
@@ -334,8 +343,10 @@ def cause_requires_document(run_map, agents, cfg):
     docs = [e for _, e in _steps(run_map, _all(run_map), "reads")
             if trajectory.matches(e["target"], cfg.get("document_paths", []))]
     if not docs:
+        blind = sorted({b for a, o in causal for b in trajectory.unobserved_before(run_map, a, o["step"])})
         return Result("FALSE", f"{len(causal)} output(s) name a cause and the run read no document: "
-                      + ", ".join(f"{a} step {o['step']}" for a, o in causal),
+                      + ", ".join(f"{a} step {o['step']}" for a, o in causal)
+                      + (_caveat(blind) if blind else ""),
                       sorted({a for a, _ in causal}))
     return Result("DEFER", f"{len(causal)} causal output(s), {len(docs)} document read(s) in the run; "
                   "whether each cause joins to one is a judgment")
@@ -441,6 +452,7 @@ def grade(run_map, specs, cfg, grader_cmd=None, grader_name=None):
                 continue
             request = {"behavior": {"id": b.id, "title": b.title, **b.fields},
                        "run_id": run_map["run_id"], "workflow": run_map["workflow"],
+                       "limitations": run_map.get("limitations", []),
                        "slices": {a: run_map["slices"][a] for a in agents},
                        "deterministic_note": note}
             v, err = call_grader(grader_cmd, request)
@@ -472,6 +484,11 @@ def sheet(run_map, verdicts, skipped, grader_name, run_path):
            f"- **Grader:** {grader_name or 'none configured'}",
            f"- **Graded:** {len(verdicts)} behaviors · **FALSE** {len(false)} · **TRUE** {len(true)} · "
            f"**N.A., condition did not arise** {len(na)} · **N.A., ungraded** {len(ungraded)}", ""]
+    for lim in run_map.get("limitations", []):
+        out += [f"> **Recorder limitation ({lim['kind']}):** {lim['statement']} "
+                f"{len(lim['steps'])} step(s): "
+                + ", ".join(f"{a} step {n}" for a, n in lim["steps"][:12])
+                + (" ..." if len(lim["steps"]) > 12 else ""), ""]
     if skipped:
         out += ["Spec files not applicable to this run: " + ", ".join(f"`{os.path.relpath(s, ROOT)}`" for s in skipped), ""]
 

@@ -69,8 +69,13 @@ Each behavior is graded **TRUE**, **FALSE** or **N.A.**
    lexicon belong to the instance and to the exemplar store. A spec carrying them stops being
    mechanism and starts being a fixture of one company. `--check-specs` enforces the figures
    and the instance terms listed in the judge config.
-3. **Name the trajectory evidence.** If the evidence field cannot point at something in the
-   map (a read, a write, an output, an escalation, the step order), the behavior is not
+3. **Name the evidence.** The evidence field points at something the judge can read: an
+   entry in the map (a read, a write, an escalation, the step order) or the text of an
+   output. Evidence that is output text alone is a narrower claim — what the deliverable
+   says, not how the run reached it — and is gradeable from the deliverable without a
+   trajectory. Where one correction has both a process half and an output half, write them
+   as two behaviors, one per kind of evidence, so a verdict never mixes what was said with
+   how it was reached. If the evidence field can point at neither, the behavior is not
    gradeable and should not be written yet.
 4. **Every behavior traces to a correction.** The rationale cites the repository document
    where the correction is recorded, by path. The review ledger itself lives in the private

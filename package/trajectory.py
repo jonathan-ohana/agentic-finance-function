@@ -31,6 +31,11 @@ The judge reads the map, not the raw log. Reasoning text is the bulk of any traj
 the least of what a grader needs; the map keeps its one-line summary and drops the rest.
 That compaction is what makes grading a run affordable at all.
 
+What the record cannot see, the map says. A shell command can read any file and its step
+does not say which, so every such step is listed per slice under `unobserved`, and the map
+carries a top-level `limitations` entry naming them. A check on reads or step order attaches
+that caveat to any FALSE it could have caused.
+
     python3 trajectory.py map RUN.jsonl [--config judge-config.json]
     python3 trajectory.py validate RUN.jsonl
 """
@@ -51,6 +56,12 @@ TYPES = ("reason", "tool_call", "tool_result", "output", "escalation", "refusal"
 # Used only when no config is given. An instance states its own tool names in its config.
 DEFAULT_READ_TOOLS = ("read", "read_file", "open", "query", "fetch", "retrieve", "search")
 DEFAULT_WRITE_TOOLS = ("write", "write_file", "edit", "append", "save", "post", "delete")
+# Tools whose reads the recorder cannot see: a shell command can open any file, and nothing
+# in the step says which. The map does not guess; it names every such step as a limitation.
+DEFAULT_OPAQUE_TOOLS = ("bash", "powershell", "shell")
+UNOBSERVED = ("Reads made inside these steps are not observed. A behavior graded on reads or "
+              "on step order cannot tell a read that did not happen from one made inside a "
+              "shell command, so a FALSE there carries this caveat.")
 
 
 # ---------------------------------------------------------------------------------------
@@ -163,6 +174,7 @@ def build_map(records, config=None):
     config = config or {}
     read_tools = set(config.get("read_tools", DEFAULT_READ_TOOLS))
     write_tools = set(config.get("write_tools", DEFAULT_WRITE_TOOLS))
+    opaque_tools = set(config.get("opaque_tools", DEFAULT_OPAQUE_TOOLS))
     records = sorted(records, key=lambda r: r.get("step", 0))
 
     workflow = next((r["workflow"] for r in records if r.get("workflow")), None)
@@ -172,7 +184,7 @@ def build_map(records, config=None):
         s = slices.setdefault(a, {
             "agent": a, "role": role(a), "parent": r.get("parent"), "children": [],
             "reads": [], "writes": [], "outputs": [], "escalations": [], "refusals": [],
-            "handoffs": [], "order": [], "tokens": 0, "failed_steps": [],
+            "handoffs": [], "order": [], "tokens": 0, "failed_steps": [], "unobserved": [],
         })
         parents.setdefault(a, r.get("parent"))
         n, t, tool = r["step"], r["type"], r.get("tool") or ""
@@ -181,6 +193,8 @@ def build_map(records, config=None):
         s["order"].append([n, t, tool, target, subject])
         if r.get("ok") is False:
             s["failed_steps"].append(n)
+        if t == "tool_call" and tool in opaque_tools:
+            s["unobserved"].append({"step": n, "tool": tool, "summary": r.get("summary") or ""})
         if t == "tool_call" and target:
             if tool in write_tools:
                 s["writes"].append({"step": n, "tool": tool, "target": target, "subject": subject,
@@ -204,14 +218,28 @@ def build_map(records, config=None):
             slices[p]["children"].append(a)
     root = next((a for a, p in parents.items() if p is None), None)
 
+    opaque = [[a, u["step"]] for a, s in slices.items() for u in s["unobserved"]]
+    limitations = []
+    if opaque:
+        limitations.append({"kind": "unobserved_reads", "statement": UNOBSERVED,
+                            "steps": sorted(opaque, key=lambda x: x[1])})
+
     return {
         "run_id": records[0]["run_id"] if records else None,
         "workflow": workflow,
         "root": root,
         "steps": len(records),
         "tokens": sum(s["tokens"] for s in slices.values()),
+        "limitations": limitations,
         "slices": slices,
     }
+
+
+def unobserved_before(run_map, agent, step):
+    """Shell steps in the slice or an ancestor before `step`: reads that may have happened
+    there are invisible to any check on reads or order."""
+    return [(a, u["step"]) for a in lineage(run_map, agent)
+            for u in run_map["slices"][a].get("unobserved", []) if u["step"] < step]
 
 
 def lineage(run_map, agent):

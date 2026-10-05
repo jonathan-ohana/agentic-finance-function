@@ -18,6 +18,11 @@
     "post",
     "delete"
   ],
+  "opaque_tools": [
+    "bash",
+    "powershell",
+    "shell"
+  ],
   "decomposition_tools": [
     "decompose",
     "variance_decomposition"

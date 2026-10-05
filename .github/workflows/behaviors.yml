@@ -59,6 +59,16 @@ jobs:
       - name: Show the verdict sheet
         if: always()
         run: cat verdict-sheet.md || true
+      - name: A FALSE a shell step could have caused carries the recorder caveat
+        # The recorder cannot see what a shell command reads. The map must say so, and a FALSE on
+        # reads or step order must carry the caveat, or a recorder blind spot reads as agent failure.
+        run: |
+          python package/trajectory.py validate tests/fixtures/run-opaque.jsonl
+          python package/judge.py --specs package/behaviors \
+            --run tests/fixtures/run-opaque.jsonl \
+            --expect-false B-ANL-001,B-ANL-004 --out opaque-sheet.md
+          grep -q "Recorder limitation (unobserved_reads)" opaque-sheet.md
+          test "$(grep -c 'CAVEAT: 1 earlier shell step' opaque-sheet.md)" -eq 2
 
   canonicity:
     # Which write-up is the current word on its subject. Runs with --allow-unclassified while
