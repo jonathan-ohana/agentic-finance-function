@@ -1,6 +1,6 @@
 # 77 — Entry triage and reforecast: the two loops that close on each other
 
-<!-- canon: canonical -->
+<!-- canon: record -->
 
 *Written 24 Aug 2026. Builds the sixth workflow from the AI-native ledger playbook —
 spend anomaly detection — as the thing it actually is, which is variance

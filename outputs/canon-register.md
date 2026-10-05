@@ -6,9 +6,9 @@ Which write-up is the current word on its subject, and which are history. The do
 
 | Status | Documents |
 |---|---:|
-| canonical | 41 |
+| canonical | 40 |
 | superseded | 0 |
-| record | 40 |
+| record | 41 |
 | external | 1 |
 | unclassified | 0 |
 
@@ -68,7 +68,7 @@ None.
 | install/portability.md | canonical | 75 |  |  |
 | install/runbook.md | canonical | 85 |  |  |
 | outputs/arcline-pack-and-lbe.md | canonical | 90 |  |  |
-| outputs/entry-triage-and-reforecast.md | canonical | 77 |  |  |
+| outputs/entry-triage-and-reforecast.md | record | 77 |  |  |
 | outputs/forecast-model.md | record | 47 |  |  |
 | outputs/lrp/doctrine.md | canonical | 83 |  |  |
 | outputs/lrp/long-range-plan.md | canonical | 203 |  |  |
