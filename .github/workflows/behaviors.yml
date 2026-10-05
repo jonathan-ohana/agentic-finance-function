@@ -1,9 +1,6 @@
 name: Behavior judge
 
 # The judge layer's own checks. Standard library only, so no job here installs anything.
-# The canonicity job is deliberately absent: no document carries a status tag yet, and the
-# tree has four duplicate H1 numbers awaiting a ruling, so it would fail on the first push.
-# It arrives in its own change, with --allow-unclassified, once the owner has ruled.
 
 on:
   push:
@@ -62,3 +59,25 @@ jobs:
       - name: Show the verdict sheet
         if: always()
         run: cat verdict-sheet.md || true
+
+  canonicity:
+    # Which write-up is the current word on its subject. Runs with --allow-unclassified while
+    # the owner classifies the tree: unclassified documents are reported, not failed, but
+    # dangling successors, asymmetric relations, superseded records, cycles, stale references
+    # and duplicate numbers gate from now on. The flag comes off in its own change, when the
+    # owner says classification is complete.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every relation between documents holds
+        run: python package/canonicity.py --allow-unclassified --export
+      - name: The register must be the one this tree was committed with
+        run: git diff --exit-code outputs/canon-register.md
+      - name: The judge must know every superseded document
+        # --export rewrites the judge config's superseded list from the tags. A diff here means
+        # a document was tagged superseded and the export was not committed with it, so the
+        # judge would still grade reads of it as canonical.
+        run: git diff --exit-code package/behaviors/judge-config.json
