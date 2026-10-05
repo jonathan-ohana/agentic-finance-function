@@ -1,4 +1,6 @@
-# 84 — The management reporting pack
+# 202 — The management reporting pack
+
+*Renumbered from 84 on 5 Oct 2026; previously titled "84 — The management reporting pack".*
 
 *Built 25 Aug 2026 to Jonathan's spec. Seven tabs, one close month, one benchmark. `tools/build_mgt_pack.py` and `tools/mgt_core.py`; verified by `tools/verify_mgt_pack.py`.*
 

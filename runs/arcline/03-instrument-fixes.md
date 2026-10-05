@@ -13,7 +13,7 @@ statement is derived, and computes each of the twenty-five expected findings fro
 describing. The three wrong amounts doc 87 records — PL-03, PL-16, PL-18 — could not recur, because
 there is no longer a place to write a number that the data does not produce.
 
-This is the same move doc 85 made on the LRP (year one is the budget by construction, not by
+This is the same move doc 203 made on the LRP (year one is the budget by construction, not by
 assertion) and doc 75 made on portability (prove by running, not by reading). It was overdue here
 and it was found by an agent rather than by me, which is the argument for running the thing.
 

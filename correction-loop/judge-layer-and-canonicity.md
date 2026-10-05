@@ -115,6 +115,8 @@ They are not fixed here. Renumbering decides which document of each pair keeps t
 and that is a ruling. Until it is made, a canonicity job in CI would fail on these four even
 with unclassified documents tolerated. That is one more reason the job is not wired in yet.
 
+*Annotation, 5 Oct 2026, later the same day: resolved. All four pairs were unrelated documents that collided by accident, not replacements. The later document of each pair was renumbered to 200 to 203, with a renumbered line under its title, and inbound citations were updated. See [the canon register](../outputs/canon-register.md).*
+
 ## What this does not do yet
 
 - **No live trajectory has been graded.** The engines that would write trajectories run in
