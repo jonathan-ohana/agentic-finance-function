@@ -478,15 +478,16 @@ four duplicate accruals removed; one kept as a deliberate control test.
 
 | | |
 |---|---|
-| Runs scored | 7 (plus five maintenance runs) |
-| Defects found in my instrument | 32 |
-| Defects fixed | 30 |
+| Runs scored | 8 (plus five maintenance runs) — Run 15, the first graded by the judge |
+| Defects found in my instrument | 33 — Run 15: the recorder took a background slice's launch acknowledgement for its return |
+| Defects fixed | 31 — the Run 15 recorder fix proved against the fixture only, never on a live run |
 | Defects open | 4 — ledger/document contradiction (Run 05); no precompute for the open period, stale score after regen (both Run 11); the variance workbook's agent commentary predates the run-08 data fixes (Run 14) |
 | Verdicts later overturned | 1 — Run 06, called PLATFORM, was INSTRUMENT |
 | Day clock record | 2 days, 2 planted, 1 clean hit, 1 partial, 0 missed, 0 false positives |
 | Best blind score | **17 of 25 clean**, on a composition neither of us designed |
 | Analysis misses outstanding | 0 — PL-19 closed in Run 09 |
 | Review ledger | 0 open, 3 closed |
+| Judge on a live trajectory | 1 run graded (Run 15): no sensible verdict on any of the 4 behaviors asked for; 3 deterministic TRUEs on reads and writes, consistent with the run; 0 FALSE, so 0 ledger rows |
 | Suites, last run 3 Sep | 52 of 52 build (stamp green) · 42 of 42 pack · 1 of 1 doc |
 
 **Four patterns worth carrying into a conversation.**
