@@ -69,6 +69,12 @@ jobs:
             --expect-false B-ANL-001,B-ANL-004 --out opaque-sheet.md
           grep -q "Recorder limitation (unobserved_reads)" opaque-sheet.md
           test "$(grep -c 'CAVEAT: 1 earlier shell step' opaque-sheet.md)" -eq 2
+      - name: The recorder turns a mixed slice return into typed rows
+        # The seed pack grades hand-written trajectories, so it cannot catch a recorder that writes
+        # the wrong one. This replays raw hook events through the recorder: background slices whose
+        # Agent result is only a launch acknowledgement, prose around the rows, a return found only
+        # in the slice transcript. Escalation and refusal rows must reach the map typed.
+        run: python tests/fixtures/recorder-mixed-return/replay.py
 
   canonicity:
     # Which write-up is the current word on its subject. Runs with --allow-unclassified while

@@ -127,6 +127,11 @@ with unclassified documents tolerated. That is one more reason the job is not wi
 - **The canonical-reads behavior is N.A. until the first export**, and there is nothing to
   export until the owner classifies a document as superseded.
 
+*Annotation, 5 Oct 2026, later the same day: the judge has now graded one live trajectory, the
+Arcline January variance rerun. The recorder had lost every slice's return, so none of the
+verdicts that depend on commentary was sensible. What has and has not run is in
+[doc 204](../runs/arcline/05-loop-status.md).*
+
 ## Carried forward
 
 - Classify the tree, one document at a time, by the owner. Then export the superseded list.

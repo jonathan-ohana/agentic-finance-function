@@ -24,3 +24,18 @@ python3 package/judge.py --specs package/behaviors --run tests/fixtures/run-fano
 python3 package/judge.py --specs package/behaviors --run tests/fixtures/run-opaque.jsonl \
     --expect-false B-ANL-001,B-ANL-004
 ```
+
+## Recorder fixture
+
+The seed pack above tests the judge on trajectories written by hand. It cannot catch a
+recorder that writes the wrong trajectory, and that is the failure the first live variance
+run hit: every slice's return was recorded as one untyped output, so none of the escalations
+it raised reached the map.
+
+| Fixture | What it replays | Passes only if |
+|---|---|---|
+| [`recorder-mixed-return/`](recorder-mixed-return/README.md) | Raw hook events through [`package/instrumentation/variancetrace.py`](../../package/instrumentation/variancetrace.py): two background slices and one foreground slice, each returning prose with its typed rows inside it, one of them only through its transcript | Every slice's comment, escalation and refusal rows reach the map typed, no slice is recorded as an untyped `*` output, and both launch acknowledgements are recorded as reason steps |
+
+```
+python3 tests/fixtures/recorder-mixed-return/replay.py
+```
