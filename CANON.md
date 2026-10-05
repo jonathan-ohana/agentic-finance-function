@@ -73,10 +73,10 @@ judgment as a ruling in the semantic layer. An agent may propose a classificatio
 with its reasoning. It does not tag the tree itself, for the same reason it does not edit
 the registry.
 
-The instrument ships before the rulings. It runs with `--allow-unclassified` while
-classification is in progress, so that dangling successors, asymmetric relations, record
-supersessions and stale references gate from the first tagged document onward. The flag
-comes off when the owner says the classification is complete, in its own change.
+The instrument shipped before the rulings. It ran with `--allow-unclassified` while
+classification was in progress, so that dangling successors, asymmetric relations, record
+supersessions and stale references gated from the first tagged document onward.
+Classification is complete; an unclassified document fails.
 
 ## Why the repository is not being rewritten
 

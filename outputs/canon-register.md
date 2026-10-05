@@ -12,7 +12,7 @@ Which write-up is the current word on its subject, and which are history. The do
 | external | 1 |
 | unclassified | 0 |
 
-Unclassified documents are reported, not failed (--allow-unclassified).
+Unclassified documents are failures.
 
 ## Findings
 
