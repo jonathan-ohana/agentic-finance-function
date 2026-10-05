@@ -1,7 +1,7 @@
 # 90 — Arcline: the January reporting pack and the Q1 LBE
 
 **Instance** Arcline AI, Inc. · **Period** 2026-01 closed and signed · **Built** 26 Aug 2026
-**Predecessors** doc 84 (pack doctrine), doc 82 (planning cadence and the LBE layout), doc 89 (run 03)
+**Predecessors** doc 202 (pack doctrine), doc 82 (planning cadence and the LBE layout), doc 89 (run 03)
 **Figures** as computed by the shipped workbooks (rebuilt 3 Sep 2026 with the corrected plan —
 RUN 14 in the [run log](../runs/run-log.md)); re-read from them at that rebuild. The workbooks carry
 no cached values — every figure is a formula, computed on open — so these are what a reader sees,

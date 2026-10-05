@@ -81,9 +81,9 @@ Named metrics quoted with more than one value across write-ups. Reported, not sc
 
 **DSO (days), unstated**
 
-- 11.0 — outputs/management-reporting-pack.md:222
-- 15.5 — outputs/management-reporting-pack.md:164
-- 18.5 — outputs/management-reporting-pack.md:165
+- 11.0 — outputs/management-reporting-pack.md:224
+- 15.5 — outputs/management-reporting-pack.md:166
+- 18.5 — outputs/management-reporting-pack.md:167
 - 55.0 — runs/run-log.md:213
 - 55.0 — runs/run-log.md:402
 - 55.1 — runs/run-log.md:143
@@ -97,7 +97,7 @@ Named metrics quoted with more than one value across write-ups. Reported, not sc
 
 **gross margin (%), unstated**
 
-- 52.9 — outputs/lrp/long-range-plan.md:168
+- 52.9 — outputs/lrp/long-range-plan.md:170
 - 64.2 — outputs/lrp/planning-cadence-lbe.md:127
 - 67.7 — runs/arcline/03-instrument-fixes.md:130
 - 67.8 — runs/arcline/01-test-instance.md:101
@@ -112,7 +112,7 @@ Named metrics quoted with more than one value across write-ups. Reported, not sc
 
 **runway (months), unstated**
 
-- 1.6 — outputs/management-reporting-pack.md:187
+- 1.6 — outputs/management-reporting-pack.md:189
 - 15.0 — data/dataset-build-notes.md:42
 - 16.1 — red-team/audit-brief.md:75
 - 17.4 — runs/scorecard.md:153
