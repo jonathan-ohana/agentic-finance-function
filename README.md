@@ -32,6 +32,7 @@ AI-native finance tools are good at ledger attribution — what moved, in which 
 | Controller or auditor | [Definitions](semantic-layer/definitions-instance.md), [rulings](semantic-layer/rulings/), and [red team](red-team/) | Traceability, refusal rules, known failures, and remediation |
 | Product or engineering lead | [Architecture](architecture/blueprint.md), [workflow lifecycle](architecture/lifecycle.md), [system map](architecture/system-map.md), [live-instance spec](install/live-instance-spec.md), and [wiring](playbooks/wiring.md) | Where are the system boundary, tool surface, and deployment seams? |
 | Anyone weighing the “company brain” framing | [The company brain, and where the librarian went](architecture/company-brain.md) | How does the brain vocabulary map onto this repository, and why is there no librarian agent? |
+| Anyone asking which document is current, or how agents are graded | [Canon](CANON.md) and [the judge layer](correction-loop/judge-layer-and-canonicity.md) | Which write-up is the current word on its subject, and how is an agent graded against a rubric it never sees? |
 
 ## The output
 
@@ -114,6 +115,11 @@ The claim is never that the numbers are right; it is that programs which did not
 
 Layers 2–4 read the live instance's data, so they don't run from this repository alone; they are published as evidence, with their results recorded in the [run log](runs/run-log.md).
 
+Beyond the four layers, two gates run in CI on every change. They check the write-ups and the agents rather than the figures:
+
+- [`package/canonicity.py`](package/canonicity.py) asserts which write-up is the current word on its subject, per [CANON.md](CANON.md): every named successor exists and is canonical, supersession is declared in both directions, no current document points at a superseded one by accident, and no document number is used twice. It runs with `--allow-unclassified` while the owner classifies the tree; the flag comes off when classification is complete.
+- [`package/judge.py`](package/judge.py) grades agent trajectories against the behavior specs in [`package/behaviors/`](package/behaviors/README.md), which no agent ever reads. CI plants known failures in fixture runs and requires the judge to find exactly those — a missed one means the judge is broken, an extra one means the judge or the specs changed.
+
 ## Install philosophy
 
 The first deployment is read-only and sits on the existing finance stack. Agents produce the work from the first close; the human approves the output before it counts. Definitions are signed before production output, exceptions remain visible, and lower-touch review is earned from evidence.
@@ -136,6 +142,8 @@ The [install runbook](install/runbook.md) covers the 90-day sequence. The [organ
 | `what-broke/` | Incidents, failure cases, and the unedited friction log |
 | `data/` | Simulated-company design, methodology, edge cases, and tie-out checker |
 | `install/` | Runbook, portability evidence, assessment, and model-routing policy |
+| `package/` | Deterministic engines and the judge layer: model build, refresh, pipeline, canonicity, trajectory recorder, behavior judge and its specs |
+| `tests/` | Judge and recorder fixtures: planted failures CI must find |
 
 ## License
 

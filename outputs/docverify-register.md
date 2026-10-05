@@ -84,9 +84,9 @@ Named metrics quoted with more than one value across write-ups. Reported, not sc
 - 11.0 — outputs/management-reporting-pack.md:224
 - 15.5 — outputs/management-reporting-pack.md:166
 - 18.5 — outputs/management-reporting-pack.md:167
-- 55.0 — runs/run-log.md:213
-- 55.0 — runs/run-log.md:402
-- 55.1 — runs/run-log.md:143
+- 55.0 — runs/run-log.md:265
+- 55.0 — runs/run-log.md:454
+- 55.1 — runs/run-log.md:195
 - 55.9 — outputs/arcline-pack-and-lbe.md:136
 - 90.0 — runs/sealed-run-01.md:125
 
