@@ -11,6 +11,58 @@ is how a test stops measuring anything.
 
 ---
 
+## RUN 15 · The variance loop's first live trajectory, graded by the judge · 5 Oct · [doc 204](arcline/05-loop-status.md)
+
+**RAN** `VAR-2026-01-20261005T195418Z`: the January 2026 variance commentary rerun on Arcline, a
+four-way fan-out, recorded by the trajectory hooks and graded by the judge layer against every
+behavior in the spec set. The first real output through the whole loop — a run emits a trajectory,
+the map builds, the judge grades, a FALSE writes a review-ledger row.
+
+**FOUND**
+
+❗ **The recorder took four launch acknowledgements for four slice returns.** The slices ran in the
+background, and for a background spawn the Agent tool's immediate result is a launch
+acknowledgement. The recorder logged each as one untyped output and marked the slice done — all four
+carry the same timestamp, seconds after the spawns. About ten minutes later each slice finished, and
+its real return was skipped as already recorded. The slices had returned their rows typed per
+amendment v2.3 of the commentary contract — 56 escalation rows and 2 refusal rows, alongside their
+comments — and none of it reached the trajectory. The lead's first diagnosis, the prose summary
+before each slice's rows, was wrong: the untyped outputs were written before any slice had replied.
+
+❗ **No sensible verdict on any of the four behaviors the owner asked for.** Decomposition before
+prose read TRUE, graded against the four launch acknowledgements — a plausible-looking TRUE drawn
+from a record that held no commentary. Causes joining to documents read N.A., because no causal
+output reached the map. The other two read N.A., ungraded: no grader is configured.
+
+✅ **Every link executed, and what the recorder did capture graded consistently with the run.** The
+log validated, the map built with five agents, each slice named after its spawn, and the judge wrote
+a verdict sheet without error. The plan is read-only: TRUE on 39 plan reads and no plan write.
+Nothing written to the record: TRUE on 16 writes. One artifact in the delivery path: TRUE. The
+three shell steps were listed as unobserved and carried onto the verdict sheet. The run produced no
+FALSE, so the ledger file holds a header only.
+
+**VERDICT** FAIL on what the run was for — **INSTRUMENT.** The recorder was wrong, not the agents:
+the slices returned their rows typed, and the recorder logged the launch and skipped the return. The
+loop does not work end to end on real output yet.
+
+**FIXED**
+✅ The recorder, `package/instrumentation/variancetrace.py`: a launch acknowledgement is recorded as
+a reason step on the lead, never as a slice's return; a slice named from its spawn prompt is recorded
+at SubagentStop whatever the shape of its reply, from the hook payload or the slice's own transcript;
+the parser finds rows inside a mixed return; a slice never seen returning is named at `finish`, not
+left as silence.
+✅ The mixed-return fixture, `tests/fixtures/recorder-mixed-return/`, replays hook events through the
+recorder in CI. Run against the recorder with the old behavior restored, it failed with the January
+signature. Both landed in PR #16.
+⚠️ Closed against the fixture only. Its event payloads are constructed; the SubagentStop payload of a
+live background slice has never been captured.
+
+**OPEN**
+❌ A real slice return travelling the whole chain to a verdict. The recorder fix has never run on a
+live run.
+❌ A ledger row from real output. No FALSE has yet occurred on a real trajectory, and no review
+ledger with its columns exists in the instance for the rows to land in.
+
 ## RUN 14 · The rebuild — end to end, on a machine it was never built on · 3 Sep
 
 **RAN** The first full rebuild of the delivered instance ever attempted outside the build container:
@@ -426,21 +478,22 @@ four duplicate accruals removed; one kept as a deliberate control test.
 
 | | |
 |---|---|
-| Runs scored | 7 (plus five maintenance runs) |
-| Defects found in my instrument | 32 |
-| Defects fixed | 30 |
+| Runs scored | 8 (plus five maintenance runs) — Run 15, the first graded by the judge |
+| Defects found in my instrument | 33 — Run 15: the recorder took a background slice's launch acknowledgement for its return |
+| Defects fixed | 31 — the Run 15 recorder fix proved against the fixture only, never on a live run |
 | Defects open | 4 — ledger/document contradiction (Run 05); no precompute for the open period, stale score after regen (both Run 11); the variance workbook's agent commentary predates the run-08 data fixes (Run 14) |
 | Verdicts later overturned | 1 — Run 06, called PLATFORM, was INSTRUMENT |
 | Day clock record | 2 days, 2 planted, 1 clean hit, 1 partial, 0 missed, 0 false positives |
 | Best blind score | **17 of 25 clean**, on a composition neither of us designed |
 | Analysis misses outstanding | 0 — PL-19 closed in Run 09 |
 | Review ledger | 0 open, 3 closed |
+| Judge on a live trajectory | 1 run graded (Run 15): no sensible verdict on any of the 4 behaviors asked for; 3 deterministic TRUEs on reads and writes, consistent with the run; 0 FALSE, so 0 ledger rows |
 | Suites, last run 3 Sep | 52 of 52 build (stamp green) · 42 of 42 pack · 1 of 1 doc |
 
 **Four patterns worth carrying into a conversation.**
 
-Twenty instrument defects, and not one was found by an agent being clever. Every one surfaced when two
-artifacts describing the same money were put side by side and required to agree.
+Thirty instrument defects by RUN 12, and not one was found by an agent being clever. Every one
+surfaced when two artifacts describing the same money were put side by side and required to agree.
 
 The fix that moved the score from 11 to 17 was not a better model or a better prompt. It was **six
 deterministic joins between the paperwork and the ledger**. Precompute defines the search space; widen
