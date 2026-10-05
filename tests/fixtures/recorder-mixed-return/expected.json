@@ -1,0 +1,10 @@
+{
+ "note": "Per-slice counts the map must show after replaying events.jsonl. A slice recorded as one '*' output (the run VAR-2026-01-20261005T195418Z failure) fails every line below.",
+ "slices": {
+  "analyst:bg-mixed":    {"outputs": 1, "escalations": 1, "refusals": 1, "subjects": ["6000 / (no vendor - internal entry)", "6040 / Datadog, Inc.", "6020 / (no vendor - internal entry)"]},
+  "analyst:bg-handback": {"outputs": 1, "escalations": 1, "refusals": 0, "subjects": ["7060 / Gong.io, Inc.", "7080 / Meridian Brand Agency"]},
+  "analyst:fg-mixed":    {"outputs": 1, "escalations": 1, "refusals": 0, "subjects": ["8100 / Delaware Division of Corporations", "2070"]}
+ },
+ "forbidden_output_subjects": ["*", "9999"],
+ "launch_acks_recorded_as_reason": 2
+}
