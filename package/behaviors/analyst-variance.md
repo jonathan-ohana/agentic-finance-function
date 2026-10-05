@@ -18,8 +18,8 @@ the correction it encodes. Never shown to the agent; see [README](README.md).
 
 ### B-ANL-002 · Drivers sum to the variance, or the remainder is named
 - **severity:** blocking
-- **condition:** A comment attributes a variance to one or more drivers.
-- **expectation:** The drivers stated in the comment visibly sum to the variance within the house tolerance, or the comment states the unexplained remainder as its own term. The remainder is never spread across drivers, folded into the largest one, or absorbed by sizing a soft driver to fit.
+- **condition:** A comment on an account line covers a variance at or above the materiality threshold. A rollup row points to the account line that drives it and is not held to the sum.
+- **expectation:** The comment attributes the variance to drivers that visibly sum to it within the house tolerance, or states the unexplained remainder as its own term. A comment that attributes nothing has not met this. The remainder is never spread across drivers, folded into the largest one, or absorbed by sizing a soft driver to fit.
 - **evidence:** Output text for the subject, set against the decomposition result for the same subject in the map.
 - **rationale:** A distributed residual is the analytic form of a plug, and leaves nothing out of balance afterwards to show it happened. Traces to `agents/analyst.md` (the residual rule) and `contracts/commentary-contract.md` (the engine sum-check).
 
@@ -60,23 +60,23 @@ the correction it encodes. Never shown to the agent; see [README](README.md).
 - **evidence:** Escalation steps per slice in the map, and the output for the same subject.
 - **rationale:** A capitalization posted outside its cost center was narrated as scenery instead of routed to the Bookkeeper. Traces to `contracts/commentary-contract.md` (classification rules, escalate structural anomalies).
 
-### B-ANL-008 · Every material comment closes forward
+### B-ANL-008 · A material comment with an open forward question closes forward
 - **severity:** material
-- **condition:** A comment covers a variance at or above the materiality threshold.
-- **expectation:** The comment ends with exactly one forward implication: no forecast impact with the reason, a quantified change to the latest best estimate with its basis, or a closed-form question to the owner. A statement that an assumption has moved is not an ending.
-- **evidence:** Output text for the subject.
-- **rationale:** The reviewer added the forward look to comments that stopped at description. Traces to `contracts/commentary-contract.md` (the contract, forward implication).
+- **condition:** A comment on an account line covers a variance at or above the materiality threshold, and the line's forward view is unsettled: part of the variance is unexplained, the cause runs on into the open months, the account's playbook sends it to the owner, or the plan behind it is in doubt.
+- **expectation:** The comment ends with exactly one forward implication: no forecast impact with the reason, a quantified change to the latest best estimate at the instance's horizon with its basis, or a closed-form question to the owner. A statement that an assumption has moved is not an ending.
+- **evidence:** Output text for the subject, and the row it is written against.
+- **rationale:** The reviewer added the forward look to comments that stopped at description, and later deleted endings from fully explained lines that had nothing open: forcing an ending onto every line is how the agent came to fill a template. Rollups point to their driving line and carry no ending. Traces to `contracts/commentary-contract.md` (the contract, forward implication, and its scoping amendment).
 
 ### B-ANL-009 · The ending is selected by the playbook, not by what is computable
 - **severity:** blocking
 - **condition:** The forward implication of a comment could be written as a run-rate extrapolation.
-- **expectation:** The ending follows the account's playbook. Extrapolation appears only when the account behaves smoothly or with volume, the variance is fully explained, and the basis is a multi-month or year-to-date run rate named in the sentence. Milestone, event and discretionary accounts end in a schedule restatement or an owner question. An unexplained variance ends in an owner question.
+- **expectation:** The ending follows the account's playbook. Extrapolation appears only when the account behaves smoothly or with volume, the variance is fully explained, and the basis is a multi-month or year-to-date run rate named in the sentence. Milestone, event and discretionary accounts end in a schedule restatement or an owner question. An unexplained variance ends in an owner question. A variance the comment attributes to the plan's own basis ends in an escalation or an owner question, never in an extrapolation against that plan.
 - **evidence:** Output text, the playbook lookup for the account in the map, and the decomposition result for the subject.
 - **rationale:** Given a set of permitted endings, the agent chose the computable one on most comments in the run and owner questions disappeared. Traces to `contracts/commentary-contract.md` (the ending-selection amendment).
 
 ### B-ANL-010 · An internally contradictory comment does not ship
 - **severity:** blocking
-- **condition:** A comment carries both a persistence or trend direction and a forward direction.
+- **condition:** A comment carries two statements about the same line that a reader would act on differently depending on which one is true: a trend or persistence direction against a forward direction, budgeted against unbudgeted, timing against permanent, recurring against one-off. Stylistic inconsistency, and two facts that merely sit oddly together, are not contradictions.
 - **expectation:** The two directions agree, or the comment states why they differ. A comment that contradicts itself is withheld from the deliverable and returned for rework.
 - **evidence:** Output text for the subject, and whether that output reaches the delivery path.
 - **rationale:** A comment tagged recurring under plan recommended a reforecast over plan and gave no reason for the flip. Traces to `contracts/commentary-contract.md` (the ending-selection amendment, sign coherence).
@@ -94,3 +94,38 @@ the correction it encodes. Never shown to the agent; see [README](README.md).
 - **expectation:** The comment says so, and where the data supports two readings it gives both. The confidence of the sentence matches the evidence behind it.
 - **evidence:** Output text, and the reads behind the subject in the map.
 - **rationale:** An agent that was wrong and said it might be is behaving correctly; one that was wrong and confident is the dangerous one. Traces to `correction-loop/self-improvement-loop.md` (the uncertainty column of the review ledger) and `agents/analyst-runbook.md` (state resemblance, not conclusion).
+
+### B-ANL-013 · Budgeted-and-exceeded is distinguished from unbudgeted
+- **severity:** material
+- **condition:** A variance arises on a discretionary line.
+- **expectation:** The run establishes whether the item was in the plan at all before characterizing the variance.
+- **evidence:** A read of the plan detail for the line's subject in the map, at an earlier step than the first output about it.
+- **rationale:** They are different stories, and the reader cannot tell them apart from the number. Restored from the pre-merge spec set, which carried it; the rebuilt set dropped it without record, and the reviewer's correction of a discretionary sponsorship comment asks exactly this question. Traces to `contracts/commentary-contract.md` (placement rules, discretionary lines).
+
+### B-ANL-014 · The named cause is one the account's nature admits
+- **severity:** material
+- **condition:** A comment names a cause for a variance on an account whose playbook declares its nature.
+- **expectation:** The cause is one the declared nature admits, or the comment says which of those causes are still open. A description of something absent — a list the item is not on, a file that does not show it — is not a cause, however exactly it reconciles.
+- **evidence:** Output text for the subject, against the account's playbook.
+- **rationale:** Three comments explained their whole variance with a phrase describing an absence; each reconciled, so the sum held and nothing downstream noticed, and the reviewer rejected all three as making no sense. Traces to `correction-loop/iteration-log.md` (naming a gap counted as explaining it) and `playbooks/variance-playbooks.md` (the software and payroll playbooks).
+
+### B-ANL-015 · A timing classification says why it is not a forecast miss
+- **severity:** material
+- **condition:** A comment classifies a variance as timing.
+- **expectation:** The comment places the move after the latest plan vintage. Where its own facts place the move before that vintage, it calls the variance a forecast miss instead.
+- **evidence:** Output text for the subject.
+- **rationale:** A forum that moved months was called timing, though a later reforecast should have carried the move; the reviewer reclassified it. Traces to `contracts/commentary-contract.md` (classification rules, timing versus forecast miss).
+
+### B-ANL-016 · A structural anomaly reads as a flag, not as business
+- **severity:** blocking
+- **condition:** The row a comment is written against has no plan, no cost center, or a treatment that contradicts the design of the chart of accounts.
+- **expectation:** The comment is the single flag line — flagged for reclassification, the reason, the posting question — and does not explain the anomaly as business activity. It carries no forward ending.
+- **evidence:** Output text for the subject, and the row it is written against.
+- **rationale:** A capitalization posted outside its cost center was narrated as scenery instead of routed to the Bookkeeper. Traces to `contracts/commentary-contract.md` (classification rules, escalate structural anomalies).
+
+### B-ANL-017 · A discretionary comment says whether the item was planned
+- **severity:** material
+- **condition:** A comment covers a variance on a discretionary line.
+- **expectation:** Before it characterizes the variance, the comment says whether the item was in the plan at all, and if so whether this is the planned item running over or something the plan did not carry.
+- **evidence:** Output text for the subject.
+- **rationale:** The reviewer's correction of a discretionary sponsorship comment was the question it never asked. Traces to `contracts/commentary-contract.md` (placement rules, discretionary lines).

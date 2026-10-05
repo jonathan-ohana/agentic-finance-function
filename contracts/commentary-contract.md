@@ -141,3 +141,45 @@ Variance-commentary refinement on CourtIQ data is FROZEN after one final mechani
 3. **Day-one protocol (five lines, into the Analyst charter):** at a new company: month one is draft-only, 100% human review; exemplar store starts empty and fills only from the reviewing human's accepted wording; playbook parameters re-derived from the new CoA and plan; promotion clock (doc 19) restarts from zero — the track record was earned on data that no longer exists; lexicon re-confirmed with the new team's terms.
 
 **Case-study note:** the freeze itself is exhibit material — knowing when refinement stops paying, and why fake-data calibration doesn't transfer while the learning machinery does, is the judgment being sold.
+
+---
+
+## Amendment v2.3 (5 Oct) — the slice return contract
+
+**Ruled 5 Oct 2026 (Jonathan).** The four-way fan-out (run 03) hands each slice's rows to a merge step, and the row was never written down: it existed only as the fields the renderer happens to read. Two run-03 failures were specification defects of exactly that kind — an untyped column that three slices filled with prose, and permanence vocabulary each slice coined for itself. This is the third: a row had nowhere to say it *was* an escalation or a refusal. A slice that escalated could only say so inside a comment, and nothing downstream — the merge, the record of the run, the review — could tell an escalation from a comment that mentions one.
+
+Each slice returns its rows as one JSON array, one object per line it covers:
+
+| Field | Type | Content |
+|---|---|---|
+| `kind` | `comment` · `escalation` · `refusal` | What the row is. Absent means `comment`. |
+| `account` | string | The GL account the row concerns |
+| `vendor` | string | Vendor or customer; empty at account grain |
+| `tag` | one taxonomy tag (doc 78) | Timing · One-time · Run-rate · Accrual artifact · Volume-driven · Rate-driven · FX |
+| `permanence` | `sticks` · `absorbed` · `materializes` | The doc 82 register; no other word |
+| `driver` | prose | A comment: the commentary. An escalation: the one-line flag and its reason. A refusal: what is missing and which artifact or ruling would supply it |
+| `owner` | string | The named owner |
+| `owner_question` | prose | Closed-form, default stated; empty when the comment needs none |
+| `lbe_effect_usd` | signed number | Plain number, never prose; empty when there is none |
+| `lbe_note` | prose | The basis of the LBE effect |
+| `confidence` | string | As the merge renders it |
+| `evidence_ref` | string | The artifact that establishes the cause |
+
+**An escalation row** carries the same `account` and `vendor` as the line it concerns. It is raised to the escalation register under the charter's rules as well; the row is how the merge, the deliverable and the record of the run see that it happened. **A refusal row** stands in place of the comment for that line — the line is never dropped. A slice that escalates in prose and returns `kind: comment` has not escalated, as far as anything downstream can tell.
+
+
+---
+
+## Amendment v2.4 (5 Oct) — the forward close is scoped
+
+**Ratified 5 Oct 2026 (Jonathan).**
+
+**Replaces §3 of the contract** ("Forward implication, always, closing").
+
+**3. Forward implication, closing — on a material account line with something still open.** A line has something open when part of its variance is unexplained, when its cause carries into the open months of the quarter, when its playbook routes it to the owner, or when the plan basis behind it is in doubt. Such a comment ends on exactly one of: (a) a quantified current-quarter LBE movement with its basis; (b) a closed-form question to the owner per the playbook protocol; (c) no LBE impact and why, where the open question was whether the forecast moves and the answer is no. "The assumption has moved" is never an ending.
+
+**A fully explained line with nothing open ends on its attribution.** It has nothing forward to say. An ending added to it anyway is the template-filling the v10 run produced, and the v11 review deleted two of them (5010, 5020). An ending on such a line is not an error either; it is not required.
+
+**Rollups carry one clause and point down** — "(18k) — driven by (23k) 7015 sales commissions (4% attainment)". The forward view lives on the account line the rollup points to, not on the rollup.
+
+**Why.** Ruled 5 Oct 2026 on the judge calibration of v9 and v11: the reviewer accepted fully explained comments with no ending, deleted "no forecast impact" endings on fully explained volume lines, and accepted rollups with none. The contract's "always" was broader than the reviewer's own practice.
