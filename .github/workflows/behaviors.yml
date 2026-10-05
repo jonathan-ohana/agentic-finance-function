@@ -1,0 +1,64 @@
+name: Behavior judge
+
+# The judge layer's own checks. Standard library only, so no job here installs anything.
+# The canonicity job is deliberately absent: no document carries a status tag yet, and the
+# tree has four duplicate H1 numbers awaiting a ruling, so it would fail on the first push.
+# It arrives in its own change, with --allow-unclassified, once the owner has ruled.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  spec-hygiene:
+    # Five required fields, a known severity, unique IDs, no figures or instance names, and
+    # a rationale that cites a repository path that exists.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every behavior spec is well formed and traces to a correction
+        run: python package/judge.py --specs package/behaviors --check-specs
+
+  leakage:
+    # The charter/rubric separation is the whole design. Fails if a behavior ID or a spec's
+    # condition or expectation text appears in anything an agent reads. Every top-level
+    # Markdown file is scanned by glob; a new topic folder holding write-ups must be added here.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: No spec text in any agent-facing file
+        run: |
+          python package/judge.py --specs package/behaviors --check-leakage \
+            *.md agents plugins \
+            architecture contracts correction-loop data install outputs playbooks \
+            red-team runs semantic-layer what-broke
+
+  judge-fixture:
+    # The seed pack. Passes only if exactly the planted failures are FALSE: a missed seed
+    # means the judge is broken, an extra FALSE means the judge or the specs changed.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: The trajectory fixture is well formed
+        run: python package/trajectory.py validate tests/fixtures/run-fanout.jsonl
+      - name: The judge finds exactly the planted failures
+        run: |
+          python package/judge.py --specs package/behaviors \
+            --run tests/fixtures/run-fanout.jsonl \
+            --expect-false B-ANL-001,B-ANL-003 --out verdict-sheet.md
+      - name: Show the verdict sheet
+        if: always()
+        run: cat verdict-sheet.md || true

@@ -89,6 +89,7 @@ RECORD = {
     "correction-loop/loop-verification.md":  "verification record",
     "correction-loop/self-improvement-loop.md":"loop design record",
     "correction-loop/observability.md":      "KPI snapshot at publication",
+    "correction-loop/judge-layer-and-canonicity.md": "5 Oct build record; judge and canon register run against the fixture only",
     "red-team/audit-brief.md":               "audit record",
     "red-team/audit-findings.md":            "audit record",
     "red-team/audit-response.md":            "audit record",
