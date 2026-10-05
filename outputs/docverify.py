@@ -84,6 +84,7 @@ RECORD = {
     "runs/arcline/02-run-01.md":             "run record",
     "runs/arcline/03-instrument-fixes.md":   "fix record",
     "runs/arcline/04-run-03-findings.md":    "run record",
+    "runs/arcline/05-loop-status.md":        "5 Oct loop-status record; first live trajectory graded",
     "correction-loop/first-review-session.md":"review record",
     "correction-loop/reviewer-edits.md":     "review record",
     "correction-loop/loop-verification.md":  "verification record",

@@ -8,7 +8,7 @@ Which write-up is the current word on its subject, and which are history. The do
 |---|---:|
 | canonical | 0 |
 | superseded | 0 |
-| record | 0 |
+| record | 1 |
 | external | 0 |
 | unclassified | 81 |
 
@@ -88,6 +88,7 @@ None.
 | runs/arcline/02-run-01.md | unclassified | 87 |  |  |
 | runs/arcline/03-instrument-fixes.md | unclassified | 88 |  |  |
 | runs/arcline/04-run-03-findings.md | unclassified | 89 |  |  |
+| runs/arcline/05-loop-status.md | record | 204 |  |  |
 | runs/first-agent-run.md | unclassified | 25 |  |  |
 | runs/full-sweep-findings.md | unclassified | 27 |  |  |
 | runs/ingestion-at-volume.md | unclassified | 26 |  |  |
